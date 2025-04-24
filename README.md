@@ -1,3 +1,5 @@
+<html>
+  <body>
 <iframe
   id="mctoolswiki"
   title="McToolsWiki"
@@ -5,3 +7,5 @@
   height="1000"
   src="https://creative-astronaut-238.notion.site/1d3e05b9ba6e80e9bd0ee904adf01d37?v=1d3e05b9ba6e800fa8ee000cb2bd2292">
 </iframe>
+  </body>
+</html>
