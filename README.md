@@ -2,7 +2,7 @@
 
 ## 1. How to add a new tool
 
-### Method 1: Edit the tools.json file (Recommended)
+### Method 1: Edit the tools.json file 
 Simply edit the `tools.json` file and add your new tool in the following format:
 
 ```json
