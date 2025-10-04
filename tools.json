@@ -61,7 +61,7 @@
     },
     {
         "tool": "Wiki",
-        "description": "all the info you need in Vanilla Minecraft",
+        "description": "all the info you need for Minecraft",
         "links": [
             { "url": "https://minecraft.wiki/", "name": "Minecraft Wiki" },
             { "url": "https://minecraft.fandom.com/wiki/Minecraft_Wiki", "name": "Fandom Wiki (Not Recommended)" },
@@ -286,7 +286,7 @@
     },
     {
         "tool": "Image to display",
-        "description": "convert images into particle display functions or text dispaly functions",
+        "description": "convert images into particle display functions or text display functions",
         "links": [
             { "url": "https://github.com/kemo14331/Particle-Converter", "name": "Particle Converter" },
             { "url": "https://github.com/META-Tommy/Image-To-Text_Display", "name": "Image to Text Display" },
