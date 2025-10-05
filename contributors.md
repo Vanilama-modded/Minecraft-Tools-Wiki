@@ -2,7 +2,7 @@
 |----------|--------------------------|-------------|
 | Vanilama |  [linktr.ee](linktr.ee)   | Owner       |
 | Silabear | [silabear.carrd.co](silabear.carrd.co) | Contributor |
-| HaDeAn   | [[github.com](github.com/HeDeAnTheonlyone)](github.com) | Contributor |
+| HaDeAn   |  [linktr.ee](https://github.com/HeDeAnTheonlyone)  | Contributor |
 |||||
 |||||
 |||||
