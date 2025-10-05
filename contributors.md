@@ -1,5 +1,5 @@
-<html>
-  <h1><Contributers/h1><br><br>
-  
-  <p>- Silabear Profile: <a href="https://silabear.carrd.co/"></a>silabear.carrd.co/</p>
-</html>
+| Name     | Contribution Rating 1-100 | Profile                  | Role        |
+|----------|--------------------------|--------------------------|-------------|
+| Vanilama | 99                       | [linktr.ee](linktr.ee)   | Owner       |
+| Silabear | 2                        | [silabear.carrd.co](silabear.carrd.co) | Contributor |
+| HaDeAn   | 2                        | [github.com](github.com) | Contributor |
