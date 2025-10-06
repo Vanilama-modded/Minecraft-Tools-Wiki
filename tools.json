@@ -315,7 +315,8 @@
         "tool": "Standard Galactic Alphabet De/Encoder",
         "description": "A website that lets you encode and decode text into the Standard Galactic Alphabet (minecraft Enchantment table language)",
         "links": [
-            { "url": "https://www.dcode.fr/standard-galactic-alphabet", "name": "Standard Galactic Alphabet" }
+            { "url": "https://www.dcode.fr/standard-galactic-alphabet", "name": "dcode" },
+            { "url": "https://lingojam.com/StandardGalacticAlphabet", "name": "lingojam" }
         ],
         "price": "free"
     },
