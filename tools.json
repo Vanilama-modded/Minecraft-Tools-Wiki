@@ -337,11 +337,11 @@
         "price": "free"
     },
     {
-    "tool": "Create Mod Schematics",
-    "description": "Websites where you can download Create mod Shematics",
-    "links": [
-        { "url": "https://www.schematicannon.com/", "name": "Schematic Cannon" },
-        { "url": "https://createmod.com/", "name": "Create Mod" }
+        "tool": "Create Mod Schematics",
+        "description": "Websites where you can download Create mod Shematics",
+        "links": [
+            { "url": "https://www.schematicannon.com/", "name": "Schematic Cannon" },
+            { "url": "https://createmod.com/", "name": "Create Mod" }
         ],
         "price": "Free"
     },
