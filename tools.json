@@ -335,7 +335,15 @@
             { "url": "https://far.ddns.me/cba", "name": "Command Block Assembler" }
         ],
         "price": "free"
-    },
+    },{
+    "tool": "Create Mod Schematics",
+    "description": "Websites to download Schematic files for the create mod",
+    "links": [
+        { "url": "https://createmod.com/", "name": "Tool Name 1" },
+        { "url": "https://www.schematicannon.com/", "name": "Tool Name 2" }
+    ],
+    "price": "Free"
+},
     {
         "tool": "Mr Garretto's Tools",
         "description": "some command related tools",
