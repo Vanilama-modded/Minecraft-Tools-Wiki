@@ -342,8 +342,8 @@
     "links": [
         { "url": "https://www.schematicannon.com/", "name": "Schematic Cannon" },
         { "url": "https://createmod.com/", "name": "Create Mod" }
-    ],
-    "price": "Free"
+        ],
+        "price": "Free"
     },
     {
         "tool": "Mr Garretto's Tools",
