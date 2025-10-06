@@ -99,6 +99,7 @@
         "tool": "CraftMc",
         "description": "The most important tools from the CraftMC Website",
         "links": [
+            { "url": "https://www.craftmc.net/", "name": "CraftMC" },
             { "url": "https://www.craftmc.net/tools/circle-generator-for-minecraft", "name": "Circle Generator" },
             { "url": "https://www.craftmc.net/tools/minecraft-redstone-circuit-designer", "name": "Redstone Circuit Designer" },
             { "url": "https://www.craftmc.net/tools/resource-pack-merger", "name": "Resource Pack Merger" },
