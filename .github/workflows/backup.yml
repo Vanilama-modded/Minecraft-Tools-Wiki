@@ -1,0 +1,48 @@
+on:
+  schedule:
+    # Run every Wednesday and Sunday at 01:00
+    - cron: 0 1 * * 3,6
+
+jobs:
+  backup:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+
+      - name: Install dependencies
+        run: pip install -r ./requirements.txt
+
+      - name: Create complete backup
+        run: >-
+          github-backup
+          --token $GITHUB_TOKEN
+          --all
+          --repositories
+          --private
+          --fork
+          --bare
+          --output-directory ./backup/
+          --prefer-ssh
+          Addono # Account to be backed up
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
+
+      - name: Create a tarball of the complete GitHub backup
+        run: tar -czvf ./archive.tar.gz ./backup/
+
+      - name: Upload the backup
+        run: >-
+          curl
+          --fail
+          --user $WEBDAV_USERNAME:$WEBDAV_PASSWORD
+          --upload-file ./archive.tar.gz
+          $WEBDAV_HOST/$(date +"%Y-%m-%d_%T")-github-backup.tar.gz
+        env:
+          WEBDAV_USERNAME: ${{ secrets.WEBDAV_USERNAME }}  
+          WEBDAV_PASSWORD: ${{ secrets.WEBDAV_PASSWORD }}
+          WEBDAV_HOST: https://my.personal.webdav.storage.server/remote.php/webdav
