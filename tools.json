@@ -363,6 +363,22 @@
         "price": "Free"
     },
     {
+        "tool": "Mod Generator",
+        "description": "Create Minecraft mods without coding.",
+        "links": [
+            { "url": "https://www.creativemode.net/", "name": "CreativeMode" }
+        ],
+        "price": "Free"
+    },
+    {
+        "tool": "Block Color Palette",
+        "description": "Quickly find what Minecraft blocks match a certain color.",
+        "links": [
+            { "url": "https://blockcolors.app/", "name": "Blockcolors" }
+        ],
+        "price": "Free"
+    },
+    {
         "tool": "Mr Garretto's Tools",
         "description": "some command related tools",
         "links": [
