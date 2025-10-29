@@ -171,6 +171,14 @@
             { "url": "https://mctools.dev/", "name": "MC Tools Dev" }
         ],
         "price": "Free"
+    }, 
+    {
+        "tool": "Map art Generator",
+        "description": "A Minecraft mapart schematic and map.dat generator",
+        "links": [
+            { "url": "https://rebane2001.com/mapartcraft", "name": "Map Art Craft" }
+        ],
+        "price": "Free"
     },
     {
         "tool": "Enchanting",
