@@ -58,6 +58,14 @@
             { "url": "https://docs.papermc.io/misc/tools/item-command-converter", "name": "PaperMC Command Converter" }
         ],
         "price": "Free"
+    }, 
+    {
+        "tool": "blocky tools",
+        "description": "minecraft nbt manipulator & map generator",
+        "links": [
+            { "url": "https://blocky.tools/maps", "name": "Blocky.Tools" }
+        ],
+        "price": "Free"
     },
     {
         "tool": "Wiki",
