@@ -421,9 +421,10 @@
     },
     {
         "tool": "Block Color Palette",
-        "description": "Quickly find what Minecraft blocks match a certain color.",
+        "description": "Quickly find what Minecraft blocks match a certain color or find eye pleasing palettes to build with",
         "links": [
-            { "url": "https://blockcolors.app/", "name": "Blockcolors" }
+            { "url": "https://blockcolors.app/", "name": "Blockcolors" },
+            { "url": "https://www.blockpalettes.com/", "name": "Block Palettes" }
         ],
         "price": "Free"
     },
