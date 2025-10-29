@@ -238,6 +238,22 @@
             { "url": "https://weld.smithed.dev/", "name": "Weld" }
         ],
         "price": "Free"
+    }, 
+    {
+        "tool": "Mural Generator",
+        "description": "A Website which allows you to generate murals",
+        "links": [
+            { "url": "https://mcstacker.net/murals", "name": "Mc stacker Mural" }
+        ],
+        "price": "Free"
+    }, 
+    {
+        "tool": "npc generator",
+        "description": "A Website which allows you to generate Npcs",
+        "links": [
+            { "url": "https://mcstacker.net/npc/", "name": "Mc stacker Npc" }
+        ],
+        "price": "Free"
     },
     {
         "tool": "Resource packs, datapacks, mods, etc.",
