@@ -224,10 +224,11 @@
         "price": "Free"
     },
     {
-        "tool": "McAssets",
+        "tool": "Minecraft Assets",
         "description": "a library for every Minecraft asset",
         "links": [
-            { "url": "https://mcasset.cloud/", "name": "MC Assets" }
+            { "url": "https://mcasset.cloud/", "name": "MC Assets" },
+            { "url": "https://mcicons.ccleaf.com/", "name": "McIcons By ccLeaf" }
         ],
         "price": "Free"
     },
