@@ -26,6 +26,14 @@
             { "url": "https://www.chunkbase.com/apps/seed-map#seed=-2515391033078911427&platform=java_1_21_5&dimension=overworld&x=0&z=0&zoom=0.5", "name": "Chunkbase Seed Map" }
         ],
         "price": "Free"
+    }, 
+    {
+        "tool": "json text components Generator",
+        "description": "Create /tellraw commands and text components (JSON text) for Minecraft Java Edition with our easy-to-use, modern online tool!",
+        "links": [
+            { "url": "https://text.datapackhub.net/", "name": "Datapack Hub" }
+        ],
+        "price": "Free"
     },
     {
         "tool": "Minecraft map gen.",
