@@ -266,7 +266,7 @@ function populateTable(toolsToDisplay = toolsData) {
             <td class="px-6 py-4">
                 <div class="flex items-center">
                     <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center mr-3">
-                        <i class="fas fa-wrench text-white text-sm"></i>
+                        <i class="fas fa-tools text-white text-sm"></i>
                     </div>
                     <span class="text-white font-semibold text-lg">${tool.tool}</span>
                 </div>
@@ -303,7 +303,7 @@ function populateTable(toolsToDisplay = toolsData) {
             <div class="flex justify-between items-start mb-4">
                 <div class="flex items-center">
                     <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center mr-4">
-                        <i class="fas fa-wrench text-white"></i>
+                        <i class="fas fa-tools text-white"></i>
                     </div>
                     <div>
                         <h3 class="text-white font-bold text-xl">${tool.tool}</h3>
@@ -385,7 +385,7 @@ function setupEventListeners() {
                     suggestions.push({
                         type: 'category',
                         text: cat,
-                        icon: 'fa-wrench'
+                        icon: 'fa-tools'
                     });
                 }
             });
