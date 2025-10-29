@@ -70,6 +70,14 @@
             { "url": "https://minecraftcommands.github.io/wiki/resources", "name": "Minecraft Commands Wiki" }
         ],
         "price": "Free"
+    }, 
+    {
+        "tool": "Kubejs script Combiner",
+        "description": "A Website which allows you to combine multiple kubejs scripts of the same type into one ",
+        "links": [
+            { "url": "https://vanilama-modded.github.io/Kubejs-script-combiner/", "name": "Kubejs script Combiner" }
+        ],
+        "price": "Free"
     },
     {
         "tool": "Minecraft Tools",
