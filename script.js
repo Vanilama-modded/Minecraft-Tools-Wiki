@@ -134,23 +134,16 @@ async function performLLMSearch(query) {
     if (isSearching) return;
     setLoading(true);
     searchSuggestions.classList.add('hidden'); // Hide suggestions while waiting for AI
-
+    
     const categories = toolsData.map(tool => tool.tool);
     if (categories.length === 0) {
         setLoading(false);
         return; 
     }
-
+    
     try {
-        const systemPrompt = `You are a sophisticated AI designed to map user requests to relevant Minecraft tool categories.
-The available tool categories are: [${categories.join(', ')}].
-Analyze the user's request, which might be a full sentence (e.g., "I need a tool to make custom commands"), and identify the MOST relevant tool category or categories (up to 3).
-Respond DIRECTLY with JSON, following this schema, and no other text:
-{
-  "relevant_tools": string[] // An array of relevant tool category names exactly matching the list provided.
-}
-If no relevant tools are found, return an empty array for "relevant_tools".`;
-
+        const systemPrompt = `You are a sophisticated AI designed to map user requests to relevant Minecraft tool categories.\nThe available tool categories are: [${categories.join(', ')}].\nAnalyze the user's request, which might be a full sentence (e.g., "I need a tool to make custom commands"), and identify the MOST relevant tool category or categories (up to 3).\nRespond DIRECTLY with JSON, following this schema, and no other text:\n{\n  "relevant_tools": string[] // An array of relevant tool category names exactly matching the list provided.\n}\nIf no relevant tools are found, return an empty array for "relevant_tools".`;
+        
         const completion = await websim.chat.completions.create({
             messages: [
                 { role: "system", content: systemPrompt },
@@ -158,12 +151,12 @@ If no relevant tools are found, return an empty array for "relevant_tools".`;
             ],
             json: true,
         });
-
+        
         const result = JSON.parse(completion.content);
         let relevantToolNames = result.relevant_tools || [];
         
         console.log('LLM identified tools:', relevantToolNames);
-
+        
         if (relevantToolNames.length > 0) {
             // Filter tools based on LLM suggestions and prioritize them
             const prioritizedTools = toolsData.filter(tool => 
@@ -174,7 +167,7 @@ If no relevant tools are found, return an empty array for "relevant_tools".`;
             // Fallback: If LLM failed to identify tools, run standard keyword search
             performAISearch(query, false);
         }
-
+        
     } catch (error) {
         console.error("Error during LLM search:", error);
         // Fallback on error
@@ -199,7 +192,7 @@ function performAISearch(query, useLLM = true) {
     const queryWords = queryTrimmed.split(/\s+/).filter(w => w.length > 0).length;
     // Check for sentences (more than 3 words, or contains complex indicators)
     const isSentence = queryWords > 3 || queryTrimmed.includes('?') || queryTrimmed.includes('a generator where') || queryWords > 1 && queryTrimmed.includes('i need');
-
+    
     if (useLLM && isSentence) {
         // Delegate to LLM search
         performLLMSearch(query);
@@ -227,7 +220,7 @@ function populateTable(toolsToDisplay = toolsData) {
     if (mobileCards) mobileCards.innerHTML = '';
     
     const query = aiSearchInput ? aiSearchInput.value.trim() : '';
-
+    
     if (toolsToDisplay.length === 0) {
         
         const message = query 
@@ -264,7 +257,7 @@ function populateTable(toolsToDisplay = toolsData) {
         row.classList.add('fade-in-row', 'hover:bg-gray-700/50', 'transition-all', 'duration-300', 'cursor-pointer');
         
         const linksHtml = tool.links.map(link => {
-            return `<a href="${link.url}" target="_blank" class="tool-link inline-block px-3 py-2 rounded-lg text-cyan-300 hover:text-cyan-200 text-sm font-medium mb-1" oncontextmenu="copyLink(event, '${link.url}', '${link.name}')">
+            return `<a href="${link.url}" target="_blank" class="tool-link inline-block px-3 py-2 rounded-lg text-cyan-300 hover:text-cyan-200 text-sm font-medium mb-1" oncontextmenu="copyLink(ev[...]
                         <i class="fas fa-external-link-alt mr-1 text-xs"></i>${link.name}
                     </a>`;
         }).join('');
@@ -301,7 +294,7 @@ function populateTable(toolsToDisplay = toolsData) {
         card.style.animationDelay = `${index * 0.05}s`;
         
         const mobileLinksHtml = tool.links.map(link => {
-            return `<a href="${link.url}" target="_blank" class="tool-link block px-4 py-3 rounded-lg text-cyan-300 hover:text-cyan-200 text-sm font-medium mb-2 text-center" oncontextmenu="copyLink(event, '${link.url}', '${link.name}')">
+            return `<a href="${link.url}" target="_blank" class="tool-link block px-4 py-3 rounded-lg text-cyan-300 hover:text-cyan-200 text-sm font-medium mb-2 text-center" oncontextmenu="copyLi[...]
                         <i class="fas fa-external-link-alt mr-2"></i>${link.name}
                     </a>`;
         }).join('');
@@ -392,7 +385,7 @@ function setupEventListeners() {
                     suggestions.push({
                         type: 'category',
                         text: cat,
-                        icon: 'fa-folder'
+                        icon: 'fa-wrench'
                     });
                 }
             });
