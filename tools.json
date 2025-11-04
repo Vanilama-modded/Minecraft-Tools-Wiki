@@ -197,6 +197,16 @@
         "price": "Free"
     },
     {
+        "tool": "Browser Games",
+        "description": "Unofficial minecraft browser games",
+        "links": [
+            { "url": "https://classic.minecraft.net/", "name": "Minecraft Classic" },
+            { "url": "https://minecraftle.zachmanson.com/", "name": "Minecraftle" },
+            { "url": "https://www.mcdle.net/", "name": "Mcdle" }
+        ],
+        "price": "Free"
+    },
+    {
         "tool": "World tool",
         "description": "convert & edit worlds",
         "links": [
