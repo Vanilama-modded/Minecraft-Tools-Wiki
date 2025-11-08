@@ -147,6 +147,7 @@
             { "url": "https://www.craftmc.net/tools/minecraft-motd-generator", "name": "MOTD Generator" },
             { "url": "https://www.craftmc.net/tools/minecraft-command-generator?tab=fireworks", "name": "Fireworks Generator" },
             { "url": "https://www.craftmc.net/tools/piglin-bartering-simulator", "name": "Piglin Bartering Simulator" },
+            { "url": "https://craftmc.net/tools/minecraft-world-paint", "name": "World Paint" },
             { "url": "https://www.craftmc.net/tools/bedrock-to-java-converter", "name": "Bedrock to Java Converter" }
         ],
         "price": "Free"
@@ -202,6 +203,7 @@
         "links": [
             { "url": "https://classic.minecraft.net/", "name": "Minecraft Classic" },
             { "url": "https://minecraftle.zachmanson.com/", "name": "Minecraftle" },
+            { "url": "https://craftmc.net/tools/minecraft-world-paint", "name": "CraftMc World Paint" },
             { "url": "https://www.mcdle.net/", "name": "Mcdle" }
         ],
         "price": "Free"
