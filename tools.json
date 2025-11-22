@@ -20,6 +20,14 @@
         "price": "Free"
     },
     {
+        "tool": "Server Stats",
+        "description": "Get information about Minecraft servers quickly",
+        "links": [
+            { "url": "https://mcsrvstat.us/", "name": "Minecraft Server Status" }
+        ],
+        "price": "Free"
+    },
+    {
         "tool": "Structure/biome finding",
         "description": "find a structure in your world by just inputting the world seed and choosing the right version",
         "links": [
