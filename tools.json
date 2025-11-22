@@ -165,6 +165,15 @@
         "price": "Free"
     },
     {
+        "tool": "Minecraft Tweaks",
+        "description": "A collection of resourcepacks, datapacks and addons",
+        "links": [
+            { "url": "https://vanillatweaks.net/", "name": "Vanilla Tweaks" },
+            { "url": "https://bedrocktweaks.net/", "name": "Bedrock Tweaks" }
+        ],
+        "price": "Free"
+    },
+    {
         "tool": "Minecraft Heads",
         "description": "A gallery of different player heads",
         "links": [
