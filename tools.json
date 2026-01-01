@@ -347,7 +347,6 @@
         "tool": "Server hosting",
         "description": "Different server Hosts",
         "links": [
-            { "url": "https://docs.google.com/spreadsheets/d/1HZE7Pi6FPEhbN-JQtXKX69Udp6dA5OBOu4Kpdzz53MI/edit?usp=sharing", "name": "Server Rating by CygnusMc" },
             { "url": "https://www.bisecthosting.com/", "name": "Bisect Hosting" },
             { "url": "https://server.nitrado.net/", "name": "Nitrado" },
             { "url": "https://play.hosting/", "name": "Play Hosting (Free)" },
