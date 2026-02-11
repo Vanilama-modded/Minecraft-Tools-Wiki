@@ -254,10 +254,10 @@ function populateTable(toolsToDisplay = toolsData) {
         // Desktop Table Row
         const row = document.createElement('tr');
         row.style.animationDelay = `${index * 0.05}s`;
-        row.classList.add('fade-in-row', 'hover:bg-gray-700/50', 'transition-all', 'duration-300', 'cursor-pointer');
+        row.classList.add('fade-in-row', 'transition-all', 'duration-300', 'cursor-pointer');
         
         const linksHtml = tool.links.map(link => {
-            return `<a href="${link.url}" target="_blank" class="tool-link inline-block px-3 py-2 rounded-lg text-cyan-300 hover:text-cyan-200 text-sm font-medium mb-1" oncontextmenu="copyLink(ev[...]
+            return `<a href="${link.url}" target="_blank" class="tool-link inline-block px-4 py-1 text-zinc-300 hover:text-zinc-100 text-sm font-medium" oncontextmenu="copyLink(event, '${link.url}', '${link.name}')">
                         <i class="fas fa-external-link-alt mr-1 text-xs"></i>${link.name}
                     </a>`;
         }).join('');
@@ -265,23 +265,23 @@ function populateTable(toolsToDisplay = toolsData) {
         row.innerHTML = `
             <td class="px-6 py-4">
                 <div class="flex items-center">
-                    <div class="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center mr-3">
-                        <i class="fas fa-tools text-white text-sm"></i>
+                    <div class="flex-shrink-0 w-10 h-10 bg-zinc-800 rounded-lg flex items-center justify-center mr-3">
+                        <i class="fas fa-tools text-zinc-400 text-sm"></i>
                     </div>
-                    <span class="text-white font-semibold text-lg">${tool.tool}</span>
+                    <span class="text-zinc-100 font-semibold text-lg">${tool.tool}</span>
                 </div>
             </td>
-            <td class="px-6 py-4 text-gray-300 max-w-md">
+            <td class="px-6 py-4 text-zinc-400 max-w-md">
                 <p class="leading-relaxed">${tool.description}</p>
             </td>
             <td class="px-6 py-4">
-                <div class="space-y-2">
+                <div class="flex flex-wrap gap-2">
                     ${linksHtml}
                 </div>
             </td>
             <td class="px-6 py-4">
                 <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-bold ${getPriceColorClass(tool.price)}">
-                    <i class="fas fa-dollar-sign mr-1"></i>${tool.price}
+                    <i class="fas fa-tag mr-2"></i>${tool.price}
                 </span>
             </td>
         `;
@@ -290,11 +290,11 @@ function populateTable(toolsToDisplay = toolsData) {
         
         // Mobile Card
         const card = document.createElement('div');
-        card.classList.add('fade-in-row', 'p-6', 'border-b', 'border-gray-700', 'last:border-b-0');
+        card.classList.add('fade-in-row', 'p-6', 'border-b', 'border-zinc-800', 'last:border-b-0');
         card.style.animationDelay = `${index * 0.05}s`;
         
         const mobileLinksHtml = tool.links.map(link => {
-            return `<a href="${link.url}" target="_blank" class="tool-link block px-4 py-3 rounded-lg text-cyan-300 hover:text-cyan-200 text-sm font-medium mb-2 text-center" oncontextmenu="copyLi[...]
+            return `<a href="${link.url}" target="_blank" class="tool-link block px-4 py-3 text-zinc-300 hover:text-zinc-100 text-sm font-medium mb-2 text-center" oncontextmenu="copyLink(event, '${link.url}', '${link.name}')">
                         <i class="fas fa-external-link-alt mr-2"></i>${link.name}
                     </a>`;
         }).join('');
@@ -302,24 +302,24 @@ function populateTable(toolsToDisplay = toolsData) {
         card.innerHTML = `
             <div class="flex justify-between items-start mb-4">
                 <div class="flex items-center">
-                    <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center mr-4">
-                        <i class="fas fa-tools text-white"></i>
+                    <div class="flex-shrink-0 w-12 h-12 bg-zinc-800 rounded-lg flex items-center justify-center mr-4">
+                        <i class="fas fa-tools text-zinc-400"></i>
                     </div>
                     <div>
-                        <h3 class="text-white font-bold text-xl">${tool.tool}</h3>
+                        <h3 class="text-zinc-100 font-bold text-xl">${tool.tool}</h3>
                         <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold ${getPriceColorClass(tool.price)}">
-                            <i class="fas fa-dollar-sign mr-1"></i>${tool.price}
+                            <i class="fas fa-tag mr-2"></i>${tool.price}
                         </span>
                     </div>
                 </div>
             </div>
             
             <div class="mb-4">
-                <p class="text-gray-300 leading-relaxed">${tool.description}</p>
+                <p class="text-zinc-400 leading-relaxed">${tool.description}</p>
             </div>
             
             <div class="space-y-2">
-                <p class="text-gray-400 text-sm font-semibold mb-2">
+                <p class="text-zinc-500 text-sm font-semibold mb-2">
                     <i class="fas fa-link mr-2"></i>Links:
                 </p>
                 ${mobileLinksHtml}
@@ -333,14 +333,14 @@ function populateTable(toolsToDisplay = toolsData) {
 
 function getPriceColorClass(price) {
     const priceLower = price.toLowerCase();
-    if (priceLower.includes('free') && !priceLower.includes('paid')) {
-        return 'bg-green-500/20 text-green-300 border border-green-500/30';
+    if (priceLower.includes('free') && !priceLower.includes('paid') && !priceLower.includes('freemium')) {
+        return 'bg-zinc-800 text-zinc-200 border border-zinc-700 rounded-full';
     } else if (priceLower.includes('freemium')) {
-        return 'bg-yellow-500/20 text-yellow-300 border border-yellow-500/30';
+        return 'bg-zinc-800 text-zinc-400 border border-zinc-700 rounded-full';
     } else if (priceLower.includes('paid')) {
-        return 'bg-red-500/20 text-red-300 border border-red-500/30';
+        return 'bg-zinc-800 text-zinc-500 border border-zinc-700 rounded-full';
     } else {
-        return 'bg-gray-500/20 text-gray-300 border border-gray-500/30';
+        return 'bg-zinc-800 text-zinc-400 border border-zinc-700 rounded-full';
     }
 }
 
@@ -351,8 +351,8 @@ function copyLink(event, url, name) {
     navigator.clipboard.writeText(url).then(() => {
         // Create a subtle notification
         const notification = document.createElement('div');
-        notification.className = 'fixed top-4 right-4 bg-gray-800 text-white px-4 py-2 rounded-lg shadow-lg border border-gray-600 z-50';
-        notification.innerHTML = `<i class="fas fa-link mr-2"></i>Copied ${name} link!`;
+        notification.className = 'fixed top-4 right-4 bg-zinc-900 text-zinc-200 px-4 py-2 rounded-lg shadow-lg border border-zinc-700 z-50';
+        notification.innerHTML = `<i class="fas fa-check-circle mr-2"></i>Copied ${name} link!`;
         document.body.appendChild(notification);
         
         // Remove notification after 2 seconds
@@ -408,8 +408,8 @@ function setupEventListeners() {
 
             if (uniqueSuggestions.length > 0) {
                 suggestionsList.innerHTML = uniqueSuggestions.slice(0, 5).map(s => `
-                    <div class="px-4 py-3 hover:bg-gray-700/50 cursor-pointer flex items-center text-gray-300 hover:text-white transition-colors" onclick="selectSuggestion('${s.text}')">
-                        <i class="fas ${s.icon} mr-3 text-cyan-400"></i>
+                    <div class="px-4 py-3 hover:bg-zinc-800 cursor-pointer flex items-center text-zinc-400 hover:text-zinc-100 transition-colors" onclick="selectSuggestion('${s.text}')">
+                        <i class="fas ${s.icon} mr-3 text-zinc-600"></i>
                         <span>${s.text}</span>
                     </div>
                 `).join('');
