@@ -471,28 +471,4 @@ document.addEventListener('DOMContentLoaded', function() {
     
     setupEventListeners();
     loadToolsData();
-    
-    // Add Discord-like scrollbar styling
-    const style = document.createElement('style');
-    style.textContent = `
-        .overflow-x-auto::-webkit-scrollbar {
-            height: 8px;
-        }
-        .overflow-x-auto::-webkit-scrollbar-track {
-            background: rgba(47, 49, 54, 0.5);
-            border-radius: 4px;
-        }
-        .overflow-x-auto::-webkit-scrollbar-thumb {
-            background: rgba(88, 101, 242, 0.6);
-            border-radius: 4px;
-        }
-        .overflow-x-auto::-webkit-scrollbar-thumb:hover {
-            background: rgba(88, 101, 242, 0.8);
-        }
-        /* Ensure search icon stays visible */
-        .fa-magnifying-glass {
-            opacity: 1 !important;
-        }
-    `;
-    document.head.appendChild(style);
 });

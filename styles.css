@@ -1,0 +1,68 @@
+@keyframes fade-in {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in-row {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-fade-in {
+    animation: fade-in 0.8s ease-out;
+}
+
+.animate-fade-in-delayed {
+    animation: fade-in 0.8s ease-out 0.2s both;
+}
+
+.fade-in-row {
+    animation: fade-in-row 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+.tools-table tr:hover {
+    background: rgba(88, 101, 242, 0.1);
+    transform: translateX(8px);
+    transition: all 0.3s ease;
+}
+
+.tool-link {
+    background: rgba(88, 101, 242, 0.15);
+    border: 1px solid rgba(88, 101, 242, 0.2);
+    transition: all 0.3s ease;
+}
+
+.tool-link:hover {
+    background: rgba(88, 101, 242, 0.25);
+    border-color: rgba(88, 101, 242, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(88, 101, 242, 0.15);
+}
+
+.tools-table tr:nth-child(even) {
+    background: rgba(47, 49, 54, 0.3);
+}
+
+.tools-table tr:nth-child(odd) {
+    background: rgba(54, 57, 63, 0.3);
+}
+
+.overflow-x-auto::-webkit-scrollbar {
+    height: 8px;
+}
+.overflow-x-auto::-webkit-scrollbar-track {
+    background: rgba(47, 49, 54, 0.5);
+    border-radius: 4px;
+}
+.overflow-x-auto::-webkit-scrollbar-thumb {
+    background: rgba(88, 101, 242, 0.6);
+    border-radius: 4px;
+}
+.overflow-x-auto::-webkit-scrollbar-thumb:hover {
+    background: rgba(88, 101, 242, 0.8);
+}
+/* Ensure search icon stays visible */
+.fa-magnifying-glass {
+    opacity: 1 !important;
+}
