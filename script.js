@@ -1,10 +1,8 @@
 let toolsData = [];
 let fuse;
 
-// Global UI elements
 let aiSearchInput, searchSuggestions, suggestionsList, searchIcon;
 
-// Load tools from JSON file
 async function loadToolsData() {
     try {
         const response = await fetch('tools.json');
@@ -13,7 +11,6 @@ async function loadToolsData() {
         }
         toolsData = await response.json();
         
-        // Initialize Fuse.js
         const options = {
             keys: [
                 { name: 'tool', weight: 0.7 },
@@ -31,7 +28,6 @@ async function loadToolsData() {
     }
 }
 
-// Fallback data in case JSON loading fails
 async function loadFallbackData() {
     toolsData = [];
     const tableBody = document.getElementById('tableBody');
@@ -65,7 +61,6 @@ async function loadFallbackData() {
 function performSearch(query) {
     const queryTrimmed = query.trim();
     
-    // If empty query, show all tools
     if (!queryTrimmed) {
         populateTable();
         return;
@@ -76,7 +71,6 @@ function performSearch(query) {
         const toolsToDisplay = results.map(result => result.item);
         populateTable(toolsToDisplay);
     } else {
-        // Fallback if Fuse isn't initialized yet
         const lowerQuery = queryTrimmed.toLowerCase();
         const filtered = toolsData.filter(tool => 
             tool.tool.toLowerCase().includes(lowerQuery) || 
@@ -91,7 +85,6 @@ function populateTable(toolsToDisplay = toolsData) {
     const tableBody = document.getElementById('tableBody');
     const mobileCards = document.getElementById('mobileCards');
     
-    // Clear existing content
     if (tableBody) tableBody.innerHTML = '';
     if (mobileCards) mobileCards.innerHTML = '';
     
@@ -127,7 +120,6 @@ function populateTable(toolsToDisplay = toolsData) {
     }
     
     toolsToDisplay.forEach((tool, index) => {
-        // Desktop Table Row
         const row = document.createElement('tr');
         row.style.animationDelay = `${index * 0.05}s`;
         row.classList.add('fade-in-row', 'transition-all', 'duration-300', 'cursor-pointer');
@@ -164,7 +156,6 @@ function populateTable(toolsToDisplay = toolsData) {
         
         if (tableBody) tableBody.appendChild(row);
         
-        // Mobile Card
         const card = document.createElement('div');
         card.classList.add('fade-in-row', 'p-6', 'border-b', 'border-zinc-800', 'last:border-b-0');
         card.style.animationDelay = `${index * 0.05}s`;
@@ -209,7 +200,6 @@ function populateTable(toolsToDisplay = toolsData) {
 
 function getPriceColorClass(price) {
     const priceLower = price.toLowerCase();
-    // Base classes for all buttons
     const baseClasses = 'bg-zinc-800 border rounded-full shadow-sm';
     
     if (priceLower.includes('free') && !priceLower.includes('paid') && !priceLower.includes('freemium')) {
@@ -223,18 +213,15 @@ function getPriceColorClass(price) {
     }
 }
 
-// Function to copy link on right-click
 function copyLink(event, url, name) {
     event.preventDefault();
     
     navigator.clipboard.writeText(url).then(() => {
-        // Create a subtle notification
         const notification = document.createElement('div');
         notification.className = 'fixed top-4 right-4 bg-zinc-900 text-zinc-200 px-4 py-2 rounded-lg shadow-lg border border-zinc-700 z-50';
         notification.innerHTML = `<i class="fas fa-check-circle mr-2"></i>Copied ${name} link!`;
         document.body.appendChild(notification);
         
-        // Remove notification after 2 seconds
         setTimeout(() => {
             notification.style.opacity = '0';
             notification.style.transition = 'opacity 0.3s ease';
@@ -248,7 +235,6 @@ function copyLink(event, url, name) {
 }
 
 
-// Search input event listeners
 function setupEventListeners() {
     aiSearchInput.addEventListener('input', function() {
         const query = this.value;
@@ -257,7 +243,6 @@ function setupEventListeners() {
             const suggestions = [];
             const queryLower = query.toLowerCase();
             
-            // Add category suggestions
             const categories = [...new Set(toolsData.map(tool => tool.tool))];
             categories.forEach(cat => {
                 if (cat.toLowerCase().includes(queryLower)) {
@@ -269,7 +254,6 @@ function setupEventListeners() {
                 }
             });
             
-            // Add description-based suggestions (only if the query is short enough that it's likely keywords)
             if (query.length < 20) {
                 toolsData.forEach(tool => {
                     if (tool.description.toLowerCase().includes(queryLower)) {
@@ -282,7 +266,6 @@ function setupEventListeners() {
                 });
             }
             
-            // Filter unique suggestions
             const uniqueSuggestions = Array.from(new Map(suggestions.map(item => [item.text, item])).values());
 
             if (uniqueSuggestions.length > 0) {
@@ -297,7 +280,6 @@ function setupEventListeners() {
                 searchSuggestions.classList.add('hidden');
             }
             
-            // Perform search
             clearTimeout(window.searchTimer);
             window.searchTimer = setTimeout(() => performSearch(query), 300);
             
@@ -326,21 +308,18 @@ function selectSuggestion(text) {
     aiSearchInput.value = text;
     searchSuggestions.classList.add('hidden');
     
-    // Check if the suggestion selected is a full category name. If so, treat it as a direct filter.
     const isCategory = toolsData.some(tool => tool.tool === text);
     
     if (isCategory) {
         const filtered = toolsData.filter(tool => tool.tool === text);
         populateTable(filtered);
     } else {
-        // If it was a description suggestion, run the full search
         performSearch(text);
     }
 }
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize UI elements
     aiSearchInput = document.getElementById('aiSearchInput');
     searchSuggestions = document.getElementById('searchSuggestions');
     suggestionsList = document.getElementById('suggestionsList');
