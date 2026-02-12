@@ -1,20 +1,8 @@
 let toolsData = [];
-let isSearching = false;
+let fuse;
 
 // Global UI elements
-let aiSearchInput, searchSuggestions, suggestionsList, searchIcon, loadingSpinner;
-
-// Helper function to manage loading state UI
-function setLoading(loading) {
-    isSearching = loading;
-    if (loading) {
-        if (searchIcon) searchIcon.classList.add('hidden');
-        if (loadingSpinner) loadingSpinner.classList.remove('hidden');
-    } else {
-        if (searchIcon) searchIcon.classList.remove('hidden');
-        if (loadingSpinner) loadingSpinner.classList.add('hidden');
-    }
-}
+let aiSearchInput, searchSuggestions, suggestionsList, searchIcon;
 
 // Load tools from JSON file
 async function loadToolsData() {
@@ -24,6 +12,18 @@ async function loadToolsData() {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         toolsData = await response.json();
+        
+        // Initialize Fuse.js
+        const options = {
+            keys: [
+                { name: 'tool', weight: 0.7 },
+                { name: 'description', weight: 0.3 }
+            ],
+            threshold: 0.4,
+            includeScore: true
+        };
+        fuse = new Fuse(toolsData, options);
+        
         populateTable();
     } catch (error) {
         console.error('Error loading tools data:', error);
@@ -62,124 +62,7 @@ async function loadFallbackData() {
     }
 }
 
-// Existing search keywords map
-const searchKeywords = {
-    'command': ['command', 'generate', 'create', 'custom', 'mcstacker', 'gamergeeks'],
-    'generator': ['generator', 'generate', 'create', 'build', 'make'],
-    'structure': ['structure', 'find', 'locate', 'seed', 'chunkbase', 'biome'],
-    'map': ['map', 'picture', 'image', 'upload', 'mc-map'],
-    'armor': ['armor', 'stand', 'customize', 'haselkern'],
-    'obj': ['obj', 'schematic', 'worldedit', 'litematica', 'convert'],
-    'update': ['update', 'convert', 'version', 'papermc', 'command'],
-    'wiki': ['wiki', 'information', 'guide', 'vanilla', 'minecraft'],
-    'skin': ['skin', 'banner', 'totem', 'avatar', 'achievement'],
-    'heads': ['heads', 'player', 'gallery', 'minecraft-heads'],
-    'bedrock': ['bedrock', 'addon', 'creator', 'mctools'],
-    'enchant': ['enchant', 'enchanting', 'efficient', 'optimize'],
-    'world': ['world', 'convert', 'edit', 'universal'],
-    'server': ['server', 'hosting', 'tunnel', 'playit', 'mctools'],
-    'shape': ['shape', 'build', 'sphere', 'ellipsoid', 'plotz'],
-    'datapack': ['datapack', 'misode', 'loot', 'advancement', 'recipe'],
-    'science': ['science', 'command', 'minecraftcommand'],
-    'asset': ['asset', 'mcasset', 'library', 'texture'],
-    'resource': ['resource', 'pack', 'datapack', 'mod', 'planetminecraft', 'modrinth', 'curseforge'],
-    'creator': ['creator', 'ija', 'minecraft', 'content'],
-    'hosting': ['hosting', 'server', 'bisect', 'nitrado', 'aternos'],
-    'modded': ['modded', 'kubejs', 'custom', 'gui'],
-    'image': ['image', 'particle', 'display', 'convert'],
-    'tag': ['tag', 'taglib', 'library'],
-    'alphabet': ['alphabet', 'galactic', 'enchantment', 'encode', 'decode'],
-    'emoji': ['emoji', 'emoticon', 'symbol'],
-    'tools': ['tools', 'garretto', 'command', 'mrgarretto']
-};
-
-function calculateRelevance(query, tool) {
-    const queryLower = query.toLowerCase();
-    const toolLower = tool.tool.toLowerCase();
-    const descLower = tool.description.toLowerCase();
-    
-    let score = 0;
-    
-    // Direct matches in tool name
-    if (toolLower.includes(queryLower)) score += 10;
-    
-    // Direct matches in description
-    if (descLower.includes(queryLower)) score += 8;
-    
-    // Keyword matches
-    for (const [keyword, relatedWords] of Object.entries(searchKeywords)) {
-        if (queryLower.includes(keyword)) {
-            for (const word of relatedWords) {
-                if (toolLower.includes(word) || descLower.includes(word)) {
-                    score += 5;
-                }
-            }
-        }
-    }
-    
-    // Partial word matches
-    const queryWords = queryLower.split(/\s+/).filter(w => w.length > 2);
-    for (const word of queryWords) {
-        if (toolLower.includes(word) || descLower.includes(word)) {
-            score += 3;
-        }
-    }
-    
-    return score;
-}
-
-// --- LLM Search Implementation ---
-
-async function performLLMSearch(query) {
-    if (isSearching) return;
-    setLoading(true);
-    searchSuggestions.classList.add('hidden'); // Hide suggestions while waiting for AI
-    
-    const categories = toolsData.map(tool => tool.tool);
-    if (categories.length === 0) {
-        setLoading(false);
-        return; 
-    }
-    
-    try {
-        const systemPrompt = `You are a sophisticated AI designed to map user requests to relevant Minecraft tool categories.\nThe available tool categories are: [${categories.join(', ')}].\nAnalyze the user's request, which might be a full sentence (e.g., "I need a tool to make custom commands"), and identify the MOST relevant tool category or categories (up to 3).\nRespond DIRECTLY with JSON, following this schema, and no other text:\n{\n  "relevant_tools": string[] // An array of relevant tool category names exactly matching the list provided.\n}\nIf no relevant tools are found, return an empty array for "relevant_tools".`;
-        
-        const completion = await websim.chat.completions.create({
-            messages: [
-                { role: "system", content: systemPrompt },
-                { role: "user", content: query }
-            ],
-            json: true,
-        });
-        
-        const result = JSON.parse(completion.content);
-        let relevantToolNames = result.relevant_tools || [];
-        
-        console.log('LLM identified tools:', relevantToolNames);
-        
-        if (relevantToolNames.length > 0) {
-            // Filter tools based on LLM suggestions and prioritize them
-            const prioritizedTools = toolsData.filter(tool => 
-                relevantToolNames.some(name => tool.tool.toLowerCase() === name.toLowerCase())
-            );
-            populateTable(prioritizedTools);
-        } else {
-            // Fallback: If LLM failed to identify tools, run standard keyword search
-            performAISearch(query, false);
-        }
-        
-    } catch (error) {
-        console.error("Error during LLM search:", error);
-        // Fallback on error
-        performAISearch(query, false);
-    } finally {
-        setLoading(false);
-        // If query input is still focused and not empty, suggestions might reappear on next input event, which is fine.
-    }
-}
-
-
-function performAISearch(query, useLLM = true) {
+function performSearch(query) {
     const queryTrimmed = query.trim();
     
     // If empty query, show all tools
@@ -188,26 +71,19 @@ function performAISearch(query, useLLM = true) {
         return;
     }
     
-    // 1. Check if we should delegate to LLM for complex sentences
-    const queryWords = queryTrimmed.split(/\s+/).filter(w => w.length > 0).length;
-    // Check for sentences (more than 3 words, or contains complex indicators)
-    const isSentence = queryWords > 3 || queryTrimmed.includes('?') || queryTrimmed.includes('a generator where') || queryWords > 1 && queryTrimmed.includes('i need');
-    
-    if (useLLM && isSentence) {
-        // Delegate to LLM search
-        performLLMSearch(query);
-        return;
+    if (fuse) {
+        const results = fuse.search(queryTrimmed);
+        const toolsToDisplay = results.map(result => result.item);
+        populateTable(toolsToDisplay);
+    } else {
+        // Fallback if Fuse isn't initialized yet
+        const lowerQuery = queryTrimmed.toLowerCase();
+        const filtered = toolsData.filter(tool => 
+            tool.tool.toLowerCase().includes(lowerQuery) || 
+            tool.description.toLowerCase().includes(lowerQuery)
+        );
+        populateTable(filtered);
     }
-    
-    // 2. Perform standard keyword search
-    const scoredTools = toolsData.map(tool => ({
-        ...tool,
-        relevance: calculateRelevance(query, tool)
-    })).filter(tool => tool.relevance > 0);
-    
-    scoredTools.sort((a, b) => b.relevance - a.relevance);
-    
-    populateTable(scoredTools);
 }
 
 
@@ -333,14 +209,17 @@ function populateTable(toolsToDisplay = toolsData) {
 
 function getPriceColorClass(price) {
     const priceLower = price.toLowerCase();
+    // Base classes for all buttons
+    const baseClasses = 'bg-zinc-800 border rounded-full shadow-sm';
+    
     if (priceLower.includes('free') && !priceLower.includes('paid') && !priceLower.includes('freemium')) {
-        return 'bg-zinc-800 text-zinc-200 border border-zinc-700 rounded-full';
+        return `${baseClasses} border-green-900/50 text-mc-lime`;
     } else if (priceLower.includes('freemium')) {
-        return 'bg-zinc-800 text-zinc-400 border border-zinc-700 rounded-full';
+        return `${baseClasses} border-orange-900/50 text-mc-orange`;
     } else if (priceLower.includes('paid')) {
-        return 'bg-zinc-800 text-zinc-500 border border-zinc-700 rounded-full';
+        return `${baseClasses} border-red-900/50 text-mc-red`;
     } else {
-        return 'bg-zinc-800 text-zinc-400 border border-zinc-700 rounded-full';
+        return `${baseClasses} border-zinc-700 text-zinc-400`;
     }
 }
 
@@ -418,9 +297,9 @@ function setupEventListeners() {
                 searchSuggestions.classList.add('hidden');
             }
             
-            // Perform search (may trigger LLM if it's a sentence)
+            // Perform search
             clearTimeout(window.searchTimer);
-            window.searchTimer = setTimeout(() => performAISearch(query), 300);
+            window.searchTimer = setTimeout(() => performSearch(query), 300);
             
         } else {
             searchSuggestions.classList.add('hidden');
@@ -430,8 +309,7 @@ function setupEventListeners() {
     });
 
     aiSearchInput.addEventListener('focus', function() {
-        if (this.value.length > 0 && toolsData.length > 0 && !isSearching) {
-            // Only show suggestions if we are not actively running an LLM search
+        if (this.value.length > 0 && toolsData.length > 0) {
             searchSuggestions.classList.remove('hidden');
         }
     });
@@ -456,7 +334,7 @@ function selectSuggestion(text) {
         populateTable(filtered);
     } else {
         // If it was a description suggestion, run the full search
-        performAISearch(text);
+        performSearch(text);
     }
 }
 
@@ -467,7 +345,6 @@ document.addEventListener('DOMContentLoaded', function() {
     searchSuggestions = document.getElementById('searchSuggestions');
     suggestionsList = document.getElementById('suggestionsList');
     searchIcon = document.getElementById('searchIcon');
-    loadingSpinner = document.getElementById('loadingSpinner');
     
     setupEventListeners();
     loadToolsData();

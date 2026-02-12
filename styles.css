@@ -1,11 +1,18 @@
-@import url('https://fonts.cdnfonts.com/css/minecraft-3');
+@import url('https://fonts.cdnfonts.com/css/minecraftia');
 
 body {
-    font-family: 'Minecraft', 'Inter', sans-serif;
-    -webkit-font-smoothing: none;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-    letter-spacing: 0.05em;
+    font-family: 'Minecraftia', 'Inter', sans-serif;
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+    text-rendering: auto;
+    letter-spacing: normal;
+    font-style: normal !important;
+    font-weight: 400;
+}
+
+/* Ensure all text elements are not italic unless specified */
+h1, h2, h3, h4, h5, h6, p, span, a, div, input, button {
+    font-style: normal !important;
 }
 
 @keyframes fade-in {
@@ -67,4 +74,20 @@ body {
 /* Ensure search icon stays visible */
 .fa-magnifying-glass {
     opacity: 1 !important;
+}
+
+/* Minecraft Colors */
+.text-mc-lime {
+    color: #55FF55;
+    text-shadow: 2px 2px 0px #002200;
+}
+
+.text-mc-orange {
+    color: #FFAA00;
+    text-shadow: 2px 2px 0px #2A1C00;
+}
+
+.text-mc-red {
+    color: #FF5555;
+    text-shadow: 2px 2px 0px #2A0000;
 }
