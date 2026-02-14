@@ -10,7 +10,6 @@ body {
     font-weight: 400;
 }
 
-/* Ensure all text elements are not italic unless specified */
 h1, h2, h3, h4, h5, h6, p, span, a, div, input, button {
     font-style: normal !important;
 }
@@ -48,6 +47,7 @@ h1, h2, h3, h4, h5, h6, p, span, a, div, input, button {
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     transition: all 0.3s ease;
+    position: relative;
 }
 
 .tool-link:hover {
@@ -71,12 +71,10 @@ h1, h2, h3, h4, h5, h6, p, span, a, div, input, button {
 .overflow-x-auto::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 255, 255, 0.25);
 }
-/* Ensure search icon stays visible */
 .fa-magnifying-glass {
     opacity: 1 !important;
 }
 
-/* Minecraft Colors */
 .text-mc-lime {
     color: #55FF55;
     text-shadow: 2px 2px 0px #002200;
@@ -90,4 +88,36 @@ h1, h2, h3, h4, h5, h6, p, span, a, div, input, button {
 .text-mc-red {
     color: #FF5555;
     text-shadow: 2px 2px 0px #2A0000;
+}
+
+.tool-link[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    background-color: #18181b;
+    color: #e4e4e7;
+    border: 1px solid #3f3f46;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    white-space: normal;
+    max-width: 250px;
+    width: max-content;
+    z-index: 100;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    text-shadow: none;
+    font-family: 'Inter', sans-serif;
+}
+
+.tool-link[data-tooltip]:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
 }

@@ -3,8 +3,16 @@
         "tool": "Command Generators",
         "description": "generate a personalized custom command",
         "links": [
-            { "url": "https://mcstacker.net/", "name": "MCStacker" },
-            { "url": "https://gamergeeks.net", "name": "GamerGeeks" }
+            {
+                "url": "https://mcstacker.net/",
+                "name": "MCStacker",
+                "tooltip": "A powerful command generator for Minecraft Java Edition."
+            },
+            {
+                "url": "https://gamergeeks.net",
+                "name": "GamerGeeks",
+                "tooltip": "Collection of Minecraft command generation tools and guides."
+            }
         ],
         "price": "Free"
     },
@@ -12,10 +20,26 @@
         "tool": "Block Display Engine",
         "description": "like Blender but for block and item displays",
         "links": [
-            { "url": "https://bdengine.app/", "name": "BDEngine" },
-            { "url": "https://eszesbalint.github.io/bdstudio/editor", "name": "BDStudio Editor" },
-            { "url": "https://www.gamergeeks.net/apps/minecraft/block-display-command-generator", "name": "GamerGeeks Block Display" },
-            { "url": "https://misode.github.io/transformation/", "name": "Misode Transformation" }
+            {
+                "url": "https://bdengine.app/",
+                "name": "BDEngine",
+                "tooltip": ""
+            },
+            {
+                "url": "https://eszesbalint.github.io/bdstudio/editor",
+                "name": "BDStudio Editor",
+                "tooltip": ""
+            },
+            {
+                "url": "https://www.gamergeeks.net/apps/minecraft/block-display-command-generator",
+                "name": "GamerGeeks Block Display",
+                "tooltip": ""
+            },
+            {
+                "url": "https://misode.github.io/transformation/",
+                "name": "Misode Transformation",
+                "tooltip": ""
+            }
         ],
         "price": "Free"
     },
@@ -23,7 +47,11 @@
         "tool": "Server Stats",
         "description": "Get information about Minecraft servers quickly",
         "links": [
-            { "url": "https://mcsrvstat.us/", "name": "Minecraft Server Status" }
+            {
+                "url": "https://mcsrvstat.us/",
+                "name": "Minecraft Server Status",
+                "tooltip": ""
+            }
         ],
         "price": "Free"
     },
@@ -31,7 +59,11 @@
         "tool": "Give To Summon",
         "description": "Give To Summon is a command converter it converts /give commands into /summon item commands",
         "links": [
-            { "url": "https://give-to-summon.vercel.app/", "name": "Give To Summon 1.21.10" }
+            {
+                "url": "https://give-to-summon.vercel.app/",
+                "name": "Give To Summon 1.21.10",
+                "tooltip": ""
+            }
         ],
         "price": "Free"
     },
@@ -39,15 +71,23 @@
         "tool": "Structure/biome finding",
         "description": "find a structure in your world by just inputting the world seed and choosing the right version",
         "links": [
-            { "url": "https://www.chunkbase.com/apps/seed-map#seed=-2515391033078911427&platform=java_1_21_5&dimension=overworld&x=0&z=0&zoom=0.5", "name": "Chunkbase Seed Map" }
+            {
+                "url": "https://www.chunkbase.com/apps/seed-map#seed=-2515391033078911427&platform=java_1_21_5&dimension=overworld&x=0&z=0&zoom=0.5",
+                "name": "Chunkbase Seed Map",
+                "tooltip": ""
+            }
         ],
         "price": "Free"
-    }, 
+    },
     {
         "tool": "json text components Generator",
         "description": "Create /tellraw commands and text components (JSON text) for Minecraft Java Edition with our easy-to-use, modern online tool!",
         "links": [
-            { "url": "https://text.datapackhub.net/", "name": "Datapack Hub" }
+            {
+                "url": "https://text.datapackhub.net/",
+                "name": "Datapack Hub",
+                "tooltip": ""
+            }
         ],
         "price": "Free"
     },
@@ -55,7 +95,11 @@
         "tool": "Minecraft map gen.",
         "description": "upload a picture and turn it into a map",
         "links": [
-            { "url": "https://mc-map.djfun.de/", "name": "MC Map Generator" }
+            {
+                "url": "https://mc-map.djfun.de/",
+                "name": "MC Map Generator",
+                "tooltip": ""
+            }
         ],
         "price": "Free"
     },
@@ -63,7 +107,11 @@
         "tool": "Minecraft armor stand",
         "description": "make a personalized command for a armor stand customized how you want",
         "links": [
-            { "url": "https://haselkern.com/Minecraft-ArmorStand/", "name": "Armor Stand Generator" }
+            {
+                "url": "https://haselkern.com/Minecraft-ArmorStand/",
+                "name": "Armor Stand Generator",
+                "tooltip": ""
+            }
         ],
         "price": "Free"
     },
@@ -71,7 +119,11 @@
         "tool": ".OBJ to Schematic",
         "description": "turn any obj file into a worldedit, litematica, etc. schematic",
         "links": [
-            { "url": "https://objtoschematic.com/", "name": "OBJ to Schematic" }
+            {
+                "url": "https://objtoschematic.com/",
+                "name": "OBJ to Schematic",
+                "tooltip": ""
+            }
         ],
         "price": "Free"
     },
@@ -79,15 +131,23 @@
         "tool": "command updater",
         "description": "update a command from any version to the latest version",
         "links": [
-            { "url": "https://docs.papermc.io/misc/tools/item-command-converter", "name": "PaperMC Command Converter" }
+            {
+                "url": "https://docs.papermc.io/misc/tools/item-command-converter",
+                "name": "PaperMC Command Converter",
+                "tooltip": ""
+            }
         ],
         "price": "Free"
-    }, 
+    },
     {
         "tool": "blocky tools",
         "description": "minecraft nbt manipulator & map generator",
         "links": [
-            { "url": "https://blocky.tools/maps", "name": "Blocky.Tools" }
+            {
+                "url": "https://blocky.tools/maps",
+                "name": "Blocky.Tools",
+                "tooltip": ""
+            }
         ],
         "price": "Free"
     },
@@ -95,19 +155,43 @@
         "tool": "Wiki",
         "description": "all the info you need for Minecraft",
         "links": [
-            { "url": "https://minecraft.wiki/", "name": "Minecraft Wiki" },
-            { "url": "https://minecraft.fandom.com/wiki/Minecraft_Wiki", "name": "Fandom Wiki (Not Recommended)" },
-            { "url": "https://datapack.wiki/", "name": "Datapack Wiki" },
-            { "url": "https://kubejs.com/wiki", "name": "KubeJS Wiki" },
-            { "url": "https://minecraftcommands.github.io/wiki/resources", "name": "Minecraft Commands Wiki" }
+            {
+                "url": "https://minecraft.wiki/",
+                "name": "Minecraft Wiki",
+                "tooltip": ""
+            },
+            {
+                "url": "https://minecraft.fandom.com/wiki/Minecraft_Wiki",
+                "name": "Fandom Wiki (Not Recommended)",
+                "tooltip": ""
+            },
+            {
+                "url": "https://datapack.wiki/",
+                "name": "Datapack Wiki",
+                "tooltip": ""
+            },
+            {
+                "url": "https://kubejs.com/wiki",
+                "name": "KubeJS Wiki",
+                "tooltip": ""
+            },
+            {
+                "url": "https://minecraftcommands.github.io/wiki/resources",
+                "name": "Minecraft Commands Wiki",
+                "tooltip": ""
+            }
         ],
         "price": "Free"
-    }, 
+    },
     {
         "tool": "Kubejs script Combiner",
         "description": "A Website which allows you to combine multiple kubejs scripts of the same type into one ",
         "links": [
-            { "url": "https://vanilama-modded.github.io/Kubejs-script-combiner/", "name": "Kubejs script Combiner" }
+            {
+                "url": "https://vanilama-modded.github.io/Kubejs-script-combiner/",
+                "name": "Kubejs script Combiner",
+                "tooltip": ""
+            }
         ],
         "price": "Free"
     },
@@ -115,23 +199,91 @@
         "tool": "Minecraft Tools",
         "description": "some tools from the Minecraft tools website. (For any of the there generated commands to use in the latest version use the command updater)",
         "links": [
-            { "url": "https://minecraft.tools/en/custom-crafting.php", "name": "Custom Crafting" },
-            { "url": "https://minecraft.tools/en/firework.php", "name": "Firework Generator" },
-            { "url": "https://minecraft.tools/en/spawn.php", "name": "Spawn Generator" },
-            { "url": "https://minecraft.tools/en/enchant.php", "name": "Enchant Generator" },
-            { "url": "https://minecraft.tools/en/banner.php", "name": "Banner Generator" },
-            { "url": "https://minecraft.tools/en/crafting.php", "name": "Crafting Generator" },
-            { "url": "https://minecraft.tools/en/color-code.php", "name": "Color Codes" },
-            { "url": "https://minecraft.tools/en/skin.php", "name": "Skin Generator" },
-            { "url": "https://minecraft.tools/en/armor.php", "name": "Armor Generator" },
-            { "url": "https://minecraft.tools/en/beacon-color.php", "name": "Beacon Color" },
-            { "url": "https://minecraft.tools/en/title.php", "name": "Title Generator" },
-            { "url": "https://minecraft.tools/en/sign.php", "name": "Sign Generator" },
-            { "url": "https://minecraft.tools/en/book.php", "name": "Book Generator" },
-            { "url": "https://minecraft.tools/en/tellraw.php", "name": "Tellraw Generator" },
-            { "url": "https://minecraft.tools/en/potion.php", "name": "Potion Generator" },
-            { "url": "https://minecraft.tools/en/shield.php", "name": "Shield Generator" },
-            { "url": "https://minecraft.tools/en/loots.php", "name": "Loot Table Generator" }
+            {
+                "url": "https://minecraft.tools/en/custom-crafting.php",
+                "name": "Custom Crafting",
+                "tooltip": ""
+            },
+            {
+                "url": "https://minecraft.tools/en/firework.php",
+                "name": "Firework Generator",
+                "tooltip": ""
+            },
+            {
+                "url": "https://minecraft.tools/en/spawn.php",
+                "name": "Spawn Generator",
+                "tooltip": ""
+            },
+            {
+                "url": "https://minecraft.tools/en/enchant.php",
+                "name": "Enchant Generator",
+                "tooltip": ""
+            },
+            {
+                "url": "https://minecraft.tools/en/banner.php",
+                "name": "Banner Generator",
+                "tooltip": ""
+            },
+            {
+                "url": "https://minecraft.tools/en/crafting.php",
+                "name": "Crafting Generator",
+                "tooltip": ""
+            },
+            {
+                "url": "https://minecraft.tools/en/color-code.php",
+                "name": "Color Codes",
+                "tooltip": ""
+            },
+            {
+                "url": "https://minecraft.tools/en/skin.php",
+                "name": "Skin Generator",
+                "tooltip": ""
+            },
+            {
+                "url": "https://minecraft.tools/en/armor.php",
+                "name": "Armor Generator",
+                "tooltip": ""
+            },
+            {
+                "url": "https://minecraft.tools/en/beacon-color.php",
+                "name": "Beacon Color",
+                "tooltip": ""
+            },
+            {
+                "url": "https://minecraft.tools/en/title.php",
+                "name": "Title Generator",
+                "tooltip": ""
+            },
+            {
+                "url": "https://minecraft.tools/en/sign.php",
+                "name": "Sign Generator",
+                "tooltip": ""
+            },
+            {
+                "url": "https://minecraft.tools/en/book.php",
+                "name": "Book Generator",
+                "tooltip": ""
+            },
+            {
+                "url": "https://minecraft.tools/en/tellraw.php",
+                "name": "Tellraw Generator",
+                "tooltip": ""
+            },
+            {
+                "url": "https://minecraft.tools/en/potion.php",
+                "name": "Potion Generator",
+                "tooltip": ""
+            },
+            {
+                "url": "https://minecraft.tools/en/shield.php",
+                "name": "Shield Generator",
+                "tooltip": ""
+            },
+            {
+                "url": "https://minecraft.tools/en/loots.php",
+                "name": "Loot Table Generator",
+                "tooltip": ""
+            }
         ],
         "price": "Free"
     },
@@ -139,32 +291,136 @@
         "tool": "CraftMc",
         "description": "The most important tools from the CraftMC Website",
         "links": [
-            { "url": "https://www.craftmc.net/", "name": "CraftMC" },
-            { "url": "https://www.craftmc.net/tools/circle-generator-for-minecraft", "name": "Circle Generator" },
-            { "url": "https://www.craftmc.net/tools/minecraft-redstone-circuit-designer", "name": "Redstone Circuit Designer" },
-            { "url": "https://www.craftmc.net/tools/resource-pack-merger", "name": "Resource Pack Merger" },
-            { "url": "https://www.craftmc.net/tools/minecraft-skin-editor", "name": "Skin Editor" },
-            { "url": "https://www.craftmc.net/tools/minecraft-nbt-editor", "name": "NBT Editor" },
-            { "url": "https://www.craftmc.net/tools/minecraft-command-generator?tab=villager-trade", "name": "Villager Trade Generator" },
-            { "url": "https://www.craftmc.net/tools/speech-bubbles", "name": "Speech Bubbles" },
-            { "url": "https://www.craftmc.net/tools/minecraft-potion-brewing-guide", "name": "Potion Brewing Guide" },
-            { "url": "https://www.craftmc.net/tools/minecraft-server-calculator", "name": "Server Resource Calculator" },
-            { "url": "https://www.craftmc.net/tools/player-statistics-dashboard", "name": "Player Statistics Dashboard" },
-            { "url": "https://www.craftmc.net/tools/minecraft-superflat-generator", "name": "Superflat Generator" },
-            { "url": "https://www.craftmc.net/tools/minecraft-skins", "name": "Skin Browser" },
-            { "url": "https://www.craftmc.net/tools/minecraft-command-block-generator", "name": "Command Block Generator" },
-            { "url": "https://www.craftmc.net/tools/ore-distribution-visualizer", "name": "Ore Distribution Visualizer" },
-            { "url": "https://www.craftmc.net/tools/minecraft-command-generator", "name": "Command Generator" },
-            { "url": "https://www.craftmc.net/tools/minecraft-xp-calculator", "name": "XP Calculator" },
-            { "url": "https://www.craftmc.net/tools/player-lookup", "name": "Player Lookup" },
-            { "url": "https://www.craftmc.net/tools/portal-calculator", "name": "Portal Calculator " },
-            { "url": "https://www.craftmc.net/tools/dps-calculator", "name": "DPS Calculator" },
-            { "url": "https://www.craftmc.net/tools/minecraft-challenge-generator", "name": "Challenge Generator" },
-            { "url": "https://www.craftmc.net/tools/minecraft-motd-generator", "name": "MOTD Generator" },
-            { "url": "https://www.craftmc.net/tools/minecraft-command-generator?tab=fireworks", "name": "Fireworks Generator" },
-            { "url": "https://www.craftmc.net/tools/piglin-bartering-simulator", "name": "Piglin Bartering Simulator" },
-            { "url": "https://craftmc.net/tools/minecraft-world-paint", "name": "World Paint" },
-            { "url": "https://www.craftmc.net/tools/bedrock-to-java-converter", "name": "Bedrock to Java Converter" }
+            {
+                "url": "https://www.craftmc.net/",
+                "name": "CraftMC",
+                "tooltip": ""
+            },
+            {
+                "url": "https://www.craftmc.net/tools/circle-generator-for-minecraft",
+                "name": "Circle Generator",
+                "tooltip": ""
+            },
+            {
+                "url": "https://www.craftmc.net/tools/minecraft-redstone-circuit-designer",
+                "name": "Redstone Circuit Designer",
+                "tooltip": ""
+            },
+            {
+                "url": "https://www.craftmc.net/tools/resource-pack-merger",
+                "name": "Resource Pack Merger",
+                "tooltip": ""
+            },
+            {
+                "url": "https://www.craftmc.net/tools/minecraft-skin-editor",
+                "name": "Skin Editor",
+                "tooltip": ""
+            },
+            {
+                "url": "https://www.craftmc.net/tools/minecraft-nbt-editor",
+                "name": "NBT Editor",
+                "tooltip": ""
+            },
+            {
+                "url": "https://www.craftmc.net/tools/minecraft-command-generator?tab=villager-trade",
+                "name": "Villager Trade Generator",
+                "tooltip": ""
+            },
+            {
+                "url": "https://www.craftmc.net/tools/speech-bubbles",
+                "name": "Speech Bubbles",
+                "tooltip": ""
+            },
+            {
+                "url": "https://www.craftmc.net/tools/minecraft-potion-brewing-guide",
+                "name": "Potion Brewing Guide",
+                "tooltip": ""
+            },
+            {
+                "url": "https://www.craftmc.net/tools/minecraft-server-calculator",
+                "name": "Server Resource Calculator",
+                "tooltip": ""
+            },
+            {
+                "url": "https://www.craftmc.net/tools/player-statistics-dashboard",
+                "name": "Player Statistics Dashboard",
+                "tooltip": ""
+            },
+            {
+                "url": "https://www.craftmc.net/tools/minecraft-superflat-generator",
+                "name": "Superflat Generator",
+                "tooltip": ""
+            },
+            {
+                "url": "https://www.craftmc.net/tools/minecraft-skins",
+                "name": "Skin Browser",
+                "tooltip": ""
+            },
+            {
+                "url": "https://www.craftmc.net/tools/minecraft-command-block-generator",
+                "name": "Command Block Generator",
+                "tooltip": ""
+            },
+            {
+                "url": "https://www.craftmc.net/tools/ore-distribution-visualizer",
+                "name": "Ore Distribution Visualizer",
+                "tooltip": ""
+            },
+            {
+                "url": "https://www.craftmc.net/tools/minecraft-command-generator",
+                "name": "Command Generator",
+                "tooltip": ""
+            },
+            {
+                "url": "https://www.craftmc.net/tools/minecraft-xp-calculator",
+                "name": "XP Calculator",
+                "tooltip": ""
+            },
+            {
+                "url": "https://www.craftmc.net/tools/player-lookup",
+                "name": "Player Lookup",
+                "tooltip": ""
+            },
+            {
+                "url": "https://www.craftmc.net/tools/portal-calculator",
+                "name": "Portal Calculator ",
+                "tooltip": ""
+            },
+            {
+                "url": "https://www.craftmc.net/tools/dps-calculator",
+                "name": "DPS Calculator",
+                "tooltip": ""
+            },
+            {
+                "url": "https://www.craftmc.net/tools/minecraft-challenge-generator",
+                "name": "Challenge Generator",
+                "tooltip": ""
+            },
+            {
+                "url": "https://www.craftmc.net/tools/minecraft-motd-generator",
+                "name": "MOTD Generator",
+                "tooltip": ""
+            },
+            {
+                "url": "https://www.craftmc.net/tools/minecraft-command-generator?tab=fireworks",
+                "name": "Fireworks Generator",
+                "tooltip": ""
+            },
+            {
+                "url": "https://www.craftmc.net/tools/piglin-bartering-simulator",
+                "name": "Piglin Bartering Simulator",
+                "tooltip": ""
+            },
+            {
+                "url": "https://craftmc.net/tools/minecraft-world-paint",
+                "name": "World Paint",
+                "tooltip": ""
+            },
+            {
+                "url": "https://www.craftmc.net/tools/bedrock-to-java-converter",
+                "name": "Bedrock to Java Converter",
+                "tooltip": ""
+            }
         ],
         "price": "Free"
     },
@@ -172,11 +428,31 @@
         "tool": "SkinMC",
         "description": "Some of the important SkinMc tools",
         "links": [
-            { "url": "https://skinmc.net/banner/gallery", "name": "Banner Gallery" },
-            { "url": "https://skinmc.net/totem", "name": "Totem Generator" },
-            { "url": "https://skinmc.net/avatars", "name": "Avatar Generator" },
-            { "url": "https://skinmc.net/achievement", "name": "Achievement Generator" },
-            { "url": "https://skinmc.net/skin-editor", "name": "Skin Editor" }
+            {
+                "url": "https://skinmc.net/banner/gallery",
+                "name": "Banner Gallery",
+                "tooltip": ""
+            },
+            {
+                "url": "https://skinmc.net/totem",
+                "name": "Totem Generator",
+                "tooltip": ""
+            },
+            {
+                "url": "https://skinmc.net/avatars",
+                "name": "Avatar Generator",
+                "tooltip": ""
+            },
+            {
+                "url": "https://skinmc.net/achievement",
+                "name": "Achievement Generator",
+                "tooltip": ""
+            },
+            {
+                "url": "https://skinmc.net/skin-editor",
+                "name": "Skin Editor",
+                "tooltip": ""
+            }
         ],
         "price": "Free"
     },
@@ -184,8 +460,16 @@
         "tool": "Minecraft Tweaks",
         "description": "A collection of resourcepacks, datapacks and addons",
         "links": [
-            { "url": "https://vanillatweaks.net/", "name": "Vanilla Tweaks" },
-            { "url": "https://bedrocktweaks.net/", "name": "Bedrock Tweaks" }
+            {
+                "url": "https://vanillatweaks.net/",
+                "name": "Vanilla Tweaks",
+                "tooltip": ""
+            },
+            {
+                "url": "https://bedrocktweaks.net/",
+                "name": "Bedrock Tweaks",
+                "tooltip": ""
+            }
         ],
         "price": "Free"
     },
@@ -193,8 +477,16 @@
         "tool": "Minecraft Heads",
         "description": "A gallery of different player heads",
         "links": [
-            { "url": "https://minecraft-heads.com/", "name": "Minecraft Heads" },
-            { "url": "https://skinmc.net/heads", "name": "SkinMC Heads" }
+            {
+                "url": "https://minecraft-heads.com/",
+                "name": "Minecraft Heads",
+                "tooltip": ""
+            },
+            {
+                "url": "https://skinmc.net/heads",
+                "name": "SkinMC Heads",
+                "tooltip": ""
+            }
         ],
         "price": "Free"
     },
@@ -202,15 +494,23 @@
         "tool": "Minecraft Bedrock Creator",
         "description": "Minecraft bedrock tool for creating addons and stuff",
         "links": [
-            { "url": "https://mctools.dev/", "name": "MC Tools Dev" }
+            {
+                "url": "https://mctools.dev/",
+                "name": "MC Tools Dev",
+                "tooltip": ""
+            }
         ],
         "price": "Free"
-    }, 
+    },
     {
         "tool": "Map art Generator",
         "description": "A Minecraft mapart schematic and map.dat generator",
         "links": [
-            { "url": "https://rebane2001.com/mapartcraft", "name": "Map Art Craft" }
+            {
+                "url": "https://rebane2001.com/mapartcraft",
+                "name": "Map Art Craft",
+                "tooltip": ""
+            }
         ],
         "price": "Free"
     },
@@ -218,7 +518,11 @@
         "tool": "Enchanting",
         "description": "Most efficient way to enchant stuff",
         "links": [
-            { "url": "https://iamcal.github.io/enchant-order/", "name": "Enchant Order Optimizer" }
+            {
+                "url": "https://iamcal.github.io/enchant-order/",
+                "name": "Enchant Order Optimizer",
+                "tooltip": ""
+            }
         ],
         "price": "Free"
     },
@@ -226,10 +530,26 @@
         "tool": "Browser Games",
         "description": "Unofficial minecraft browser games",
         "links": [
-            { "url": "https://classic.minecraft.net/", "name": "Minecraft Classic" },
-            { "url": "https://minecraftle.zachmanson.com/", "name": "Minecraftle" },
-            { "url": "https://craftmc.net/tools/minecraft-world-paint", "name": "CraftMc World Paint" },
-            { "url": "https://www.mcdle.net/", "name": "Mcdle" }
+            {
+                "url": "https://classic.minecraft.net/",
+                "name": "Minecraft Classic",
+                "tooltip": ""
+            },
+            {
+                "url": "https://minecraftle.zachmanson.com/",
+                "name": "Minecraftle",
+                "tooltip": ""
+            },
+            {
+                "url": "https://craftmc.net/tools/minecraft-world-paint",
+                "name": "CraftMc World Paint",
+                "tooltip": ""
+            },
+            {
+                "url": "https://www.mcdle.net/",
+                "name": "Mcdle",
+                "tooltip": ""
+            }
         ],
         "price": "Free"
     },
@@ -237,7 +557,11 @@
         "tool": "World tool",
         "description": "convert & edit worlds",
         "links": [
-            { "url": "https://www.universalminecrafttool.com/", "name": "Universal Minecraft Tool" }
+            {
+                "url": "https://www.universalminecrafttool.com/",
+                "name": "Universal Minecraft Tool",
+                "tooltip": ""
+            }
         ],
         "price": "Freemium"
     },
@@ -245,8 +569,16 @@
         "tool": "Minecraft Server Tools, tunneling and more",
         "description": "tools mostly focused around servers",
         "links": [
-            { "url": "https://mctools.org/", "name": "MC Tools" },
-            { "url": "https://playit.gg/", "name": "Playit.gg (Tunneling)" }
+            {
+                "url": "https://mctools.org/",
+                "name": "MC Tools",
+                "tooltip": ""
+            },
+            {
+                "url": "https://playit.gg/",
+                "name": "Playit.gg (Tunneling)",
+                "tooltip": ""
+            }
         ],
         "price": "Free"
     },
@@ -254,7 +586,11 @@
         "tool": "Minecraft Shape builder",
         "description": "a step by step guide on how to build complicated shapes",
         "links": [
-            { "url": "https://www.plotz.co.uk/plotz-model.php?model=Ellipsoid", "name": "Plotz Ellipsoid Generator" }
+            {
+                "url": "https://www.plotz.co.uk/plotz-model.php?model=Ellipsoid",
+                "name": "Plotz Ellipsoid Generator",
+                "tooltip": ""
+            }
         ],
         "price": "Free"
     },
@@ -262,17 +598,61 @@
         "tool": "misode",
         "description": "some useful tools for making datapacks",
         "links": [
-            { "url": "https://misode.github.io/loot-table/", "name": "Loot Table Generator" },
-            { "url": "https://misode.github.io/advancement/", "name": "Advancement Generator" },
-            { "url": "https://misode.github.io/recipe/", "name": "Recipe Generator" },
-            { "url": "https://misode.github.io/worldgen/", "name": "Worldgen Generator" },
-            { "url": "https://misode.github.io/damage-type/", "name": "Damage Type Generator" },
-            { "url": "https://misode.github.io/convert/", "name": "Command Converter" },
-            { "url": "https://misode.github.io/customized/?tab=basic", "name": "Customized Generator" },
-            { "url": "https://misode.github.io/template-placer/", "name": "Template Placer" },
-            { "url": "https://misode.github.io/transformation/", "name": "Transformation Generator" },
-            { "url": "https://misode.github.io/partners/", "name": "Modded Generators" },
-            { "url": "https://misode.github.io/generators/", "name": "All Generators" }
+            {
+                "url": "https://misode.github.io/loot-table/",
+                "name": "Loot Table Generator",
+                "tooltip": ""
+            },
+            {
+                "url": "https://misode.github.io/advancement/",
+                "name": "Advancement Generator",
+                "tooltip": ""
+            },
+            {
+                "url": "https://misode.github.io/recipe/",
+                "name": "Recipe Generator",
+                "tooltip": ""
+            },
+            {
+                "url": "https://misode.github.io/worldgen/",
+                "name": "Worldgen Generator",
+                "tooltip": ""
+            },
+            {
+                "url": "https://misode.github.io/damage-type/",
+                "name": "Damage Type Generator",
+                "tooltip": ""
+            },
+            {
+                "url": "https://misode.github.io/convert/",
+                "name": "Command Converter",
+                "tooltip": ""
+            },
+            {
+                "url": "https://misode.github.io/customized/?tab=basic",
+                "name": "Customized Generator",
+                "tooltip": ""
+            },
+            {
+                "url": "https://misode.github.io/template-placer/",
+                "name": "Template Placer",
+                "tooltip": ""
+            },
+            {
+                "url": "https://misode.github.io/transformation/",
+                "name": "Transformation Generator",
+                "tooltip": ""
+            },
+            {
+                "url": "https://misode.github.io/partners/",
+                "name": "Modded Generators",
+                "tooltip": ""
+            },
+            {
+                "url": "https://misode.github.io/generators/",
+                "name": "All Generators",
+                "tooltip": ""
+            }
         ],
         "price": "Free"
     },
@@ -280,7 +660,11 @@
         "tool": "Minecraft science",
         "description": "another Minecraft tools website",
         "links": [
-            { "url": "https://minecraftcommand.science/en/tool-generator", "name": "Minecraft Command Science" }
+            {
+                "url": "https://minecraftcommand.science/en/tool-generator",
+                "name": "Minecraft Command Science",
+                "tooltip": ""
+            }
         ],
         "price": "Free"
     },
@@ -288,7 +672,11 @@
         "tool": "Easy Map Updater",
         "description": "update all commands in a world to the latest version",
         "links": [
-            { "url": "https://github.com/StickyPiston-Hosting/Easy-Map-Updater", "name": "Easy Map Updater" }
+            {
+                "url": "https://github.com/StickyPiston-Hosting/Easy-Map-Updater",
+                "name": "Easy Map Updater",
+                "tooltip": ""
+            }
         ],
         "price": "Free"
     },
@@ -296,8 +684,16 @@
         "tool": "Minecraft Assets",
         "description": "a library for every Minecraft asset",
         "links": [
-            { "url": "https://mcasset.cloud/", "name": "MC Assets" },
-            { "url": "https://mcicons.ccleaf.com/", "name": "McIcons By ccLeaf" }
+            {
+                "url": "https://mcasset.cloud/",
+                "name": "MC Assets",
+                "tooltip": ""
+            },
+            {
+                "url": "https://mcicons.ccleaf.com/",
+                "name": "McIcons By ccLeaf",
+                "tooltip": ""
+            }
         ],
         "price": "Free"
     },
@@ -305,23 +701,35 @@
         "tool": "Weld",
         "description": "fastest data & resource pack merger",
         "links": [
-            { "url": "https://weld.smithed.dev/", "name": "Weld" }
+            {
+                "url": "https://weld.smithed.dev/",
+                "name": "Weld",
+                "tooltip": ""
+            }
         ],
         "price": "Free"
-    }, 
+    },
     {
         "tool": "Mural Generator",
         "description": "A Website which allows you to generate murals",
         "links": [
-            { "url": "https://mcstacker.net/murals", "name": "Mc stacker Mural" }
+            {
+                "url": "https://mcstacker.net/murals",
+                "name": "Mc stacker Mural",
+                "tooltip": ""
+            }
         ],
         "price": "Free"
-    }, 
+    },
     {
         "tool": "npc generator",
         "description": "A Website which allows you to generate Npcs",
         "links": [
-            { "url": "https://mcstacker.net/npc/", "name": "Mc stacker Npc" }
+            {
+                "url": "https://mcstacker.net/npc/",
+                "name": "Mc stacker Npc",
+                "tooltip": ""
+            }
         ],
         "price": "Free"
     },
@@ -329,9 +737,21 @@
         "tool": "Resource packs, datapacks, mods, etc.",
         "description": "upload or download resource packs, datapacks, mods and more",
         "links": [
-            { "url": "https://www.planetminecraft.com/", "name": "Planet Minecraft" },
-            { "url": "https://modrinth.com/", "name": "Modrinth" },
-            { "url": "https://www.curseforge.com/minecraft/search?page=1&pageSize=20&sortBy=relevancy", "name": "CurseForge" }
+            {
+                "url": "https://www.planetminecraft.com/",
+                "name": "Planet Minecraft",
+                "tooltip": ""
+            },
+            {
+                "url": "https://modrinth.com/",
+                "name": "Modrinth",
+                "tooltip": ""
+            },
+            {
+                "url": "https://www.curseforge.com/minecraft/search?page=1&pageSize=20&sortBy=relevancy",
+                "name": "CurseForge",
+                "tooltip": ""
+            }
         ],
         "price": "Free"
     },
@@ -339,7 +759,11 @@
         "tool": "Creator Websites",
         "description": "The websites of Minecraft content creators",
         "links": [
-            { "url": "https://ijaminecraft.com/en/creations", "name": "IJA Minecraft" }
+            {
+                "url": "https://ijaminecraft.com/en/creations",
+                "name": "IJA Minecraft",
+                "tooltip": ""
+            }
         ],
         "price": "Free & Paid"
     },
@@ -347,32 +771,136 @@
         "tool": "Server hosting",
         "description": "Different server Hosts",
         "links": [
-            { "url": "https://www.bisecthosting.com/", "name": "Bisect Hosting" },
-            { "url": "https://server.nitrado.net/", "name": "Nitrado" },
-            { "url": "https://play.hosting/", "name": "Play Hosting (Free)" },
-            { "url": "https://aternos.org/:en/", "name": "Aternos (Free)" },
-            { "url": "https://modrinth.com/servers", "name": "Modrinth Servers" },
-            { "url": "https://scalacube.com/de/free/minecraft/server/hosting", "name": "ScalaCube (Free & Paid)" },
-            { "url": "https://mine-hoster.de/", "name": "Mine Hoster" },
-            { "url": "https://www.g-portal.com/de", "name": "G-Portal" },
-            { "url": "https://minefort.com/", "name": "Minefort" },
-            { "url": "https://app.minehut.com/dashboard/home", "name": "Minehut (Free)" },
-            { "url": "https://apexminecrafthosting.com/de/", "name": "Apex Hosting" },
-            { "url": "https://shockbyte.com/de", "name": "Shockbyte" },
-            { "url": "https://pebblehost.com/", "name": "PebbleHost" },
-            { "url": "https://www.minecraft.net/de-de/download/server", "name": "Official Server (Self host, Free)" },
-            { "url": "https://freemcserver.net/", "name": "FreeMCServer (Free)" },
-            { "url": "https://falixnodes.net/free-minecraft-server-hosting", "name": "FalixNodes (Free)" },
-            { "url": "https://axenthost.com/de/games/minecraft/", "name": "AxentHost (Free)" },
-            { "url": "https://gamerunner.com/minecraft-server/", "name": "GameRunner (Free)" },
-            { "url": "https://server.pro/", "name": "Server.pro" },
-            { "url": "https://wisehosting.com/", "name": "WiseHosting" },
-            { "url": "https://dathost.net/minecraft-server-hosting", "name": "DatHost" },
-            { "url": "https://www.hostinger.com/de/tutorials/minecraft-server-erstellen", "name": "Hostinger Tutorial" },
-            { "url": "https://minekeep.net/", "name": "MineKeep (Free)" },
-            { "url": "https://instanthost.gg/de", "name": "InstantHost" },
-            { "url": "https://ggservers.com/", "name": "GG Servers" },
-            { "url": "https://nodecraft.com/games/minecraft-server-hosting", "name": "Nodecraft" }
+            {
+                "url": "https://www.bisecthosting.com/",
+                "name": "Bisect Hosting",
+                "tooltip": ""
+            },
+            {
+                "url": "https://server.nitrado.net/",
+                "name": "Nitrado",
+                "tooltip": ""
+            },
+            {
+                "url": "https://play.hosting/",
+                "name": "Play Hosting (Free)",
+                "tooltip": ""
+            },
+            {
+                "url": "https://aternos.org/:en/",
+                "name": "Aternos (Free)",
+                "tooltip": ""
+            },
+            {
+                "url": "https://modrinth.com/servers",
+                "name": "Modrinth Servers",
+                "tooltip": ""
+            },
+            {
+                "url": "https://scalacube.com/de/free/minecraft/server/hosting",
+                "name": "ScalaCube (Free & Paid)",
+                "tooltip": ""
+            },
+            {
+                "url": "https://mine-hoster.de/",
+                "name": "Mine Hoster",
+                "tooltip": ""
+            },
+            {
+                "url": "https://www.g-portal.com/de",
+                "name": "G-Portal",
+                "tooltip": ""
+            },
+            {
+                "url": "https://minefort.com/",
+                "name": "Minefort",
+                "tooltip": ""
+            },
+            {
+                "url": "https://app.minehut.com/dashboard/home",
+                "name": "Minehut (Free)",
+                "tooltip": ""
+            },
+            {
+                "url": "https://apexminecrafthosting.com/de/",
+                "name": "Apex Hosting",
+                "tooltip": ""
+            },
+            {
+                "url": "https://shockbyte.com/de",
+                "name": "Shockbyte",
+                "tooltip": ""
+            },
+            {
+                "url": "https://pebblehost.com/",
+                "name": "PebbleHost",
+                "tooltip": ""
+            },
+            {
+                "url": "https://www.minecraft.net/de-de/download/server",
+                "name": "Official Server (Self host, Free)",
+                "tooltip": ""
+            },
+            {
+                "url": "https://freemcserver.net/",
+                "name": "FreeMCServer (Free)",
+                "tooltip": ""
+            },
+            {
+                "url": "https://falixnodes.net/free-minecraft-server-hosting",
+                "name": "FalixNodes (Free)",
+                "tooltip": ""
+            },
+            {
+                "url": "https://axenthost.com/de/games/minecraft/",
+                "name": "AxentHost (Free)",
+                "tooltip": ""
+            },
+            {
+                "url": "https://gamerunner.com/minecraft-server/",
+                "name": "GameRunner (Free)",
+                "tooltip": ""
+            },
+            {
+                "url": "https://server.pro/",
+                "name": "Server.pro",
+                "tooltip": ""
+            },
+            {
+                "url": "https://wisehosting.com/",
+                "name": "WiseHosting",
+                "tooltip": ""
+            },
+            {
+                "url": "https://dathost.net/minecraft-server-hosting",
+                "name": "DatHost",
+                "tooltip": ""
+            },
+            {
+                "url": "https://www.hostinger.com/de/tutorials/minecraft-server-erstellen",
+                "name": "Hostinger Tutorial",
+                "tooltip": ""
+            },
+            {
+                "url": "https://minekeep.net/",
+                "name": "MineKeep (Free)",
+                "tooltip": ""
+            },
+            {
+                "url": "https://instanthost.gg/de",
+                "name": "InstantHost",
+                "tooltip": ""
+            },
+            {
+                "url": "https://ggservers.com/",
+                "name": "GG Servers",
+                "tooltip": ""
+            },
+            {
+                "url": "https://nodecraft.com/games/minecraft-server-hosting",
+                "name": "Nodecraft",
+                "tooltip": ""
+            }
         ],
         "price": "Free, paid & Freemium"
     },
@@ -380,8 +908,16 @@
         "tool": "Modded Tools",
         "description": "Tools For Specific mods",
         "links": [
-            { "url": "https://vanilama-modded.github.io/Kubejs.editor/", "name": "KubeJS Editor" },
-            { "url": "https://coolsa.github.io/mcCustomGuiGen/", "name": "Custom GUI Generator" }
+            {
+                "url": "https://vanilama-modded.github.io/Kubejs.editor/",
+                "name": "KubeJS Editor",
+                "tooltip": ""
+            },
+            {
+                "url": "https://coolsa.github.io/mcCustomGuiGen/",
+                "name": "Custom GUI Generator",
+                "tooltip": ""
+            }
         ],
         "price": "free"
     },
@@ -389,9 +925,21 @@
         "tool": "Image to display",
         "description": "convert images into particle display functions or text display functions",
         "links": [
-            { "url": "https://github.com/kemo14331/Particle-Converter", "name": "Particle Converter" },
-            { "url": "https://github.com/META-Tommy/Image-To-Text_Display", "name": "Image to Text Display" },
-            { "url": "https://ciaccodavi.de/qbdp/acg/", "name": "Magic Circle Generator" }
+            {
+                "url": "https://github.com/kemo14331/Particle-Converter",
+                "name": "Particle Converter",
+                "tooltip": ""
+            },
+            {
+                "url": "https://github.com/META-Tommy/Image-To-Text_Display",
+                "name": "Image to Text Display",
+                "tooltip": ""
+            },
+            {
+                "url": "https://ciaccodavi.de/qbdp/acg/",
+                "name": "Magic Circle Generator",
+                "tooltip": ""
+            }
         ],
         "price": "free"
     },
@@ -399,7 +947,11 @@
         "tool": "mcmeta",
         "description": "a library for every Minecraft asset",
         "links": [
-            { "url": "https://github.com/misode/mcmeta", "name": "MCMeta GitHub" }
+            {
+                "url": "https://github.com/misode/mcmeta",
+                "name": "MCMeta GitHub",
+                "tooltip": ""
+            }
         ],
         "price": "free"
     },
@@ -407,7 +959,11 @@
         "tool": "TagLib",
         "description": "Minecraft's biggest tag libary",
         "links": [
-            { "url": "https://github.com/HeDeAnTheonlyone/Taglib", "name": "TagLib" }
+            {
+                "url": "https://github.com/HeDeAnTheonlyone/Taglib",
+                "name": "TagLib",
+                "tooltip": ""
+            }
         ],
         "price": "free"
     },
@@ -415,8 +971,16 @@
         "tool": "Standard Galactic Alphabet De/Encoder",
         "description": "A website that lets you encode and decode text into the Standard Galactic Alphabet (minecraft Enchantment table language)",
         "links": [
-            { "url": "https://www.dcode.fr/standard-galactic-alphabet", "name": "dcode" },
-            { "url": "https://lingojam.com/StandardGalacticAlphabet", "name": "lingojam" }
+            {
+                "url": "https://www.dcode.fr/standard-galactic-alphabet",
+                "name": "dcode",
+                "tooltip": ""
+            },
+            {
+                "url": "https://lingojam.com/StandardGalacticAlphabet",
+                "name": "lingojam",
+                "tooltip": ""
+            }
         ],
         "price": "free"
     },
@@ -424,7 +988,11 @@
         "tool": "Minecraft Emojis",
         "description": "A List Of All Minecraft Supported Emojis",
         "links": [
-            { "url": "https://gist.github.com/tomasdev/92bde758ee8e65fa826717b24cfd0463", "name": "Minecraft Emojis List" }
+            {
+                "url": "https://gist.github.com/tomasdev/92bde758ee8e65fa826717b24cfd0463",
+                "name": "Minecraft Emojis List",
+                "tooltip": ""
+            }
         ],
         "price": "free"
     },
@@ -432,9 +1000,21 @@
         "tool": "GalSergey's Minecraft Tools",
         "description": "1. A Viewer datapack Assembler, 2. Item Component Viewer, 3. Command Block Assembler",
         "links": [
-            { "url": "https://far.ddns.me/", "name": "Datapack Assembler" },
-            { "url": "https://far.ddns.me/item?ver=1.21.8", "name": "Item Component Viewer" },
-            { "url": "https://far.ddns.me/cba", "name": "Command Block Assembler" }
+            {
+                "url": "https://far.ddns.me/",
+                "name": "Datapack Assembler",
+                "tooltip": ""
+            },
+            {
+                "url": "https://far.ddns.me/item?ver=1.21.8",
+                "name": "Item Component Viewer",
+                "tooltip": ""
+            },
+            {
+                "url": "https://far.ddns.me/cba",
+                "name": "Command Block Assembler",
+                "tooltip": ""
+            }
         ],
         "price": "free"
     },
@@ -442,8 +1022,16 @@
         "tool": "Create Mod Schematics",
         "description": "Websites where you can download Create mod Shematics",
         "links": [
-            { "url": "https://www.schematicannon.com/", "name": "Schematic Cannon" },
-            { "url": "https://createmod.com/", "name": "Create Mod" }
+            {
+                "url": "https://www.schematicannon.com/",
+                "name": "Schematic Cannon",
+                "tooltip": ""
+            },
+            {
+                "url": "https://createmod.com/",
+                "name": "Create Mod",
+                "tooltip": ""
+            }
         ],
         "price": "Free"
     },
@@ -451,7 +1039,11 @@
         "tool": "Mod Generator",
         "description": "Create Minecraft mods without coding.",
         "links": [
-            { "url": "https://www.creativemode.net/", "name": "CreativeMode" }
+            {
+                "url": "https://www.creativemode.net/",
+                "name": "CreativeMode",
+                "tooltip": ""
+            }
         ],
         "price": "Paid"
     },
@@ -459,8 +1051,16 @@
         "tool": "Block Color Palette",
         "description": "Quickly find what Minecraft blocks match a certain color or find eye pleasing palettes to build with",
         "links": [
-            { "url": "https://blockcolors.app/", "name": "Blockcolors" },
-            { "url": "https://www.blockpalettes.com/", "name": "Block Palettes" }
+            {
+                "url": "https://blockcolors.app/",
+                "name": "Blockcolors",
+                "tooltip": ""
+            },
+            {
+                "url": "https://www.blockpalettes.com/",
+                "name": "Block Palettes",
+                "tooltip": ""
+            }
         ],
         "price": "Free"
     },
@@ -468,7 +1068,11 @@
         "tool": "Mr Garretto's Tools",
         "description": "some command related tools",
         "links": [
-            { "url": "https://mrgarretto.com/", "name": "Mr Garretto's Tools" }
+            {
+                "url": "https://mrgarretto.com/",
+                "name": "Mr Garretto's Tools",
+                "tooltip": ""
+            }
         ],
         "price": "free"
     }
