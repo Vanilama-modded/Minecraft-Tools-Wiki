@@ -292,7 +292,8 @@
     },
     {
         "tool": "MCWorkbench",
-        "description": "Useful tools&games from the MCWorkbench(formerly known as CraftMC) Website",
+        "description": "Useful tools & games from the MCWorkbench(formerly known as CraftMC) Website",
+        "keywords": ["craftmc", "CraftMc"],
         "links": [
             {
                 "url": "https://www.mcworkbench.com/tools/resource-pack-merger",
@@ -330,12 +331,12 @@
                 "tooltip": ""
             },
             {
-                "url": "https://www.mcworkbench.com/tools/world-paint",
+                "url": "https://www.mcworkbench.com/tools/minecraft-world-paint",
                 "name": "World Paint Sandbox",
                 "tooltip": ""
             },
             {
-                "url": "https://www.mcworkbench.com/tools/minecraft-world-paint",
+                "url": "https://www.mcworkbench.com/tools/dps-calculator",
                 "name": "DPS Calculator",
                 "tooltip": ""
             },

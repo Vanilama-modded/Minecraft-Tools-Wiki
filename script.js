@@ -14,7 +14,8 @@ async function loadToolsData() {
         const options = {
             keys: [
                 { name: 'tool', weight: 0.7 },
-                { name: 'description', weight: 0.3 }
+                { name: 'description', weight: 0.3 },
+                { name: 'keywords', weight: 0.5 }
             ],
             threshold: 0.4,
             includeScore: true
@@ -74,7 +75,8 @@ function performSearch(query) {
         const lowerQuery = queryTrimmed.toLowerCase();
         const filtered = toolsData.filter(tool => 
             tool.tool.toLowerCase().includes(lowerQuery) || 
-            tool.description.toLowerCase().includes(lowerQuery)
+            tool.description.toLowerCase().includes(lowerQuery) ||
+            (tool.keywords && tool.keywords.some(k => k.toLowerCase().includes(lowerQuery)))
         );
         populateTable(filtered);
     }
