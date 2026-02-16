@@ -939,6 +939,11 @@
                 "tooltip": ""
             },
             {
+                "url": "https://winss.xyz/dustlab/index.html",
+                "name": "Dustlab",
+                "tooltip": "convert images and 3D models to particles!"
+            },
+            {
                 "url": "https://github.com/META-Tommy/Image-To-Text_Display",
                 "name": "Image to Text Display",
                 "tooltip": ""
