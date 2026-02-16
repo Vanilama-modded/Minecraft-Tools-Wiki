@@ -296,12 +296,12 @@
         "price": "Free"
     },
     {
-        "tool": "CraftMc",
-        "description": "The most important tools from the CraftMC Website",
+        "tool": "MCWorkbench",
+        "description": "The most important tools from the MCWorkbench(formerly known as CraftMC) Website",
         "links": [
             {
-                "url": "https://www.craftmc.net/",
-                "name": "CraftMC",
+                "url": "https://www.mcworkbench.com/",
+                "name": "MCWorkbench",
                 "tooltip": ""
             },
             {
