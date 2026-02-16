@@ -31,11 +31,6 @@
                 "tooltip": ""
             },
             {
-                "url": "https://www.gamergeeks.net/apps/minecraft/block-display-command-generator",
-                "name": "GamerGeeks Block Display",
-                "tooltip": ""
-            },
-            {
                 "url": "https://misode.github.io/transformation/",
                 "name": "Misode Transformation",
                 "tooltip": ""
@@ -297,136 +292,71 @@
     },
     {
         "tool": "MCWorkbench",
-        "description": "The most important tools from the MCWorkbench(formerly known as CraftMC) Website",
+        "description": "Useful tools&games from the MCWorkbench(formerly known as CraftMC) Website",
         "links": [
             {
-                "url": "https://www.mcworkbench.com/",
-                "name": "MCWorkbench",
-                "tooltip": ""
-            },
-            {
-                "url": "https://www.craftmc.net/tools/circle-generator-for-minecraft",
-                "name": "Circle Generator",
-                "tooltip": ""
-            },
-            {
-                "url": "https://www.craftmc.net/tools/minecraft-redstone-circuit-designer",
-                "name": "Redstone Circuit Designer",
-                "tooltip": ""
-            },
-            {
-                "url": "https://www.craftmc.net/tools/resource-pack-merger",
+                "url": "https://www.mcworkbench.com/tools/resource-pack-merger",
                 "name": "Resource Pack Merger",
                 "tooltip": ""
             },
             {
-                "url": "https://www.craftmc.net/tools/minecraft-skin-editor",
-                "name": "Skin Editor",
+                "url": "https://www.mcworkbench.com/tools/custom-totem-generator",
+                "name": "Custom Totem Generator",
                 "tooltip": ""
             },
             {
-                "url": "https://www.craftmc.net/tools/minecraft-nbt-editor",
-                "name": "NBT Editor",
+                "url": "https://www.mcworkbench.com/tools/minecraft-skin-editor",
+                "name": "Minecraft Skin Editor",
                 "tooltip": ""
             },
             {
-                "url": "https://www.craftmc.net/tools/minecraft-command-generator?tab=villager-trade",
-                "name": "Villager Trade Generator",
+                "url": "https://www.mcworkbench.com/tools/minecraft-skins",
+                "name": "Minecraft Skins Browser",
                 "tooltip": ""
             },
             {
-                "url": "https://www.craftmc.net/tools/speech-bubbles",
-                "name": "Speech Bubbles",
-                "tooltip": ""
-            },
-            {
-                "url": "https://www.craftmc.net/tools/minecraft-potion-brewing-guide",
+                "url": "https://www.mcworkbench.com/tools/minecraft-potion-brewing-guide",
                 "name": "Potion Brewing Guide",
                 "tooltip": ""
             },
             {
-                "url": "https://www.craftmc.net/tools/minecraft-server-calculator",
-                "name": "Server Resource Calculator",
+                "url": "https://www.mcworkbench.com/tools/circle-generator-for-minecraft",
+                "name": "Circle Generator",
                 "tooltip": ""
             },
             {
-                "url": "https://www.craftmc.net/tools/player-statistics-dashboard",
-                "name": "Player Statistics Dashboard",
+                "url": "https://www.mcworkbench.com/tools/minecraft-redstone-circuit-designer",
+                "name": "Redstone Circuit Designer",
                 "tooltip": ""
             },
             {
-                "url": "https://www.craftmc.net/tools/minecraft-superflat-generator",
-                "name": "Superflat Generator",
+                "url": "https://www.mcworkbench.com/tools/world-paint",
+                "name": "World Paint Sandbox",
                 "tooltip": ""
             },
             {
-                "url": "https://www.craftmc.net/tools/minecraft-skins",
-                "name": "Skin Browser",
-                "tooltip": ""
-            },
-            {
-                "url": "https://www.craftmc.net/tools/minecraft-command-block-generator",
-                "name": "Command Block Generator",
-                "tooltip": ""
-            },
-            {
-                "url": "https://www.craftmc.net/tools/ore-distribution-visualizer",
-                "name": "Ore Distribution Visualizer",
-                "tooltip": ""
-            },
-            {
-                "url": "https://www.craftmc.net/tools/minecraft-command-generator",
-                "name": "Command Generator",
-                "tooltip": ""
-            },
-            {
-                "url": "https://www.craftmc.net/tools/minecraft-xp-calculator",
-                "name": "XP Calculator",
-                "tooltip": ""
-            },
-            {
-                "url": "https://www.craftmc.net/tools/player-lookup",
-                "name": "Player Lookup",
-                "tooltip": ""
-            },
-            {
-                "url": "https://www.craftmc.net/tools/portal-calculator",
-                "name": "Portal Calculator ",
-                "tooltip": ""
-            },
-            {
-                "url": "https://www.craftmc.net/tools/dps-calculator",
+                "url": "https://www.mcworkbench.com/tools/minecraft-world-paint",
                 "name": "DPS Calculator",
                 "tooltip": ""
             },
             {
-                "url": "https://www.craftmc.net/tools/minecraft-challenge-generator",
-                "name": "Challenge Generator",
+                "url": "https://www.mcworkbench.com/tools/pixel-art-generator",
+                "name": "Pixel Art Generator",
                 "tooltip": ""
             },
             {
-                "url": "https://www.craftmc.net/tools/minecraft-motd-generator",
-                "name": "MOTD Generator",
+                "url": "https://www.mcworkbench.com/tools/bedrock-to-java-seed-converter",
+                "name": "Bedrock to Java Seed Converter",
                 "tooltip": ""
             },
             {
-                "url": "https://www.craftmc.net/tools/minecraft-command-generator?tab=fireworks",
-                "name": "Fireworks Generator",
+                "url": "https://www.mcworkbench.com/tools/minecraft-motd-editor",
+                "name": "MOTD Editor",
                 "tooltip": ""
             },
             {
-                "url": "https://www.craftmc.net/tools/piglin-bartering-simulator",
-                "name": "Piglin Bartering Simulator",
-                "tooltip": ""
-            },
-            {
-                "url": "https://craftmc.net/tools/minecraft-world-paint",
-                "name": "World Paint",
-                "tooltip": ""
-            },
-            {
-                "url": "https://www.craftmc.net/tools/bedrock-to-java-converter",
-                "name": "Bedrock to Java Converter",
+                "url": "https://www.mcworkbench.com/tools/minecraft-nbt-editor",
+                "name": "NBT Editor",
                 "tooltip": ""
             }
         ],
