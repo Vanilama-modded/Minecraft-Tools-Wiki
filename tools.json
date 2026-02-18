@@ -66,7 +66,10 @@
         "tool": "Content Creation",
         "description": "Different tools/Websites for content creation",
         "links": [
-            { "url": "https://renderdragon.org/", "" }
+            { "url": "https://renderdragon.org/",
+                "name": "Renderdragon",
+                "tooltip": ""
+            }
         ],
         "price": "Free"
     },
