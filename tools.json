@@ -51,10 +51,22 @@
         "price": "Free"
     },
     {
+        "tool": "Mcfunction to Structure nbt",
+        "description": "Convert your .mcfunction files into commandblock structure nbt files",
+        "links": [
+            {
+                "url": "https://mcfunction-to-structure-nbt.vercel.app/",
+                "name": "Mcfunction2Nbt",
+                "tooltip": ""
+            }
+        ],
+        "price": "Free"
+    },
+    {
         "tool": "Content Creation",
         "description": "Different tools/Websites for content creation",
         "links": [
-            { "url": "https://renderdragon.org/", "name": "Renderdragon" }
+            { "url": "https://renderdragon.org/", "" }
         ],
         "price": "Free"
     },
