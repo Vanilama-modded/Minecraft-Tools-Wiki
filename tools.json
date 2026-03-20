@@ -202,18 +202,18 @@
         "price": "Free"
     },
     {
-        "tool": "Kubejs script Combiner",
-        "description": "A Website which allows you to combine multiple kubejs scripts of the same type into one ",
+        "tool": "Kubejs Tools",
+        "description": "Websites which help you with using KubeJS",
         "links": [
             {
                 "url": "https://vanilama-modded.github.io/Kubejs-script-combiner/",
                 "name": "Kubejs script Combiner",
-                "tooltip": ""
+                "tooltip": "A Website which allows you to combine multiple kubejs scripts of the same type into one"
             },
             {
                 "url": "https://kube-js-editor.vercel.app/",
                 "name": "KubeJS Editor",
-                "tooltip": ""
+                "tooltip": "An All in one web code Editor with templates for kubejs"
             }
         ],
         "price": "Free"
