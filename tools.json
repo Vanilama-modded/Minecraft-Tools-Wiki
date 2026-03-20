@@ -209,6 +209,11 @@
                 "url": "https://vanilama-modded.github.io/Kubejs-script-combiner/",
                 "name": "Kubejs script Combiner",
                 "tooltip": ""
+            },
+            {
+                "url": "https://kube-js-editor.vercel.app/",
+                "name": "KubeJS Editor",
+                "tooltip": ""
             }
         ],
         "price": "Free"
