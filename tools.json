@@ -1039,5 +1039,29 @@
             }
         ],
         "price": "free"
+    },
+    {
+        "tool": "Project Reverse Search",
+        "description": "find out which modpacks include a specific project.",
+        "links": [
+            {
+                "url": "https://modrinth-statistics.tobinio.dev/reverseSearch",
+                "name": "Find all Modpacks which include a Project",
+                "tooltip": "(only projects uploaded to modrinth are supported)"
+            }
+            ],
+        "price": "Free"
+    },
+    {
+        "tool": "Card/Badge Generator",
+        "description": "A Website which allows you to generate badges for your projects",
+        "links": [
+            {
+                "url": "https://modfolio.creeperkatze.de/",
+                "name": "Modfolio",
+                "tooltip": "Generate fast, beautiful and consistent embeddable cards and badges for Modrinth, CurseForge, Hangar and Spigot content."
+            }
+        ],
+        "price": "Free"
     }
 ]
