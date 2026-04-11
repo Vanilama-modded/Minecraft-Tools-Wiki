@@ -1057,7 +1057,7 @@
         "description": "A Website which allows you to generate badges for your projects",
         "links": [
             {
-                "url": "https://modfolio.creeperkatze.de/",
+                "url": "https://modfolio.creeperkatze.dev/",
                 "name": "Modfolio",
                 "tooltip": "Generate fast, beautiful and consistent embeddable cards and badges for Modrinth, CurseForge, Hangar and Spigot content."
             }
