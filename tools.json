@@ -1053,12 +1053,12 @@
         "price": "Free"
     },
     {
-        "tool": "View/Convert 3D Models/Schematics"
-        "description": "Create Minecraft builds, generate Minecraft build guides, voxelize 3D models, and convert worlds across Java, Bedrock, and Hytale."
+        "tool": "View/Convert 3D Models/Schematics",
+        "description": "Create Minecraft builds, generate Minecraft build guides, voxelize 3D models, and convert worlds across Java, Bedrock, and Hytale.",
         "links": [
             {
-                "url": "https://bloxelizer.com/"
-                "name": "Bloxelizer"
+                "url": "https://bloxelizer.com/",
+                "name": "Bloxelizer",
                 "tooltip": ""
             }
         ],
