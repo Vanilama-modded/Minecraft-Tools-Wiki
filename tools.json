@@ -1053,7 +1053,7 @@
         "price": "Free"
     },
     {
-        "tool": "title"
+        "tool": "View/Convert 3D Models/Schematics"
         "description": "Create Minecraft builds, generate Minecraft build guides, voxelize 3D models, and convert worlds across Java, Bedrock, and Hytale."
         "links": [
             {
