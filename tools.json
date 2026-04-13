@@ -1053,6 +1053,18 @@
         "price": "Free"
     },
     {
+        "tool": "title"
+        "description": "Create Minecraft builds, generate Minecraft build guides, voxelize 3D models, and convert worlds across Java, Bedrock, and Hytale."
+        "links": [
+            {
+                "url": "https://bloxelizer.com/"
+                "name": "Bloxelizer"
+                "tooltip": ""
+            }
+        ],
+        "price": "Freemium"
+    }
+    {
         "tool": "Card/Badge Generator",
         "description": "A Website which allows you to generate badges for your projects",
         "links": [
