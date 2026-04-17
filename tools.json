@@ -1007,9 +1007,14 @@
                 "url": "https://www.creativemode.net/",
                 "name": "CreativeMode",
                 "tooltip": ""
+            },
+            {
+                "url": "https://kodari.ai/auth/register?ref=KOD-ZMHND",
+                "name": "Kodari Ai",
+                "tooltip": "AI-powered Minecraft plugin development. Create, customize, and deploy plugins with ease."
             }
         ],
-        "price": "Paid"
+        "price": "Freemium"
     },
     {
         "tool": "Block Color Palette",
