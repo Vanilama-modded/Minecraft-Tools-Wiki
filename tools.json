@@ -1070,6 +1070,17 @@
         "price": "Freemium"
     },
     {
+    "tool": "minecraft update history",
+    "description": "a timeline of minecrafts updates",
+    "links": [
+        {
+            "url": "https://minecraft-timeline.github.io/",
+            "name": "minecraft timeline"
+        }
+    ],
+    "price": "Free"
+    },
+    {
         "tool": "Card/Badge Generator",
         "description": "A Website which allows you to generate badges for your projects",
         "links": [
