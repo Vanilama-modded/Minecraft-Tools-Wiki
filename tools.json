@@ -1,734 +1,470 @@
 [
     {
-        "tool": "Command Generators",
-        "description": "generate a personalized custom command",
+        "tool": "Schematic Sharing & Conversion",
+        "description": "Preview, share, convert, and download Minecraft schematics and structures.",
         "links": [
             {
-                "url": "https://mcstacker.net/",
-                "name": "MCStacker",
-                "tooltip": "A powerful command generator for Minecraft Java Edition."
+                "url": "https://schemat.io/",
+                "name": "Schemat.io",
+                "tooltip": "Interactive 3D schematic viewer and sharing platform"
             },
             {
-                "url": "https://gamergeeks.net",
-                "name": "GamerGeeks",
-                "tooltip": "Collection of Minecraft command generation tools and guides."
+                "url": "https://puregero.github.io/SchemToSchematic/",
+                "name": "SchemToSchematic",
+                "tooltip": "Converts .schem files to .schematic format"
+            },
+            {
+                "url": "https://www.mineprints.net/",
+                "name": "Mineprints",
+                "tooltip": "View schematics layer-by-layer in your browser"
+            },
+            {
+                "url": "https://objtoschematic.com/",
+                "name": "OBJ to Schematic",
+                "tooltip": "Convert OBJ 3D models to Minecraft schematics"
+            },
+            {
+                "url": "https://bloxelizer.com/",
+                "name": "Bloxelizer",
+                "tooltip": "Voxelize 3D models and convert worlds across Java, Bedrock, and Hytale"
             }
         ],
-        "price": "Free"
+        "price": "Free & Freemium"
     },
     {
-        "tool": "Block Display Engine",
-        "description": "like Blender but for block and item displays",
+        "tool": "3D Modeling, Block Display & Schematic Creation",
+        "description": "Create, edit, and manipulate 3D Minecraft builds, block displays, and item displays.",
         "links": [
+            {
+                "url": "https://cubical.xyz/",
+                "name": "Cubical.xyz",
+                "tooltip": "Free online 3D schematic creator and editor"
+            },
             {
                 "url": "https://bdengine.app/",
                 "name": "BDEngine",
-                "tooltip": ""
+                "tooltip": "Blender-like tool for block and item displays"
             },
             {
                 "url": "https://eszesbalint.github.io/bdstudio/editor",
                 "name": "BDStudio Editor",
-                "tooltip": ""
+                "tooltip": "Block display studio editor"
             },
             {
                 "url": "https://misode.github.io/transformation/",
                 "name": "Misode Transformation",
-                "tooltip": ""
+                "tooltip": "Transformation generator for block displays"
             }
         ],
         "price": "Free"
     },
     {
-        "tool": "Server Stats",
-        "description": "Get information about Minecraft servers quickly",
+        "tool": "Skin Editors, Tools & Utilities",
+        "description": "Create, edit, transform, and preview Minecraft player skins and capes.",
         "links": [
             {
-                "url": "https://mcsrvstat.us/",
-                "name": "Minecraft Server Status",
-                "tooltip": ""
-            }
-        ],
-        "price": "Free"
-    },
-    {
-        "tool": "Mcfunction to Structure nbt",
-        "description": "Convert your .mcfunction files into commandblock structure nbt files",
-        "links": [
-            {
-                "url": "https://mcfunction-to-structure-nbt.vercel.app/",
-                "name": "Mcfunction2Nbt",
-                "tooltip": ""
-            }
-        ],
-        "price": "Free"
-    },
-    {
-        "tool": "Content Creation",
-        "description": "Different tools/Websites for content creation",
-        "links": [
-            { "url": "https://renderdragon.org/",
-                "name": "Renderdragon",
-                "tooltip": "Find free resources for your next project, including music, sound effects, images, and more."
-            }
-        ],
-        "price": "Free"
-    },
-    {
-        "tool": "Give To Summon",
-        "description": "Give To Summon is a command converter it converts /give commands into /summon item commands",
-        "links": [
-            {
-                "url": "https://give-to-summon.vercel.app/",
-                "name": "Give To Summon 1.21.10",
-                "tooltip": ""
-            }
-        ],
-        "price": "Free"
-    },
-    {
-        "tool": "Structure/biome finding",
-        "description": "find a structure in your world by just inputting the world seed and choosing the right version",
-        "links": [
-            {
-                "url": "https://www.chunkbase.com/apps/seed-map#seed=-2515391033078911427&platform=java_1_21_5&dimension=overworld&x=0&z=0&zoom=0.5",
-                "name": "Chunkbase Seed Map",
-                "tooltip": ""
-            }
-        ],
-        "price": "Free"
-    },
-    {
-        "tool": "json text components Generator",
-        "description": "Create /tellraw commands and text components (JSON text) for Minecraft Java Edition with our easy-to-use, modern online tool!",
-        "links": [
-            {
-                "url": "https://text.datapackhub.net/",
-                "name": "Datapack Hub",
-                "tooltip": ""
-            }
-        ],
-        "price": "Free"
-    },
-    {
-        "tool": "Minecraft map gen.",
-        "description": "upload a picture and turn it into a map",
-        "links": [
-            {
-                "url": "https://mc-map.djfun.de/",
-                "name": "MC Map Generator",
-                "tooltip": ""
-            }
-        ],
-        "price": "Free"
-    },
-    {
-        "tool": "Minecraft armor stand",
-        "description": "make a personalized command for a armor stand customized how you want",
-        "links": [
-            {
-                "url": "https://haselkern.com/Minecraft-ArmorStand/",
-                "name": "Armor Stand Generator",
-                "tooltip": ""
-            }
-        ],
-        "price": "Free"
-    },
-    {
-        "tool": ".OBJ to Schematic",
-        "description": "turn any obj file into a worldedit, litematica, etc. schematic",
-        "links": [
-            {
-                "url": "https://objtoschematic.com/",
-                "name": "OBJ to Schematic",
-                "tooltip": ""
-            }
-        ],
-        "price": "Free"
-    },
-    {
-        "tool": "command updater",
-        "description": "update a command from any version to the latest version",
-        "links": [
-            {
-                "url": "https://docs.papermc.io/misc/tools/item-command-converter",
-                "name": "PaperMC Command Converter",
-                "tooltip": ""
-            }
-        ],
-        "price": "Free"
-    },
-    {
-        "tool": "blocky tools",
-        "description": "minecraft nbt manipulator & map generator",
-        "links": [
-            {
-                "url": "https://blocky.tools/maps",
-                "name": "Blocky.Tools",
-                "tooltip": ""
-            }
-        ],
-        "price": "Free"
-    },
-    {
-        "tool": "Wiki",
-        "description": "all the info you need for Minecraft",
-        "links": [
-            {
-                "url": "https://minecraft.wiki/",
-                "name": "Minecraft Wiki",
-                "tooltip": ""
+                "url": "https://mc-tools.net/",
+                "name": "MCTools",
+                "tooltip": "Suite including 3D skin editor and avatar maker"
             },
             {
-                "url": "https://minecraft.fandom.com/wiki/Minecraft_Wiki",
-                "name": "Fandom Wiki (Not Recommended)",
-                "tooltip": ""
+                "url": "https://www.planetminecraft.com/skin-editor/",
+                "name": "PMCSkin3D",
+                "tooltip": "Planet Minecraft's free online skin editor"
             },
             {
-                "url": "https://datapack.wiki/",
-                "name": "Datapack Wiki",
-                "tooltip": ""
+                "url": "https://minecraft.novaskin.me/",
+                "name": "Nova Skin",
+                "tooltip": "Popular 3D skin editor with HD support"
             },
             {
-                "url": "https://kubejs.com/wiki",
-                "name": "KubeJS Wiki",
-                "tooltip": ""
+                "url": "https://www.mineskin.pro/en/editor/",
+                "name": "MineSkin.pro",
+                "tooltip": "Real-time skin editor and 3D viewer"
             },
             {
-                "url": "https://minecraftcommands.github.io/wiki/resources",
-                "name": "Minecraft Commands Wiki",
-                "tooltip": ""
-            }
-        ],
-        "price": "Free"
-    },
-    {
-        "tool": "Kubejs Tools",
-        "description": "Websites which help you with using KubeJS",
-        "links": [
-            {
-                "url": "https://vanilama-modded.github.io/Kubejs-script-combiner/",
-                "name": "Kubejs script Combiner",
-                "tooltip": "A Website which allows you to combine multiple kubejs scripts of the same type into one"
-            },
-            {
-                "url": "https://kube-js-editor.vercel.app/",
-                "name": "KubeJS Editor",
-                "tooltip": "An All in one web code Editor with templates for kubejs"
-            }
-        ],
-        "price": "Free"
-    },
-    {
-        "tool": "Minecraft Tools",
-        "description": "some tools from the Minecraft tools website. (For any of the there generated commands to use in the latest version use the command updater)",
-        "links": [
-            {
-                "url": "https://minecraft.tools/en/custom-crafting.php",
-                "name": "Custom Crafting",
-                "tooltip": ""
-            },
-            {
-                "url": "https://minecraft.tools/en/firework.php",
-                "name": "Firework Generator",
-                "tooltip": ""
-            },
-            {
-                "url": "https://minecraft.tools/en/spawn.php",
-                "name": "Spawn Generator",
-                "tooltip": ""
-            },
-            {
-                "url": "https://minecraft.tools/en/enchant.php",
-                "name": "Enchant Generator",
-                "tooltip": ""
-            },
-            {
-                "url": "https://minecraft.tools/en/banner.php",
-                "name": "Banner Generator",
-                "tooltip": ""
-            },
-            {
-                "url": "https://minecraft.tools/en/crafting.php",
-                "name": "Crafting Generator",
-                "tooltip": ""
-            },
-            {
-                "url": "https://minecraft.tools/en/color-code.php",
-                "name": "Color Codes",
-                "tooltip": ""
-            },
-            {
-                "url": "https://minecraft.tools/en/skin.php",
-                "name": "Skin Generator",
-                "tooltip": ""
-            },
-            {
-                "url": "https://minecraft.tools/en/armor.php",
-                "name": "Armor Generator",
-                "tooltip": ""
-            },
-            {
-                "url": "https://minecraft.tools/en/beacon-color.php",
-                "name": "Beacon Color",
-                "tooltip": ""
-            },
-            {
-                "url": "https://minecraft.tools/en/title.php",
-                "name": "Title Generator",
-                "tooltip": ""
-            },
-            {
-                "url": "https://minecraft.tools/en/sign.php",
-                "name": "Sign Generator",
-                "tooltip": ""
-            },
-            {
-                "url": "https://minecraft.tools/en/book.php",
-                "name": "Book Generator",
-                "tooltip": ""
-            },
-            {
-                "url": "https://minecraft.tools/en/tellraw.php",
-                "name": "Tellraw Generator",
-                "tooltip": ""
-            },
-            {
-                "url": "https://minecraft.tools/en/potion.php",
-                "name": "Potion Generator",
-                "tooltip": ""
-            },
-            {
-                "url": "https://minecraft.tools/en/shield.php",
-                "name": "Shield Generator",
-                "tooltip": ""
-            },
-            {
-                "url": "https://minecraft.tools/en/loots.php",
-                "name": "Loot Table Generator",
-                "tooltip": ""
-            }
-        ],
-        "price": "Free"
-    },
-    {
-        "tool": "MCWorkbench",
-        "description": "Useful tools & games from the MCWorkbench(formerly known as CraftMC) Website",
-        "keywords": ["craftmc", "CraftMc"],
-        "links": [
-            {
-                "url": "https://www.mcworkbench.com/tools/resource-pack-merger",
-                "name": "Resource Pack Merger",
-                "tooltip": ""
-            },
-            {
-                "url": "https://www.mcworkbench.com/tools/custom-totem-generator",
-                "name": "Custom Totem Generator",
-                "tooltip": ""
-            },
-            {
-                "url": "https://www.mcworkbench.com/tools/minecraft-skin-editor",
-                "name": "Minecraft Skin Editor",
-                "tooltip": ""
-            },
-            {
-                "url": "https://www.mcworkbench.com/tools/minecraft-skins",
-                "name": "Minecraft Skins Browser",
-                "tooltip": ""
-            },
-            {
-                "url": "https://www.mcworkbench.com/tools/minecraft-potion-brewing-guide",
-                "name": "Potion Brewing Guide",
-                "tooltip": ""
-            },
-            {
-                "url": "https://www.mcworkbench.com/tools/circle-generator-for-minecraft",
-                "name": "Circle Generator",
-                "tooltip": ""
-            },
-            {
-                "url": "https://www.mcworkbench.com/tools/minecraft-redstone-circuit-designer",
-                "name": "Redstone Circuit Designer",
-                "tooltip": ""
-            },
-            {
-                "url": "https://www.mcworkbench.com/tools/minecraft-world-paint",
-                "name": "World Paint Sandbox",
-                "tooltip": ""
-            },
-            {
-                "url": "https://www.mcworkbench.com/tools/dps-calculator",
-                "name": "DPS Calculator",
-                "tooltip": ""
-            },
-            {
-                "url": "https://www.mcworkbench.com/tools/pixel-art-generator",
-                "name": "Pixel Art Generator",
-                "tooltip": ""
-            },
-            {
-                "url": "https://www.mcworkbench.com/tools/bedrock-to-java-seed-converter",
-                "name": "Bedrock to Java Seed Converter",
-                "tooltip": ""
-            },
-            {
-                "url": "https://www.mcworkbench.com/tools/minecraft-motd-editor",
-                "name": "MOTD Editor",
-                "tooltip": ""
-            },
-            {
-                "url": "https://www.mcworkbench.com/tools/minecraft-nbt-editor",
-                "name": "NBT Editor",
-                "tooltip": ""
-            }
-        ],
-        "price": "Free"
-    },
-    {
-        "tool": "SkinMC",
-        "description": "Some of the important SkinMc tools",
-        "links": [
-            {
-                "url": "https://skinmc.net/banner/gallery",
-                "name": "Banner Gallery",
-                "tooltip": ""
-            },
-            {
-                "url": "https://skinmc.net/totem",
-                "name": "Totem Generator",
-                "tooltip": ""
-            },
-            {
-                "url": "https://skinmc.net/avatars",
-                "name": "Avatar Generator",
-                "tooltip": ""
-            },
-            {
-                "url": "https://skinmc.net/achievement",
-                "name": "Achievement Generator",
-                "tooltip": ""
+                "url": "https://needcoolershoes.com/",
+                "name": "NeedCoolerShoes",
+                "tooltip": "Mobile-friendly skin editor with layers and transparency"
             },
             {
                 "url": "https://skinmc.net/skin-editor",
-                "name": "Skin Editor",
-                "tooltip": ""
+                "name": "SkinMC Skin Editor",
+                "tooltip": "Browser-based skin editor"
+            },
+            {
+                "url": "https://www.mcworkbench.com/tools/minecraft-skin-editor",
+                "name": "MCWorkbench Skin Editor",
+                "tooltip": "Online skin editing tool"
+            },
+            {
+                "url": "https://minecraft.tools/en/skin.php",
+                "name": "Minecraft Tools Skin Generator",
+                "tooltip": "Generate skins from templates"
+            },
+            {
+                "url": "https://www.mcworkbench.com/tools/minecraft-skins",
+                "name": "MCWorkbench Skin Browser",
+                "tooltip": "Browse and download Minecraft skins"
+            },
+            {
+                "url": "https://skinmc.net/avatars",
+                "name": "SkinMC Avatar Generator",
+                "tooltip": "Generate player avatars from skins"
+            },
+            {
+                "url": "https://mcskins.top/flipskin",
+                "name": "Flip Skin",
+                "tooltip": "Horizontally flip any Minecraft skin"
+            },
+            {
+                "url": "https://babutxa.github.io/flipMinecraftSkin/",
+                "name": "Flip Minecraft Skin",
+                "tooltip": "Alternative skin flipping tool"
+            },
+            {
+                "url": "https://www.puttyland.com/santafy/",
+                "name": "Santafy",
+                "tooltip": "Add Santa hats and Christmas themes to skins"
+            },
+            {
+                "url": "https://xxlsteve.net/tools/cardboardify/",
+                "name": "Cardboardify",
+                "tooltip": "Make the front paper and back cardboard style"
+            },
+            {
+                "url": "https://stroepwafel.au/cape-studio",
+                "name": "MC Cape Studio",
+                "tooltip": "Create and preview custom Minecraft capes"
             }
         ],
         "price": "Free"
     },
     {
-        "tool": "Minecraft Tweaks",
-        "description": "A collection of resourcepacks, datapacks and addons",
+        "tool": "Texture, Resource & Data Pack Tools",
+        "description": "Merge, update, manage, and generate Minecraft resource packs, data packs, and tweaks.",
         "links": [
+            {
+                "url": "https://convertmcpack.net/",
+                "name": "Texture Pack Updater",
+                "tooltip": "Update old texture packs to newer Minecraft versions"
+            },
+            {
+                "url": "https://ejd799.github.io/moddery/",
+                "name": "Moddery",
+                "tooltip": "Resource pack and modding helper utility"
+            },
+            {
+                "url": "https://www.mcworkbench.com/tools/resource-pack-merger",
+                "name": "MCWorkbench Resource Pack Merger",
+                "tooltip": "Merge multiple resource packs"
+            },
+            {
+                "url": "https://weld.smithed.dev/",
+                "name": "Weld",
+                "tooltip": "Fast data and resource pack merger"
+            },
             {
                 "url": "https://vanillatweaks.net/",
                 "name": "Vanilla Tweaks",
-                "tooltip": ""
+                "tooltip": "Collection of vanilla-friendly resource packs and data packs"
             },
             {
                 "url": "https://bedrocktweaks.net/",
                 "name": "Bedrock Tweaks",
-                "tooltip": ""
+                "tooltip": "Tweaks and packs for Bedrock Edition"
+            },
+            {
+                "url": "https://skinmc.net/totem",
+                "name": "SkinMC Totem Generator",
+                "tooltip": "Generate custom totem resource packs"
+            },
+            {
+                "url": "https://www.mcworkbench.com/tools/custom-totem-generator",
+                "name": "MCWorkbench Custom Totem Generator",
+                "tooltip": "Create custom totem of undying textures"
             }
         ],
         "price": "Free"
     },
     {
-        "tool": "Minecraft Heads",
-        "description": "A gallery of different player heads",
+        "tool": "Command Generators",
+        "description": "Generate complex Minecraft commands, from simple give commands to advanced NPCs and displays.",
         "links": [
             {
-                "url": "https://minecraft-heads.com/",
-                "name": "Minecraft Heads",
-                "tooltip": ""
+                "url": "https://mcstacker.net/",
+                "name": "MCStacker",
+                "tooltip": "Powerful command generator for Java Edition"
             },
             {
-                "url": "https://skinmc.net/heads",
-                "name": "SkinMC Heads",
-                "tooltip": ""
-            }
-        ],
-        "price": "Free"
-    },
-    {
-        "tool": "Minecraft Bedrock Creator",
-        "description": "Minecraft bedrock tool for creating addons and stuff",
-        "links": [
-            {
-                "url": "https://mctools.dev/",
-                "name": "MC Tools Dev",
-                "tooltip": ""
-            }
-        ],
-        "price": "Free"
-    },
-    {
-        "tool": "Map art Generator",
-        "description": "A Minecraft mapart schematic and map.dat generator",
-        "links": [
-            {
-                "url": "https://rebane2001.com/mapartcraft",
-                "name": "Map Art Craft",
-                "tooltip": ""
-            }
-        ],
-        "price": "Free"
-    },
-    {
-        "tool": "Enchanting",
-        "description": "Most efficient way to enchant stuff",
-        "links": [
-            {
-                "url": "https://iamcal.github.io/enchant-order/",
-                "name": "Enchant Order Optimizer",
-                "tooltip": ""
-            }
-        ],
-        "price": "Free"
-    },
-    {
-        "tool": "Browser Games",
-        "description": "Unofficial minecraft browser games",
-        "links": [
-            {
-                "url": "https://classic.minecraft.net/",
-                "name": "Minecraft Classic",
-                "tooltip": ""
+                "url": "https://gamergeeks.net",
+                "name": "GamerGeeks",
+                "tooltip": "Collection of Minecraft command generation tools and guides"
             },
             {
-                "url": "https://minecraftle.zachmanson.com/",
-                "name": "Minecraftle",
-                "tooltip": ""
+                "url": "https://text.datapackhub.net/",
+                "name": "Datapack Hub Text Generator",
+                "tooltip": "JSON text component and tellraw command generator"
             },
             {
-                "url": "https://craftmc.net/tools/minecraft-world-paint",
-                "name": "CraftMc World Paint",
-                "tooltip": ""
+                "url": "https://haselkern.com/Minecraft-ArmorStand/",
+                "name": "Armor Stand Generator",
+                "tooltip": "Create customized armor stand commands"
             },
             {
-                "url": "https://www.mcdle.net/",
-                "name": "Mcdle",
-                "tooltip": ""
-            }
-        ],
-        "price": "Free"
-    },
-    {
-        "tool": "World tool",
-        "description": "convert & edit worlds",
-        "links": [
-            {
-                "url": "https://www.universalminecrafttool.com/",
-                "name": "Universal Minecraft Tool",
-                "tooltip": ""
-            }
-        ],
-        "price": "Freemium"
-    },
-    {
-        "tool": "Minecraft Server Tools, tunneling and more",
-        "description": "tools mostly focused around servers",
-        "links": [
-            {
-                "url": "https://mctools.org/",
-                "name": "MC Tools",
-                "tooltip": ""
+                "url": "https://give-to-summon.vercel.app/",
+                "name": "Give To Summon",
+                "tooltip": "Convert /give commands into /summon item commands"
             },
-            {
-                "url": "https://playit.gg/",
-                "name": "Playit.gg (Tunneling)",
-                "tooltip": ""
-            }
-        ],
-        "price": "Free"
-    },
-    {
-        "tool": "Minecraft Shape builder",
-        "description": "a step by step guide on how to build complicated shapes",
-        "links": [
-            {
-                "url": "https://www.plotz.co.uk/plotz-model.php?model=Ellipsoid",
-                "name": "Plotz Ellipsoid Generator",
-                "tooltip": ""
-            }
-        ],
-        "price": "Free"
-    },
-    {
-        "tool": "misode",
-        "description": "some useful tools for making datapacks",
-        "links": [
-            {
-                "url": "https://misode.github.io/loot-table/",
-                "name": "Loot Table Generator",
-                "tooltip": ""
-            },
-            {
-                "url": "https://misode.github.io/advancement/",
-                "name": "Advancement Generator",
-                "tooltip": ""
-            },
-            {
-                "url": "https://misode.github.io/recipe/",
-                "name": "Recipe Generator",
-                "tooltip": ""
-            },
-            {
-                "url": "https://misode.github.io/worldgen/",
-                "name": "Worldgen Generator",
-                "tooltip": ""
-            },
-            {
-                "url": "https://misode.github.io/damage-type/",
-                "name": "Damage Type Generator",
-                "tooltip": ""
-            },
-            {
-                "url": "https://misode.github.io/convert/",
-                "name": "Command Converter",
-                "tooltip": ""
-            },
-            {
-                "url": "https://misode.github.io/customized/?tab=basic",
-                "name": "Customized Generator",
-                "tooltip": ""
-            },
-            {
-                "url": "https://misode.github.io/template-placer/",
-                "name": "Template Placer",
-                "tooltip": ""
-            },
-            {
-                "url": "https://misode.github.io/transformation/",
-                "name": "Transformation Generator",
-                "tooltip": ""
-            },
-            {
-                "url": "https://misode.github.io/partners/",
-                "name": "Modded Generators",
-                "tooltip": ""
-            },
-            {
-                "url": "https://misode.github.io/generators/",
-                "name": "All Generators",
-                "tooltip": ""
-            }
-        ],
-        "price": "Free"
-    },
-    {
-        "tool": "Minecraft science",
-        "description": "another Minecraft tools website",
-        "links": [
             {
                 "url": "https://minecraftcommand.science/en/tool-generator",
                 "name": "Minecraft Command Science",
-                "tooltip": ""
-            }
-        ],
-        "price": "Free"
-    },
-    {
-        "tool": "Easy Map Updater",
-        "description": "update all commands in a world to the latest version",
-        "links": [
-            {
-                "url": "https://github.com/StickyPiston-Hosting/Easy-Map-Updater",
-                "name": "Easy Map Updater",
-                "tooltip": ""
-            }
-        ],
-        "price": "Free"
-    },
-    {
-        "tool": "Minecraft Assets",
-        "description": "a library for every Minecraft asset",
-        "links": [
-            {
-                "url": "https://mcasset.cloud/",
-                "name": "MC Assets",
-                "tooltip": ""
+                "tooltip": "Command generation tools"
             },
             {
-                "url": "https://mcicons.ccleaf.com/",
-                "name": "McIcons By ccLeaf",
-                "tooltip": ""
-            }
-        ],
-        "price": "Free"
-    },
-    {
-        "tool": "Weld",
-        "description": "fastest data & resource pack merger",
-        "links": [
-            {
-                "url": "https://weld.smithed.dev/",
-                "name": "Weld",
-                "tooltip": ""
-            }
-        ],
-        "price": "Free"
-    },
-    {
-        "tool": "Mural Generator",
-        "description": "A Website which allows you to generate murals",
-        "links": [
+                "url": "https://mrgarretto.com/",
+                "name": "Mr Garretto's Tools",
+                "tooltip": "Various command-related tools and generators"
+            },
             {
                 "url": "https://mcstacker.net/murals",
-                "name": "Mc stacker Mural",
-                "tooltip": ""
-            }
-        ],
-        "price": "Free"
-    },
-    {
-        "tool": "npc generator",
-        "description": "A Website which allows you to generate Npcs",
-        "links": [
+                "name": "MCStacker Mural Generator",
+                "tooltip": "Generate mural commands and structures"
+            },
             {
                 "url": "https://mcstacker.net/npc/",
-                "name": "Mc stacker Npc",
-                "tooltip": ""
+                "name": "MCStacker NPC Generator",
+                "tooltip": "Generate customized NPC commands"
+            },
+            {
+                "url": "https://docs.papermc.io/misc/tools/item-command-converter",
+                "name": "PaperMC Command Converter",
+                "tooltip": "Update commands from any version to the latest"
+            },
+            {
+                "url": "https://misode.github.io/convert/",
+                "name": "Misode Command Converter",
+                "tooltip": "Convert commands between versions"
+            },
+            {
+                "url": "https://minecraft.tools/en/firework.php",
+                "name": "Firework Generator",
+                "tooltip": "Generate custom firework commands"
+            },
+            {
+                "url": "https://minecraft.tools/en/spawn.php",
+                "name": "Spawn Generator",
+                "tooltip": "Generate mob spawn commands"
+            },
+            {
+                "url": "https://minecraft.tools/en/enchant.php",
+                "name": "Enchant Generator",
+                "tooltip": "Generate enchanted item commands"
+            },
+            {
+                "url": "https://minecraft.tools/en/banner.php",
+                "name": "Banner Generator",
+                "tooltip": "Generate custom banner commands"
+            },
+            {
+                "url": "https://minecraft.tools/en/armor.php",
+                "name": "Armor Generator",
+                "tooltip": "Generate custom armor commands"
+            },
+            {
+                "url": "https://minecraft.tools/en/title.php",
+                "name": "Title Generator",
+                "tooltip": "Generate title and subtitle commands"
+            },
+            {
+                "url": "https://minecraft.tools/en/sign.php",
+                "name": "Sign Generator",
+                "tooltip": "Generate sign text commands"
+            },
+            {
+                "url": "https://minecraft.tools/en/book.php",
+                "name": "Book Generator",
+                "tooltip": "Generate written book commands"
+            },
+            {
+                "url": "https://minecraft.tools/en/tellraw.php",
+                "name": "Tellraw Generator",
+                "tooltip": "Generate tellraw commands"
+            },
+            {
+                "url": "https://minecraft.tools/en/potion.php",
+                "name": "Potion Generator",
+                "tooltip": "Generate custom potion commands"
+            },
+            {
+                "url": "https://minecraft.tools/en/shield.php",
+                "name": "Shield Generator",
+                "tooltip": "Generate custom shield commands"
+            },
+            {
+                "url": "https://minecraft.tools/en/beacon-color.php",
+                "name": "Beacon Color Generator",
+                "tooltip": "Generate beacon color commands"
+            },
+            {
+                "url": "https://minecraft.tools/en/color-code.php",
+                "name": "Color Codes",
+                "tooltip": "Minecraft chat color code reference"
+            },
+            {
+                "url": "https://skinmc.net/banner/gallery",
+                "name": "SkinMC Banner Gallery",
+                "tooltip": "Browse and generate banner designs"
+            },
+            {
+                "url": "https://skinmc.net/achievement",
+                "name": "SkinMC Achievement Generator",
+                "tooltip": "Generate custom achievement images"
             }
         ],
         "price": "Free"
     },
     {
-        "tool": "Resource packs, datapacks, mods, etc.",
-        "description": "upload or download resource packs, datapacks, mods and more",
+        "tool": "Recipe, Loot & Advancement Generators",
+        "description": "Generate JSON files for custom crafting recipes, loot tables, and advancements for data packs.",
         "links": [
+            {
+                "url": "https://crafting.thedestruc7i0n.ca/",
+                "name": "Crafting Generator",
+                "tooltip": "Generate custom crafting recipe JSON"
+            },
+            {
+                "url": "https://advancements.thedestruc7i0n.ca/",
+                "name": "Advancements Generator",
+                "tooltip": "Generate custom advancement JSON"
+            },
+            {
+                "url": "https://misode.github.io/recipe/",
+                "name": "Misode Recipe Generator",
+                "tooltip": "Data pack recipe generator"
+            },
+            {
+                "url": "https://misode.github.io/advancement/",
+                "name": "Misode Advancement Generator",
+                "tooltip": "Data pack advancement generator"
+            },
+            {
+                "url": "https://misode.github.io/loot-table/",
+                "name": "Misode Loot Table Generator",
+                "tooltip": "Data pack loot table generator"
+            },
+            {
+                "url": "https://minecraft.tools/en/custom-crafting.php",
+                "name": "Custom Crafting",
+                "tooltip": "Generate custom crafting recipes"
+            },
+            {
+                "url": "https://minecraft.tools/en/crafting.php",
+                "name": "Crafting Generator",
+                "tooltip": "Standard crafting recipe generator"
+            },
+            {
+                "url": "https://minecraft.tools/en/loots.php",
+                "name": "Loot Table Generator",
+                "tooltip": "Generate loot table JSON"
+            },
+            {
+                "url": "https://outils.carrade.eu/minecraft/loot_tables",
+                "name": "Loot Tables Generator",
+                "tooltip": "Generate custom loot table JSON"
+            }
+        ],
+        "price": "Free"
+    },
+    {
+        "tool": "Content Platforms & Mod Repositories",
+        "description": "Discover, download, and share Minecraft mods, add-ons, maps, skins, and data packs.",
+        "links": [
+            {
+                "url": "https://modbay.org/",
+                "name": "ModBay",
+                "tooltip": "Portal for MCPE add-ons, mods, and maps"
+            },
             {
                 "url": "https://www.planetminecraft.com/",
                 "name": "Planet Minecraft",
-                "tooltip": ""
+                "tooltip": "Community platform for Minecraft content"
             },
             {
                 "url": "https://modrinth.com/",
                 "name": "Modrinth",
-                "tooltip": ""
+                "tooltip": "Modern mod and resource platform"
             },
             {
                 "url": "https://www.curseforge.com/minecraft/search?page=1&pageSize=20&sortBy=relevancy",
                 "name": "CurseForge",
-                "tooltip": ""
+                "tooltip": "Large repository of Minecraft mods and packs"
+            },
+            {
+                "url": "https://www.schematicannon.com/",
+                "name": "Schematic Cannon",
+                "tooltip": "Create mod schematic sharing platform"
+            },
+            {
+                "url": "https://createmod.com/",
+                "name": "Create Mod",
+                "tooltip": "Official website for the Create mod"
+            },
+            {
+                "url": "https://modrinth-statistics.tobinio.dev/reverseSearch",
+                "name": "Modrinth Reverse Search",
+                "tooltip": "Find which modpacks include a specific project"
             }
         ],
         "price": "Free"
     },
     {
-        "tool": "Creator Websites",
-        "description": "The websites of Minecraft content creators",
+        "tool": "Server Discovery, Status & Lists",
+        "description": "Find Minecraft servers, check their status, and browse server directories.",
         "links": [
             {
-                "url": "https://ijaminecraft.com/en/creations",
-                "name": "IJA Minecraft",
-                "tooltip": ""
+                "url": "https://so.airblo.ws/",
+                "name": "ServerOverflow",
+                "tooltip": "Server list and community platform"
+            },
+            {
+                "url": "https://findmcserver.com/",
+                "name": "Official Minecraft Server List",
+                "tooltip": "Mojang-affiliated server discovery"
+            },
+            {
+                "url": "https://minecraft.buzz/",
+                "name": "Minecraft.buzz",
+                "tooltip": "Large server list with live player counts"
+            },
+            {
+                "url": "https://myuui.com/",
+                "name": "Free Minecraft Hosters List",
+                "tooltip": "Directory of free server hosting providers"
+            },
+            {
+                "url": "https://mcsrvstat.us/",
+                "name": "Minecraft Server Status",
+                "tooltip": "Check Minecraft server status and information"
             }
         ],
-        "price": "Freemium"
+        "price": "Free"
     },
     {
-        "tool": "Server hosting",
-        "description": "Different server Hosts",
+        "tool": "Server Metrics",
+        "description": "Plugin analytics and server performance tracking for Minecraft server administrators.",
+        "links": [
+            {
+                "url": "https://bstats.org/",
+                "name": "bStats",
+                "tooltip": "Collects anonymous plugin metrics"
+            }
+        ],
+        "price": "Free"
+    },
+    {
+        "tool": "Server Hosting Providers",
+        "description": "Paid, free, and freemium Minecraft server hosting services.",
         "links": [
             {
                 "url": "https://www.bisecthosting.com/",
@@ -742,13 +478,13 @@
             },
             {
                 "url": "https://play.hosting/",
-                "name": "Play Hosting (Free)",
-                "tooltip": ""
+                "name": "Play Hosting",
+                "tooltip": "Free hosting option"
             },
             {
                 "url": "https://aternos.org/:en/",
-                "name": "Aternos (Free)",
-                "tooltip": ""
+                "name": "Aternos",
+                "tooltip": "Free hosting"
             },
             {
                 "url": "https://modrinth.com/servers",
@@ -757,8 +493,8 @@
             },
             {
                 "url": "https://scalacube.com/de/free/minecraft/server/hosting",
-                "name": "ScalaCube (Free & Paid)",
-                "tooltip": ""
+                "name": "ScalaCube",
+                "tooltip": "Free and paid options"
             },
             {
                 "url": "https://mine-hoster.de/",
@@ -777,8 +513,8 @@
             },
             {
                 "url": "https://app.minehut.com/dashboard/home",
-                "name": "Minehut (Free)",
-                "tooltip": ""
+                "name": "Minehut",
+                "tooltip": "Free hosting"
             },
             {
                 "url": "https://apexminecrafthosting.com/de/",
@@ -797,28 +533,28 @@
             },
             {
                 "url": "https://www.minecraft.net/de-de/download/server",
-                "name": "Official Server (Self host, Free)",
-                "tooltip": ""
+                "name": "Official Server",
+                "tooltip": "Self-host, free"
             },
             {
                 "url": "https://freemcserver.net/",
-                "name": "FreeMCServer (Free)",
-                "tooltip": ""
+                "name": "FreeMCServer",
+                "tooltip": "Free hosting"
             },
             {
                 "url": "https://falixnodes.net/free-minecraft-server-hosting",
-                "name": "FalixNodes (Free)",
-                "tooltip": ""
+                "name": "FalixNodes",
+                "tooltip": "Free hosting"
             },
             {
                 "url": "https://axenthost.com/de/games/minecraft/",
-                "name": "AxentHost (Free)",
-                "tooltip": ""
+                "name": "AxentHost",
+                "tooltip": "Free hosting"
             },
             {
                 "url": "https://gamerunner.com/minecraft-server/",
-                "name": "GameRunner (Free)",
-                "tooltip": ""
+                "name": "GameRunner",
+                "tooltip": "Free hosting"
             },
             {
                 "url": "https://server.pro/",
@@ -838,12 +574,12 @@
             {
                 "url": "https://www.hostinger.com/de/tutorials/minecraft-server-erstellen",
                 "name": "Hostinger Tutorial",
-                "tooltip": ""
+                "tooltip": "Self-hosting tutorial"
             },
             {
                 "url": "https://minekeep.net/",
-                "name": "MineKeep (Free)",
-                "tooltip": ""
+                "name": "MineKeep",
+                "tooltip": "Free hosting"
             },
             {
                 "url": "https://instanthost.gg/de",
@@ -859,237 +595,801 @@
                 "url": "https://nodecraft.com/games/minecraft-server-hosting",
                 "name": "Nodecraft",
                 "tooltip": ""
-            }
-        ],
-        "price": "Free, paid & Freemium"
-    },
-    {
-        "tool": "Modded Tools",
-        "description": "Tools For Specific mods",
-        "links": [
-            {
-                "url": "https://vanilama-modded.github.io/Kubejs.editor/",
-                "name": "KubeJS Editor",
-                "tooltip": ""
             },
             {
-                "url": "https://coolsa.github.io/mcCustomGuiGen/",
-                "name": "Custom GUI Generator",
-                "tooltip": ""
+                "url": "https://wisehosting.com/blog/every-minecraft-server-hosting-provider",
+                "name": "WiseHosting Provider List",
+                "tooltip": "Complete hosting provider comparison"
+            },
+            {
+                "url": "https://bestminecraftserverhost.com/",
+                "name": "Best Minecraft Server Host",
+                "tooltip": "Expert reviews and rankings"
             }
         ],
-        "price": "free"
+        "price": "Free, Freemium & Paid"
     },
     {
-        "tool": "Image to display",
-        "description": "convert images into particle display functions or text display functions",
+        "tool": "Browser Games, Quizzes & Puzzles",
+        "description": "Play Minecraft-related games, take quizzes, and solve puzzles in your browser.",
         "links": [
+            {
+                "url": "https://craftconnections.net/",
+                "name": "CraftConnections",
+                "tooltip": "Group four related Minecraft things"
+            },
+            {
+                "url": "https://joakimthorsen.github.io/MCPropertyEncyclopedia/propertydle/",
+                "name": "Propertydle",
+                "tooltip": "Guess the Minecraft block game"
+            },
+            {
+                "url": "https://minecraftquiz.com/home",
+                "name": "Minecraft Quiz",
+                "tooltip": "Test your Minecraft knowledge"
+            },
+            {
+                "url": "https://classic.minecraft.net/",
+                "name": "Minecraft Classic",
+                "tooltip": "Play the original Minecraft Classic in browser"
+            },
+            {
+                "url": "https://minecraftle.zachmanson.com/",
+                "name": "Minecraftle",
+                "tooltip": "Wordle-inspired Minecraft crafting game"
+            },
+            {
+                "url": "https://www.mcdle.net/",
+                "name": "Mcdle",
+                "tooltip": "Minecraft guessing game"
+            },
+            {
+                "url": "https://www.mcworkbench.com/tools/minecraft-world-paint",
+                "name": "World Paint Sandbox",
+                "tooltip": "Browser-based world painting sandbox"
+            }
+        ],
+        "price": "Free"
+    },
+    {
+        "tool": "Web Client",
+        "description": "Play Minecraft directly in your browser without installation.",
+        "links": [
+            {
+                "url": "https://prismarinejs.github.io/prismarine-web-client/",
+                "name": "Prismarine Web Client",
+                "tooltip": "Open-source web-based Minecraft client"
+            }
+        ],
+        "price": "Free"
+    },
+    {
+        "tool": "World Editors & Managers",
+        "description": "Edit terrain, select chunks, update commands, and manage Minecraft world files.",
+        "links": [
+            {
+                "url": "https://www.worldpainter.net/",
+                "name": "WorldPainter",
+                "tooltip": "Interactive graphical map generator and terrain painter"
+            },
+            {
+                "url": "https://www.amuletmc.com/",
+                "name": "Amulet Editor",
+                "tooltip": "Modern successor to MCEdit for world editing"
+            },
+            {
+                "url": "https://github.com/Querz/mcaselector",
+                "name": "MCA Selector",
+                "tooltip": "Select, delete, or export chunks from world files"
+            },
+            {
+                "url": "https://www.universalminecrafttool.com/",
+                "name": "Universal Minecraft Tool",
+                "tooltip": "Convert and edit worlds across editions"
+            },
+            {
+                "url": "https://github.com/StickyPiston-Hosting/Easy-Map-Updater",
+                "name": "Easy Map Updater",
+                "tooltip": "Update all commands in a world to the latest version"
+            }
+        ],
+        "price": "Free & Freemium"
+    },
+    {
+        "tool": "World Converters",
+        "description": "Convert Minecraft worlds between Java and Bedrock editions and view world data.",
+        "links": [
+            {
+                "url": "https://www.chunker.app/",
+                "name": "Chunker",
+                "tooltip": "Convert worlds between Java and Bedrock"
+            },
+            {
+                "url": "https://unmined.net/",
+                "name": "Unmined",
+                "tooltip": "World map viewer and explorer"
+            }
+        ],
+        "price": "Free"
+    },
+    {
+        "tool": "Seed Maps, Finders & Biome Locators",
+        "description": "Preview seeds, locate biomes and structures, and find specific world generation.",
+        "links": [
+            {
+                "url": "https://github.com/toolbox4minecraft/amidst",
+                "name": "Amidst",
+                "tooltip": "Advanced Minecraft Interface and Data/Structure Tracking"
+            },
+            {
+                "url": "https://github.com/Cubitect/cubiomes-viewer",
+                "name": "Cubiomes Viewer",
+                "tooltip": "Efficient graphical seed finder and map viewer"
+            },
+            {
+                "url": "https://www.chunkbase.com/apps/seed-map",
+                "name": "Chunkbase Seed Map",
+                "tooltip": "Find structures and biomes by world seed"
+            },
+            {
+                "url": "https://www.seedmap.app/",
+                "name": "SeedMap.app",
+                "tooltip": "Apps and tools for seed exploration"
+            },
+            {
+                "url": "https://www.seeds.gg/",
+                "name": "Seeds.gg",
+                "tooltip": "Seed map viewer with structure and biome search"
+            },
+            {
+                "url": "https://www.mcseeder.com/",
+                "name": "Seeder",
+                "tooltip": "Find, show, share and admire Minecraft seeds"
+            },
+            {
+                "url": "https://mcseedmap.net/",
+                "name": "MC Seed Map",
+                "tooltip": "Seed map viewer and seed finder"
+            },
+            {
+                "url": "https://map.jacobsjo.eu/",
+                "name": "Datapack Map",
+                "tooltip": "Seed map supporting datapacks and some mods"
+            },
+            {
+                "url": "https://www.mcworkbench.com/tools/bedrock-to-java-seed-converter",
+                "name": "Bedrock to Java Seed Converter",
+                "tooltip": "Convert seeds between editions"
+            }
+        ],
+        "price": "Free"
+    },
+    {
+        "tool": "Map Renderers",
+        "description": "Generate high-performance interactive web maps and beautiful renders from Minecraft worlds.",
+        "links": [
+            {
+                "url": "https://github.com/mapcrafter/mapcrafter",
+                "name": "Mapcrafter",
+                "tooltip": "High performance Minecraft map renderer"
+            },
+            {
+                "url": "https://chunky-dev.github.io/docs/",
+                "name": "Chunky",
+                "tooltip": "Minecraft path tracing render tool for beautiful images"
+            },
+            {
+                "url": "https://overviewer.org/",
+                "name": "Overviewer",
+                "tooltip": "Generate Google Maps-style interactive world maps"
+            }
+        ],
+        "price": "Free"
+    },
+    {
+        "tool": "Image, Map Art & Display Converters",
+        "description": "Convert images, pixel art, and 3D models into Minecraft maps, banners, structures, particles, and displays.",
+        "links": [
+            {
+                "url": "https://github.com/tryashtar/image-map",
+                "name": "Image Map",
+                "tooltip": "Convert images to in-game maps for Java and Bedrock"
+            },
+            {
+                "url": "https://github.com/MARSTeamMC/Image2Banners",
+                "name": "Image2Banners",
+                "tooltip": "Convert images into complex banner patterns"
+            },
+            {
+                "url": "https://github.com/theonlytruemuck/mcOpticalGenisis",
+                "name": "mcOpticalGenisis",
+                "tooltip": "Convert pixel art into Minecraft structure files"
+            },
+            {
+                "url": "https://blocky.tools/maps",
+                "name": "Blocky.tools Maps",
+                "tooltip": "NBT manipulator and map art generator"
+            },
+            {
+                "url": "https://mc-map.djfun.de/",
+                "name": "MC Map Generator",
+                "tooltip": "Upload a picture and turn it into a map"
+            },
+            {
+                "url": "https://www.minecraftmapmaker.com/",
+                "name": "M3 Map Maker",
+                "tooltip": "Create map art with custom palettes and schematic export"
+            },
+            {
+                "url": "https://rebane2001.com/mapartcraft",
+                "name": "Map Art Craft",
+                "tooltip": "Map art schematic and map.dat generator"
+            },
+            {
+                "url": "https://www.mcworkbench.com/tools/pixel-art-generator",
+                "name": "MCWorkbench Pixel Art Generator",
+                "tooltip": "Generate pixel art from images"
+            },
             {
                 "url": "https://github.com/kemo14331/Particle-Converter",
                 "name": "Particle Converter",
-                "tooltip": ""
+                "tooltip": "Convert images into particle display functions"
             },
             {
                 "url": "https://winss.xyz/dustlab/index.html",
                 "name": "Dustlab",
-                "tooltip": "convert images and 3D models to particles!"
+                "tooltip": "Convert images and 3D models to particles"
             },
             {
                 "url": "https://github.com/META-Tommy/Image-To-Text_Display",
                 "name": "Image to Text Display",
-                "tooltip": ""
+                "tooltip": "Convert images to text display functions"
             },
             {
                 "url": "https://ciaccodavi.de/qbdp/acg/",
                 "name": "Magic Circle Generator",
-                "tooltip": ""
-            }
-        ],
-        "price": "free"
-    },
-    {
-        "tool": "mcmeta",
-        "description": "a library for every Minecraft asset",
-        "links": [
-            {
-                "url": "https://github.com/misode/mcmeta",
-                "name": "MCMeta GitHub",
-                "tooltip": ""
-            }
-        ],
-        "price": "free"
-    },
-    {
-        "tool": "TagLib",
-        "description": "Minecraft's biggest tag libary",
-        "links": [
-            {
-                "url": "https://github.com/HeDeAnTheonlyone/Taglib",
-                "name": "TagLib",
-                "tooltip": ""
-            }
-        ],
-        "price": "free"
-    },
-    {
-        "tool": "Standard Galactic Alphabet De/Encoder",
-        "description": "A website that lets you encode and decode text into the Standard Galactic Alphabet (minecraft Enchantment table language)",
-        "links": [
-            {
-                "url": "https://www.dcode.fr/standard-galactic-alphabet",
-                "name": "dcode",
-                "tooltip": ""
-            },
-            {
-                "url": "https://lingojam.com/StandardGalacticAlphabet",
-                "name": "lingojam",
-                "tooltip": ""
-            }
-        ],
-        "price": "free"
-    },
-    {
-        "tool": "Minecraft Emojis",
-        "description": "A List Of All Minecraft Supported Emojis",
-        "links": [
-            {
-                "url": "https://gist.github.com/tomasdev/92bde758ee8e65fa826717b24cfd0463",
-                "name": "Minecraft Emojis List",
-                "tooltip": ""
-            }
-        ],
-        "price": "free"
-    },
-    {
-        "tool": "GalSergey's Minecraft Tools",
-        "description": "1. A Viewer datapack Assembler, 2. Item Component Viewer, 3. Command Block Assembler",
-        "links": [
-            {
-                "url": "https://far.ddns.me/",
-                "name": "Datapack Assembler",
-                "tooltip": ""
-            },
-            {
-                "url": "https://far.ddns.me/item?ver=1.21.8",
-                "name": "Item Component Viewer",
-                "tooltip": ""
-            },
-            {
-                "url": "https://far.ddns.me/cba",
-                "name": "Command Block Assembler",
-                "tooltip": ""
-            }
-        ],
-        "price": "free"
-    },
-    {
-        "tool": "Create Mod Schematics",
-        "description": "Websites where you can download Create mod Shematics",
-        "links": [
-            {
-                "url": "https://www.schematicannon.com/",
-                "name": "Schematic Cannon",
-                "tooltip": ""
-            },
-            {
-                "url": "https://createmod.com/",
-                "name": "Create Mod",
-                "tooltip": ""
+                "tooltip": "Generate magic circle displays"
             }
         ],
         "price": "Free"
     },
     {
-        "tool": "Mod Generator",
-        "description": "Create Minecraft mods without coding.",
+        "tool": "Music Creation",
+        "description": "Create and edit Minecraft note block songs and music.",
         "links": [
             {
-                "url": "https://www.creativemode.net/",
-                "name": "CreativeMode",
-                "tooltip": ""
-            },
-            {
-                "url": "https://kodari.ai/auth/register?ref=KOD-ZMHND",
-                "name": "Kodari Ai",
-                "tooltip": "AI-powered Minecraft plugin development. Create, customize, and deploy plugins with ease."
+                "url": "https://noteblock.studio/",
+                "name": "Note Block Studio",
+                "tooltip": "Open-source Minecraft music editor"
             }
         ],
-        "price": "Freemium"
+        "price": "Free"
     },
     {
-        "tool": "Block Color Palette",
-        "description": "Quickly find what Minecraft blocks match a certain color or find eye pleasing palettes to build with",
+        "tool": "Wiki, Guides & References",
+        "description": "Official and community-made reference guides, wikis, cheatsheets, and update timelines.",
         "links": [
+            {
+                "url": "https://minecraft.wiki/",
+                "name": "Minecraft Wiki",
+                "tooltip": "Official Minecraft wiki"
+            },
+            {
+                "url": "https://minecraft.wiki/w/Skin#Templates",
+                "name": "Minecraft Wiki - Skin Templates",
+                "tooltip": "Official skin template reference"
+            },
+            {
+                "url": "https://minecraft.fandom.com/wiki/Minecraft_Wiki",
+                "name": "Fandom Wiki",
+                "tooltip": "Legacy Minecraft wiki on Fandom"
+            },
+            {
+                "url": "https://datapack.wiki/",
+                "name": "Datapack Wiki",
+                "tooltip": "Wiki for Minecraft data packs"
+            },
+            {
+                "url": "https://kubejs.com/wiki",
+                "name": "KubeJS Wiki",
+                "tooltip": "Documentation for KubeJS scripting"
+            },
+            {
+                "url": "https://minecraftcommands.github.io/wiki/resources",
+                "name": "Minecraft Commands Wiki",
+                "tooltip": "Resources and documentation for commands"
+            },
+            {
+                "url": "https://lumt.qu30.qzz.io/cheatsheets/trading-guide",
+                "name": "LUMT Trading Guide",
+                "tooltip": "Villager trading reference cheatsheet"
+            },
+            {
+                "url": "https://lumt.qu30.qzz.io/cheatsheets/files/various_keybinds.pdf",
+                "name": "LUMT Keybinds PDF",
+                "tooltip": "Printable keybind reference"
+            },
+            {
+                "url": "https://lumt.qu30.qzz.io/cheatsheets/circle-guide",
+                "name": "LUMT Circle Guide",
+                "tooltip": "Circle building guide and reference"
+            },
+            {
+                "url": "https://www.mcworkbench.com/tools/minecraft-potion-brewing-guide",
+                "name": "MCWorkbench Potion Brewing Guide",
+                "tooltip": "Interactive potion brewing reference"
+            },
+            {
+                "url": "https://minecraft-timeline.github.io/",
+                "name": "Minecraft Timeline",
+                "tooltip": "Timeline of Minecraft updates"
+            }
+        ],
+        "price": "Free"
+    },
+    {
+        "tool": "Color Palettes & Block Colors",
+        "description": "Reference tools for Minecraft block colors, hex codes, and build palettes.",
+        "links": [
+            {
+                "url": "https://colorswall.com/palette/3847",
+                "name": "ColorsWall - Minecraft Colors",
+                "tooltip": "Hex color codes for Minecraft blocks and items"
+            },
             {
                 "url": "https://blockcolors.app/",
                 "name": "Blockcolors",
-                "tooltip": ""
+                "tooltip": "Find blocks matching specific colors"
             },
             {
                 "url": "https://www.blockpalettes.com/",
                 "name": "Block Palettes",
-                "tooltip": ""
+                "tooltip": "Eye-pleasing block palettes for building"
             }
         ],
         "price": "Free"
     },
     {
-        "tool": "Mr Garretto's Tools",
-        "description": "some command related tools",
+        "tool": "Ore & Structure Finders",
+        "description": "Locate diamonds, ancient debris, and other structures in existing Minecraft world saves.",
         "links": [
             {
-                "url": "https://mrgarretto.com/",
-                "name": "Mr Garretto's Tools",
-                "tooltip": ""
+                "url": "https://www.orefinder.gg/",
+                "name": "Ore Finder",
+                "tooltip": "Works with Java and Bedrock Edition worlds"
             }
         ],
-        "price": "free"
-    },
-    {
-        "tool": "Project Reverse Search",
-        "description": "find out which modpacks include a specific project.",
-        "links": [
-            {
-                "url": "https://modrinth-statistics.tobinio.dev/reverseSearch",
-                "name": "Find all Modpacks which include a Project",
-                "tooltip": "(only projects uploaded to modrinth are supported)"
-            }
-            ],
         "price": "Free"
     },
     {
-        "tool": "View/Convert 3D Models/Schematics",
-        "description": "Create Minecraft builds, generate Minecraft build guides, voxelize 3D models, and convert worlds across Java, Bedrock, and Hytale.",
+        "tool": "World Size Calculator",
+        "description": "Calculate the expected file size of a Minecraft world before pregenerating chunks.",
         "links": [
             {
-                "url": "https://bloxelizer.com/",
-                "name": "Bloxelizer",
-                "tooltip": ""
+                "url": "https://onlinemo.de/world",
+                "name": "World Size Calculator",
+                "tooltip": "Estimate disk usage for world pregeneration"
             }
         ],
-        "price": "Freemium"
+        "price": "Free"
     },
     {
-    "tool": "minecraft update history",
-    "description": "a timeline of minecrafts updates",
-    "links": [
-        {
-            "url": "https://minecraft-timeline.github.io/",
-            "name": "minecraft timeline"
-        }
-    ],
-    "price": "Free"
-    },
-    {
-        "tool": "Card/Badge Generator",
-        "description": "A Website which allows you to generate badges for your projects",
+        "tool": "Monolith Renderer",
+        "description": "Specialized renderer for visualizing Minecraft monolith structures and terrain.",
         "links": [
+            {
+                "url": "https://kahomayo.github.io/monolith-renderer/",
+                "name": "Monolith Renderer",
+                "tooltip": "Browser-based monolith visualization tool"
+            }
+        ],
+        "price": "Free"
+    },
+    {
+        "tool": "Shape, Gradient & Build Planners",
+        "description": "Generators for circles, spheres, domes, gradients, and redstone circuit planning.",
+        "links": [
+            {
+                "url": "https://minecraftcirclegenerator.app/",
+                "name": "Minecraft Circle Generator",
+                "tooltip": "Circles, ellipses, and ovals with templates"
+            },
+            {
+                "url": "https://malachyfernandez.github.io/minecraftGradient/",
+                "name": "Minecraft Gradient",
+                "tooltip": "Generate smooth block color gradients"
+            },
+            {
+                "url": "https://1280px.github.io/hueblocks/",
+                "name": "HueBlocks",
+                "tooltip": "Block palette and gradient tool"
+            },
+            {
+                "url": "https://donatstudios.com/PixelCircleGenerator",
+                "name": "Pixel Circle Generator",
+                "tooltip": "Pixelated circle and oval generator"
+            },
+            {
+                "url": "https://new.oranj.io/sphere/",
+                "name": "Sphere Generator",
+                "tooltip": "Generate Minecraft sphere patterns"
+            },
+            {
+                "url": "https://cquinn.dev/pixel-shape-generator/",
+                "name": "Pixel Shape Generator",
+                "tooltip": "General pixelated shape generation"
+            },
+            {
+                "url": "https://www.domegenmc.com/",
+                "name": "Dome Generator",
+                "tooltip": "Generate and visualize domed roofs"
+            },
+            {
+                "url": "https://www.plotz.co.uk/plotz-model.php?model=Ellipsoid",
+                "name": "Plotz Ellipsoid Generator",
+                "tooltip": "Step-by-step guide for building ellipsoids"
+            },
+            {
+                "url": "https://www.mcworkbench.com/tools/circle-generator-for-minecraft",
+                "name": "MCWorkbench Circle Generator",
+                "tooltip": "Circle generation tool"
+            },
+            {
+                "url": "https://www.mcworkbench.com/tools/minecraft-redstone-circuit-designer",
+                "name": "Redstone Circuit Designer",
+                "tooltip": "Plan and design redstone circuits"
+            }
+        ],
+        "price": "Free"
+    },
+    {
+        "tool": "Enchantment Optimizers",
+        "description": "Calculate the cheapest anvil XP order and avoid 'Too Expensive' when combining enchantments.",
+        "links": [
+            {
+                "url": "https://iamcal.github.io/enchant-order/",
+                "name": "Enchant Order",
+                "tooltip": "Simple enchantment order calculator"
+            },
+            {
+                "url": "https://enchantmentoptimization.vercel.app/",
+                "name": "Enchantment Optimizer",
+                "tooltip": "Advanced XP optimization for Java and Bedrock"
+            }
+        ],
+        "price": "Free"
+    },
+    {
+        "tool": "Armor Trim Previewers",
+        "description": "Preview and generate armor trim combinations for Minecraft's smithing system.",
+        "links": [
+            {
+                "url": "https://minetrim.com/",
+                "name": "Minetrim",
+                "tooltip": "Armor trim pattern generator"
+            },
+            {
+                "url": "https://www.armortrims.com/",
+                "name": "ArmorTrims.com",
+                "tooltip": "Try different armor and trim combinations"
+            }
+        ],
+        "price": "Free"
+    },
+    {
+        "tool": "Block Tools, Calculators & NBT Editors",
+        "description": "Useful calculators, NBT editors, and block-related utilities for builders and admins.",
+        "links": [
+            {
+                "url": "https://blocktools.deep-orbit.com/",
+                "name": "Block Tools",
+                "tooltip": "Nether calculator, direction finder, and more"
+            },
+            {
+                "url": "https://www.mcworkbench.com/tools/dps-calculator",
+                "name": "DPS Calculator",
+                "tooltip": "Damage per second calculator"
+            },
+            {
+                "url": "https://www.mcworkbench.com/tools/minecraft-nbt-editor",
+                "name": "MCWorkbench NBT Editor",
+                "tooltip": "Browser-based NBT editor"
+            },
+            {
+                "url": "https://mcfunction-to-structure-nbt.vercel.app/",
+                "name": "Mcfunction2Nbt",
+                "tooltip": "Convert .mcfunction files to command block structure NBT files"
+            }
+        ],
+        "price": "Free"
+    },
+    {
+        "tool": "Minecraft Heads Gallery",
+        "description": "Browse and search galleries of decorative player heads for building.",
+        "links": [
+            {
+                "url": "https://minecraft-heads.com/",
+                "name": "Minecraft Heads",
+                "tooltip": "Large gallery of custom player heads"
+            },
+            {
+                "url": "https://skinmc.net/heads",
+                "name": "SkinMC Heads",
+                "tooltip": "Browse player heads by category"
+            }
+        ],
+        "price": "Free"
+    },
+    {
+        "tool": "General Utilities & Server Tools",
+        "description": "Swiss-army knife websites, server tunnels, MOTD editors, and miscellaneous utilities.",
+        "links": [
+            {
+                "url": "https://mcutils.com/",
+                "name": "MC Utils",
+                "tooltip": "Server jars, item IDs, skin stealer, banners, fireworks, color codes"
+            },
+            {
+                "url": "https://minecraftutils.com/",
+                "name": "Minecraft Utils",
+                "tooltip": "Free utilities, calculators, and generators"
+            },
+            {
+                "url": "https://mctools.org/",
+                "name": "MC Tools",
+                "tooltip": "Tools focused around Minecraft servers"
+            },
+            {
+                "url": "https://playit.gg/",
+                "name": "Playit.gg",
+                "tooltip": "Free tunneling for Minecraft servers"
+            },
+            {
+                "url": "https://www.mcworkbench.com/tools/minecraft-motd-editor",
+                "name": "MOTD Editor",
+                "tooltip": "Design your server message of the day"
+            },
+            {
+                "url": "https://www.dcode.fr/standard-galactic-alphabet",
+                "name": "Standard Galactic Alphabet (dcode)",
+                "tooltip": "Encode and decode the enchantment table language"
+            },
+            {
+                "url": "https://lingojam.com/StandardGalacticAlphabet",
+                "name": "Standard Galactic Alphabet (lingojam)",
+                "tooltip": "Alternative SGA translator"
+            },
+            {
+                "url": "https://gist.github.com/tomasdev/92bde758ee8e65fa826717b24cfd0463",
+                "name": "Minecraft Emojis List",
+                "tooltip": "List of all Minecraft-supported emojis"
+            }
+        ],
+        "price": "Free"
+    },
+    {
+        "tool": "Modding Documentation",
+        "description": "Official and community documentation for modding APIs, Bedrock add-ons, and server software.",
+        "links": [
+            {
+                "url": "https://wiki.quiltmc.org/en",
+                "name": "QuiltMC Wiki",
+                "tooltip": "Documentation for the Quilt modding framework"
+            },
+            {
+                "url": "https://bedrock.dev/",
+                "name": "bedrock.dev",
+                "tooltip": "Minecraft Bedrock technical documentation"
+            },
+            {
+                "url": "https://docs.papermc.io/",
+                "name": "PaperMC Docs",
+                "tooltip": "Documentation for Paper, Velocity, and Folia"
+            },
+            {
+                "url": "https://wiki.bedrock.dev/",
+                "name": "The Bedrock Wiki",
+                "tooltip": "Knowledge-sharing for Bedrock technical features"
+            }
+        ],
+        "price": "Free"
+    },
+    {
+        "tool": "Development, Scripting & Creator Tools",
+        "description": "IDEs, renderers, mapping browsers, mod generators, and tools for Minecraft development.",
+        "links": [
+            {
+                "url": "https://linkie.shedaniel.dev/",
+                "name": "Linkie",
+                "tooltip": "Search mappings and view mod dependencies"
+            },
+            {
+                "url": "https://mcsrc.dev/",
+                "name": "MCSrc",
+                "tooltip": "Minecraft source code reference"
+            },
+            {
+                "url": "https://minerender.org/",
+                "name": "MineRender",
+                "tooltip": "Embed interactive 3D Minecraft renders on websites"
+            },
+            {
+                "url": "https://bridge-core.github.io/",
+                "name": "bridge.",
+                "tooltip": "IDE for Minecraft Bedrock add-ons"
+            },
+            {
+                "url": "https://mcreator.net/",
+                "name": "MCreator",
+                "tooltip": "Visual mod maker and generator"
+            },
+            {
+                "url": "https://www.brandonfowler.me/nbtreader/",
+                "name": "NBT Reader",
+                "tooltip": "Parse and read Minecraft NBT files in browser"
+            },
+            {
+                "url": "https://mctools.dev/",
+                "name": "Minecraft Creator Tools",
+                "tooltip": "Build, edit, and validate Bedrock add-ons"
+            },
+            {
+                "url": "https://mcbe-essentials.github.io/",
+                "name": "MCBE Essentials",
+                "tooltip": "Essential tools for Bedrock Edition creators"
+            },
+            {
+                "url": "https://kube-js-editor.vercel.app/",
+                "name": "KubeJS Editor",
+                "tooltip": "All-in-one web code editor with KubeJS templates"
+            },
+            {
+                "url": "https://vanilama-modded.github.io/Kubejs.editor/",
+                "name": "KubeJS Editor (vanilama)",
+                "tooltip": "Browser-based KubeJS script editor"
+            },
+            {
+                "url": "https://vanilama-modded.github.io/Kubejs-script-combiner/",
+                "name": "KubeJS Script Combiner",
+                "tooltip": "Combine multiple KubeJS scripts into one"
+            },
+            {
+                "url": "https://coolsa.github.io/mcCustomGuiGen/",
+                "name": "Custom GUI Generator",
+                "tooltip": "Generate custom GUI layouts"
+            },
+            {
+                "url": "https://www.creativemode.net/",
+                "name": "CreativeMode",
+                "tooltip": "Create Minecraft mods without coding"
+            },
+            {
+                "url": "https://kodari.ai/auth/register?ref=KOD-ZMHND",
+                "name": "Kodari AI",
+                "tooltip": "AI-powered Minecraft plugin development"
+            },
+            {
+                "url": "https://github.com/misode/mcmeta",
+                "name": "MCMeta",
+                "tooltip": "Library of every Minecraft asset"
+            },
+            {
+                "url": "https://mcasset.cloud/",
+                "name": "MC Assets",
+                "tooltip": "Library for every Minecraft asset"
+            },
+            {
+                "url": "https://mcicons.ccleaf.com/",
+                "name": "McIcons",
+                "tooltip": "Minecraft icon library by ccLeaf"
+            },
+            {
+                "url": "https://renderdragon.org/",
+                "name": "Renderdragon",
+                "tooltip": "Free resources for content creation projects"
+            },
+            {
+                "url": "https://github.com/HeDeAnTheonlyone/Taglib",
+                "name": "TagLib",
+                "tooltip": "Minecraft's biggest tag library"
+            },
+            {
+                "url": "https://far.ddns.me/",
+                "name": "Datapack Assembler",
+                "tooltip": "Viewer datapack assembler by GalSergey"
+            },
+            {
+                "url": "https://far.ddns.me/item?ver=1.21.8",
+                "name": "Item Component Viewer",
+                "tooltip": "View item components by GalSergey"
+            },
+            {
+                "url": "https://far.ddns.me/cba",
+                "name": "Command Block Assembler",
+                "tooltip": "Command block assembler by GalSergey"
+            },
             {
                 "url": "https://modfolio.creeperkatze.dev/",
                 "name": "Modfolio",
-                "tooltip": "Generate fast, beautiful and consistent embeddable cards and badges for Modrinth, CurseForge, Hangar and Spigot content."
+                "tooltip": "Generate badges for Modrinth, CurseForge, Hangar and Spigot content"
+            },
+            {
+                "url": "https://misode.github.io/worldgen/",
+                "name": "Misode Worldgen Generator",
+                "tooltip": "Data pack world generation generator"
+            },
+            {
+                "url": "https://misode.github.io/damage-type/",
+                "name": "Misode Damage Type Generator",
+                "tooltip": "Data pack damage type generator"
+            },
+            {
+                "url": "https://misode.github.io/customized/?tab=basic",
+                "name": "Misode Customized Generator",
+                "tooltip": "Customized world settings generator"
+            },
+            {
+                "url": "https://misode.github.io/template-placer/",
+                "name": "Misode Template Placer",
+                "tooltip": "Template placer utility"
+            },
+            {
+                "url": "https://misode.github.io/partners/",
+                "name": "Misode Modded Generators",
+                "tooltip": "Generators for modded content"
+            },
+            {
+                "url": "https://misode.github.io/generators/",
+                "name": "Misode All Generators",
+                "tooltip": "Complete list of Misode generators"
+            }
+        ],
+        "price": "Free & Freemium"
+    },
+    {
+        "tool": "Bug Tracking",
+        "description": "Official Mojang bug tracker and alternative viewers for reporting and tracking Minecraft issues.",
+        "links": [
+            {
+                "url": "https://mojira-viewer.jacobsjo.eu/",
+                "name": "Mojira Viewer",
+                "tooltip": "Alternative viewer for Mojang's issue tracker"
+            },
+            {
+                "url": "https://bugs.mojang.com/",
+                "name": "Mojang Bug Tracker",
+                "tooltip": "Official bug and issue reporting"
             }
         ],
         "price": "Free"
+    },
+    {
+        "tool": "VS Code Extensions",
+        "description": "Visual Studio Code extensions for NBT viewing and data pack development.",
+        "links": [
+            {
+                "url": "https://marketplace.visualstudio.com/items?itemName=Misodee.vscode-nbt",
+                "name": "NBT Viewer",
+                "tooltip": "View Minecraft NBT and 3D structures in VS Code"
+            },
+            {
+                "url": "https://marketplace.visualstudio.com/items?itemName=SPGoding.datapack-language-server",
+                "name": "Datapack Helper Plus",
+                "tooltip": "Heavy language features for data pack files"
+            }
+        ],
+        "price": "Free"
+    },
+    {
+        "tool": "Creator Websites",
+        "description": "Websites of notable Minecraft content creators and their projects.",
+        "links": [
+            {
+                "url": "https://ijaminecraft.com/en/creations",
+                "name": "IJA Minecraft",
+                "tooltip": "Creations and tools by IJA Minecraft"
+            }
+        ],
+        "price": "Freemium"
     }
 ]
