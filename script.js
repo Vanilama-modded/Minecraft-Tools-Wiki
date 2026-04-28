@@ -3,6 +3,48 @@ let fuse;
 
 let aiSearchInput, searchSuggestions, suggestionsList, searchIcon;
 
+function createElement(tag, options = {}) {
+    const el = document.createElement(tag);
+    if (options.className) el.className = options.className;
+    if (options.text) el.textContent = options.text;
+    if (options.html) el.innerHTML = options.html;
+    if (options.href) el.href = options.href;
+    if (options.target) el.target = options.target;
+    if (options.type) el.type = options.type;
+    if (options.placeholder) el.placeholder = options.placeholder;
+    if (options.id) el.id = options.id;
+    if (options.dataset) {
+        Object.entries(options.dataset).forEach(([key, value]) => {
+            el.dataset[key] = value;
+        });
+    }
+    if (options.attrs) {
+        Object.entries(options.attrs).forEach(([key, value]) => {
+            el.setAttribute(key, value);
+        });
+    }
+    return el;
+}
+
+function createIconElement(classes) {
+    const icon = document.createElement('i');
+    icon.className = classes;
+    return icon;
+}
+
+function sanitizeUrl(url) {
+    try {
+        const parsed = new URL(url, window.location.origin);
+        const protocol = parsed.protocol.toLowerCase();
+        if (protocol === 'http:' || protocol === 'https:') {
+            return parsed.href;
+        }
+    } catch (error) {
+        // Invalid URL
+    }
+    return '#';
+}
+
 async function loadToolsData() {
     try {
         const response = await fetch('tools.json');
@@ -33,29 +75,25 @@ async function loadFallbackData() {
     toolsData = [];
     const tableBody = document.getElementById('tableBody');
     const mobileCards = document.getElementById('mobileCards');
-    
-    const errorMessage = `
-        <i class="fas fa-exclamation-triangle text-4xl mb-4 opacity-50"></i>
-        <p class="text-lg">Failed to load tools data</p>
-        <p class="text-sm mt-2">Please check if tools.json file exists and is properly formatted</p>
-    `;
+    const messageTitle = 'Failed to load tools data';
+    const messageDetail = 'Please check if tools.json file exists and is properly formatted';
 
     if (tableBody) {
-        tableBody.innerHTML = `
-            <tr>
-                <td colspan="4" class="px-6 py-12 text-center text-gray-400">
-                    ${errorMessage}
-                </td>
-            </tr>
-        `;
+        const tr = createElement('tr');
+        const td = createElement('td', { attrs: { colspan: '4' }, className: 'px-6 py-12 text-center text-gray-400' });
+        td.appendChild(createIconElement('fas fa-exclamation-triangle text-4xl mb-4 opacity-50'));
+        td.appendChild(createElement('p', { text: messageTitle, className: 'text-lg' }));
+        td.appendChild(createElement('p', { text: messageDetail, className: 'text-sm mt-2' }));
+        tr.appendChild(td);
+        tableBody.appendChild(tr);
     }
     
     if (mobileCards) {
-        mobileCards.innerHTML = `
-            <div class="p-8 text-center text-gray-400">
-                ${errorMessage}
-            </div>
-        `;
+        const wrapper = createElement('div', { className: 'p-8 text-center text-gray-400' });
+        wrapper.appendChild(createIconElement('fas fa-exclamation-triangle text-4xl mb-4 opacity-50'));
+        wrapper.appendChild(createElement('p', { text: messageTitle, className: 'text-lg' }));
+        wrapper.appendChild(createElement('p', { text: messageDetail, className: 'text-sm mt-2' }));
+        mobileCards.appendChild(wrapper);
     }
 }
 
@@ -86,117 +124,139 @@ function performSearch(query) {
 function populateTable(toolsToDisplay = toolsData) {
     const tableBody = document.getElementById('tableBody');
     const mobileCards = document.getElementById('mobileCards');
-    
-    if (tableBody) tableBody.innerHTML = '';
-    if (mobileCards) mobileCards.innerHTML = '';
-    
+
+    if (tableBody) {
+        tableBody.innerHTML = '';
+    }
+    if (mobileCards) {
+        mobileCards.innerHTML = '';
+    }
+
     const query = aiSearchInput ? aiSearchInput.value.trim() : '';
-    
+    const queryIsEmpty = query.length === 0;
+
     if (toolsToDisplay.length === 0) {
-        
-        const message = query 
-            ? `<p class="text-lg">No tools found matching "${query}"</p><p class="text-sm mt-2">Try different keywords or check your spelling</p>`
-            : `<p class="text-lg">No tools loaded or available.</p>`;
-        
-        const icon = query ? 'fa-search' : 'fa-exclamation-triangle';
-        
+        const iconName = queryIsEmpty ? 'fa-exclamation-triangle' : 'fa-search';
+        const messageTitle = queryIsEmpty ? 'No tools loaded or available.' : `No tools found matching "${query}"`;
+        const messageSubtext = queryIsEmpty ? '' : 'Try different keywords or check your spelling';
+
         if (tableBody) {
-            tableBody.innerHTML = `
-                <tr>
-                    <td colspan="4" class="px-6 py-12 text-center text-gray-400">
-                        <i class="fas ${icon} text-4xl mb-4 opacity-50"></i>
-                        ${message}
-                    </td>
-                </tr>
-            `;
+            const tr = createElement('tr');
+            const td = createElement('td', { attrs: { colspan: '4' }, className: 'px-6 py-12 text-center text-gray-400' });
+            td.appendChild(createIconElement(`fas ${iconName} text-4xl mb-4 opacity-50`));
+            td.appendChild(createElement('p', { text: messageTitle, className: 'text-lg' }));
+            if (messageSubtext) {
+                td.appendChild(createElement('p', { text: messageSubtext, className: 'text-sm mt-2' }));
+            }
+            tr.appendChild(td);
+            tableBody.appendChild(tr);
         }
+
         if (mobileCards) {
-            mobileCards.innerHTML = `
-                <div class="p-8 text-center text-gray-400">
-                    <i class="fas ${icon} text-4xl mb-4 opacity-50"></i>
-                    ${message}
-                </div>
-            `;
+            const wrapper = createElement('div', { className: 'p-8 text-center text-gray-400' });
+            wrapper.appendChild(createIconElement(`fas ${iconName} text-4xl mb-4 opacity-50`));
+            wrapper.appendChild(createElement('p', { text: messageTitle, className: 'text-lg' }));
+            if (messageSubtext) {
+                wrapper.appendChild(createElement('p', { text: messageSubtext, className: 'text-sm mt-2' }));
+            }
+            mobileCards.appendChild(wrapper);
         }
+
         return;
     }
-    
+
+    const buildLink = (link) => {
+        const anchor = createElement('a', {
+            href: sanitizeUrl(link.url),
+            target: '_blank',
+            className: 'tool-link inline-block px-4 py-1 text-zinc-300 hover:text-zinc-100 text-sm font-medium'
+        });
+        if (link.tooltip) {
+            anchor.setAttribute('data-tooltip', link.tooltip);
+        }
+        anchor.addEventListener('contextmenu', (event) => copyLink(event, link.url, link.name));
+        anchor.appendChild(createIconElement('fas fa-external-link-alt mr-1 text-xs'));
+        anchor.appendChild(document.createTextNode(link.name));
+        return anchor;
+    };
+
+    const buildCardLink = (link) => {
+        const anchor = createElement('a', {
+            href: sanitizeUrl(link.url),
+            target: '_blank',
+            className: 'tool-link block px-4 py-3 text-zinc-300 hover:text-zinc-100 text-sm font-medium mb-2 text-center'
+        });
+        if (link.tooltip) {
+            anchor.setAttribute('data-tooltip', link.tooltip);
+        }
+        anchor.addEventListener('contextmenu', (event) => copyLink(event, link.url, link.name));
+        anchor.appendChild(createIconElement('fas fa-external-link-alt mr-2'));
+        anchor.appendChild(document.createTextNode(link.name));
+        return anchor;
+    };
+
     toolsToDisplay.forEach((tool, index) => {
-        const row = document.createElement('tr');
+        const row = createElement('tr');
         row.style.animationDelay = `${index * 0.05}s`;
         row.classList.add('fade-in-row', 'transition-all', 'duration-300', 'cursor-pointer');
-        
-        const linksHtml = tool.links.map(link => {
-            const tooltipAttr = link.tooltip ? `data-tooltip="${link.tooltip.replace(/"/g, '&quot;')}"` : '';
-            return `<a href="${link.url}" target="_blank" class="tool-link inline-block px-4 py-1 text-zinc-300 hover:text-zinc-100 text-sm font-medium" ${tooltipAttr} oncontextmenu="copyLink(event, '${link.url}', '${link.name}')">
-                        <i class="fas fa-external-link-alt mr-1 text-xs"></i>${link.name}
-                    </a>`;
-        }).join('');
-        
-        row.innerHTML = `
-            <td class="px-6 py-4">
-                <div class="flex items-center">
-                    <div class="flex-shrink-0 w-10 h-10 bg-zinc-800 rounded-lg flex items-center justify-center mr-3">
-                        <i class="fas fa-tools text-zinc-400 text-sm"></i>
-                    </div>
-                    <span class="text-zinc-100 font-semibold text-lg">${tool.tool}</span>
-                </div>
-            </td>
-            <td class="px-6 py-4 text-zinc-400 max-w-md">
-                <p class="leading-relaxed">${tool.description}</p>
-            </td>
-            <td class="px-6 py-4">
-                <div class="flex flex-wrap gap-2">
-                    ${linksHtml}
-                </div>
-            </td>
-            <td class="px-6 py-4">
-                <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-bold ${getPriceColorClass(tool.price)}">
-                    <i class="fas fa-tag mr-2"></i>${tool.price}
-                </span>
-            </td>
-        `;
-        
+
+        const nameCell = createElement('td', { className: 'px-6 py-4' });
+        const nameInner = createElement('div', { className: 'flex items-center' });
+        const iconWrapper = createElement('div', { className: 'flex-shrink-0 w-10 h-10 bg-zinc-800 rounded-lg flex items-center justify-center mr-3' });
+        iconWrapper.appendChild(createIconElement('fas fa-tools text-zinc-400 text-sm'));
+        nameInner.appendChild(iconWrapper);
+        nameInner.appendChild(createElement('span', { className: 'text-zinc-100 font-semibold text-lg', text: tool.tool }));
+        nameCell.appendChild(nameInner);
+
+        const descCell = createElement('td', { className: 'px-6 py-4 text-zinc-400 max-w-md' });
+        descCell.appendChild(createElement('p', { className: 'leading-relaxed', text: tool.description }));
+
+        const linksCell = createElement('td', { className: 'px-6 py-4' });
+        const linksWrapper = createElement('div', { className: 'flex flex-wrap gap-2' });
+        tool.links.forEach(link => linksWrapper.appendChild(buildLink(link)));
+        linksCell.appendChild(linksWrapper);
+
+        const priceCell = createElement('td', { className: 'px-6 py-4' });
+        const priceBadge = createElement('span', { className: `inline-flex items-center px-4 py-2 rounded-full text-sm font-bold ${getPriceColorClass(tool.price)}`, text: tool.price });
+        priceBadge.insertBefore(createIconElement('fas fa-tag mr-2'), priceBadge.firstChild);
+        priceCell.appendChild(priceBadge);
+
+        row.appendChild(nameCell);
+        row.appendChild(descCell);
+        row.appendChild(linksCell);
+        row.appendChild(priceCell);
         if (tableBody) tableBody.appendChild(row);
-        
-        const card = document.createElement('div');
-        card.classList.add('fade-in-row', 'p-6', 'border-b', 'border-zinc-800', 'last:border-b-0');
+
+        const card = createElement('div', { className: 'fade-in-row p-6 border-b border-zinc-800 last:border-b-0' });
         card.style.animationDelay = `${index * 0.05}s`;
-        
-        const mobileLinksHtml = tool.links.map(link => {
-            const tooltipAttr = link.tooltip ? `data-tooltip="${link.tooltip.replace(/"/g, '&quot;')}"` : '';
-            return `<a href="${link.url}" target="_blank" class="tool-link block px-4 py-3 text-zinc-300 hover:text-zinc-100 text-sm font-medium mb-2 text-center" ${tooltipAttr} oncontextmenu="copyLink(event, '${link.url}', '${link.name}')">
-                        <i class="fas fa-external-link-alt mr-2"></i>${link.name}
-                    </a>`;
-        }).join('');
-        
-        card.innerHTML = `
-            <div class="flex justify-between items-start mb-4">
-                <div class="flex items-center">
-                    <div class="flex-shrink-0 w-12 h-12 bg-zinc-800 rounded-lg flex items-center justify-center mr-4">
-                        <i class="fas fa-tools text-zinc-400"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-zinc-100 font-bold text-xl">${tool.tool}</h3>
-                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold ${getPriceColorClass(tool.price)}">
-                            <i class="fas fa-tag mr-2"></i>${tool.price}
-                        </span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="mb-4">
-                <p class="text-zinc-400 leading-relaxed">${tool.description}</p>
-            </div>
-            
-            <div class="space-y-2">
-                <p class="text-zinc-500 text-sm font-semibold mb-2">
-                    <i class="fas fa-link mr-2"></i>Links:
-                </p>
-                ${mobileLinksHtml}
-            </div>
-        `;
-        
+
+        const cardHeader = createElement('div', { className: 'flex justify-between items-start mb-4' });
+        const cardHeaderInner = createElement('div', { className: 'flex items-center' });
+        const cardIconWrapper = createElement('div', { className: 'flex-shrink-0 w-12 h-12 bg-zinc-800 rounded-lg flex items-center justify-center mr-4' });
+        cardIconWrapper.appendChild(createIconElement('fas fa-tools text-zinc-400'));
+        cardHeaderInner.appendChild(cardIconWrapper);
+
+        const cardHeaderText = createElement('div');
+        cardHeaderText.appendChild(createElement('h3', { className: 'text-zinc-100 font-bold text-xl', text: tool.tool }));
+        const cardPriceLabel = createElement('span', { className: `inline-flex items-center px-3 py-1 rounded-full text-xs font-bold ${getPriceColorClass(tool.price)}`, text: tool.price });
+        cardPriceLabel.insertBefore(createIconElement('fas fa-tag mr-2'), cardPriceLabel.firstChild);
+        cardHeaderText.appendChild(cardPriceLabel);
+
+        cardHeaderInner.appendChild(cardHeaderText);
+        card.appendChild(cardHeaderInner);
+
+        const descWrapper = createElement('div', { className: 'mb-4' });
+        descWrapper.appendChild(createElement('p', { className: 'text-zinc-400 leading-relaxed', text: tool.description }));
+        card.appendChild(descWrapper);
+
+        const cardLinksSection = createElement('div', { className: 'space-y-2' });
+        const linksSectionTitle = createElement('p', { className: 'text-zinc-500 text-sm font-semibold mb-2' });
+        linksSectionTitle.appendChild(createIconElement('fas fa-link mr-2'));
+        linksSectionTitle.appendChild(document.createTextNode('Links:'));
+        cardLinksSection.appendChild(linksSectionTitle);
+        tool.links.forEach(link => cardLinksSection.appendChild(buildCardLink(link)));
+
+        card.appendChild(cardLinksSection);
         if (mobileCards) mobileCards.appendChild(card);
     });
 }
@@ -223,7 +283,9 @@ function copyLink(event, url, name) {
     navigator.clipboard.writeText(url).then(() => {
         const notification = document.createElement('div');
         notification.className = 'fixed top-4 right-4 bg-zinc-900 text-zinc-200 px-4 py-2 rounded-lg shadow-lg border border-zinc-700 z-50';
-        notification.innerHTML = `<i class="fas fa-check-circle mr-2"></i>Copied ${name} link!`;
+        const icon = createIconElement('fas fa-check-circle mr-2');
+        notification.appendChild(icon);
+        notification.appendChild(document.createTextNode(`Copied ${name} link!`));
         document.body.appendChild(notification);
         
         setTimeout(() => {
@@ -273,12 +335,16 @@ function setupEventListeners() {
             const uniqueSuggestions = Array.from(new Map(suggestions.map(item => [item.text, item])).values());
 
             if (uniqueSuggestions.length > 0) {
-                suggestionsList.innerHTML = uniqueSuggestions.slice(0, 5).map(s => `
-                    <div class="px-4 py-3 hover:bg-zinc-800 cursor-pointer flex items-center text-zinc-400 hover:text-zinc-100 transition-colors" onclick="selectSuggestion('${s.text}')">
-                        <i class="fas ${s.icon} mr-3 text-zinc-600"></i>
-                        <span>${s.text}</span>
-                    </div>
-                `).join('');
+                suggestionsList.innerHTML = '';
+                uniqueSuggestions.slice(0, 5).forEach(s => {
+                    const suggestionItem = createElement('div', {
+                        className: 'px-4 py-3 hover:bg-zinc-800 cursor-pointer flex items-center text-zinc-400 hover:text-zinc-100 transition-colors'
+                    });
+                    suggestionItem.addEventListener('click', () => selectSuggestion(s.text));
+                    suggestionItem.appendChild(createIconElement(`fas ${s.icon} mr-3 text-zinc-600`));
+                    suggestionItem.appendChild(createElement('span', { text: s.text }));
+                    suggestionsList.appendChild(suggestionItem);
+                });
                 searchSuggestions.classList.remove('hidden');
             } else {
                 searchSuggestions.classList.add('hidden');
