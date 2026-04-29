@@ -474,6 +474,18 @@
         "price": "Free"
     },
     {
+    "tool": "shape generation tool",
+    "description": "generate shapes and export them es nbt",
+    "links": [
+        {
+            "url": "https://balloonshaper.xyz/",
+            "name": "Ballonshaper",
+            "tooltip": "(Aeronaut)"
+        }
+    ],
+    "price": "Free"
+    },
+    {
         "tool": "Enchanting",
         "description": "Most efficient way to enchant stuff",
         "links": [
