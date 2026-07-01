@@ -1,124 +1,62 @@
-@import url('https://fonts.cdnfonts.com/css/minecraftia');
-
 body {
-    font-family: 'Minecraftia', 'Inter', sans-serif;
-    -webkit-font-smoothing: auto;
-    -moz-osx-font-smoothing: auto;
-    text-rendering: auto;
-    letter-spacing: normal;
-    font-style: normal !important;
-    font-weight: 400;
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: #09090b;
+    color: #d4d4d8;
+    line-height: 1.5;
 }
 
-h1, h2, h3, h4, h5, h6, p, span, a, div, input, button {
-    font-style: normal !important;
+table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-@keyframes fade-in {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fade-in-row {
-    from { opacity: 0; transform: translateX(-20px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-
-.animate-fade-in {
-    animation: fade-in 0.8s ease-out;
-}
-
-.animate-fade-in-delayed {
-    animation: fade-in 0.8s ease-out 0.2s both;
-}
-
-.fade-in-row {
-    animation: fade-in-row 0.5s ease-out forwards;
-    opacity: 0;
-}
-
-.tools-table tr:hover {
-    background: rgba(255, 255, 255, 0.03);
-    transition: all 0.3s ease;
+th, td {
+    border-bottom: 1px solid #27272a;
 }
 
 .tool-link {
-    color: #e4e4e7;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-    transition: all 0.3s ease;
-    position: relative;
+    display: inline-block;
+    padding: 2px 6px;
+    background: #18181b;
+    border: 1px solid #27272a;
+    color: #a1a1aa;
+    text-decoration: none;
+    font-size: 12px;
 }
 
 .tool-link:hover {
-    background: rgba(255, 255, 255, 0.12);
-    border-color: rgba(255, 255, 255, 0.22);
-    transform: none;
-    box-shadow: none;
+    background: #27272a;
+    color: #f4f4f5;
 }
 
-.overflow-x-auto::-webkit-scrollbar {
-    height: 8px;
-}
-.overflow-x-auto::-webkit-scrollbar-track {
-    background: transparent;
-    border-radius: 8px;
-}
-.overflow-x-auto::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 8px;
-}
-.overflow-x-auto::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.25);
-}
-.fa-magnifying-glass {
-    opacity: 1 !important;
+.tool-link[data-tooltip] {
+    position: relative;
 }
 
-.text-mc-lime {
-    color: #55FF55;
-    text-shadow: 2px 2px 0px #002200;
-}
-
-.text-mc-orange {
-    color: #FFAA00;
-    text-shadow: 2px 2px 0px #2A1C00;
-}
-
-.text-mc-red {
-    color: #FF5555;
-    text-shadow: 2px 2px 0px #2A0000;
-}
-
-.tool-link[data-tooltip]::after {
+.tool-link[data-tooltip]:hover::after {
     content: attr(data-tooltip);
     position: absolute;
     bottom: 100%;
     left: 50%;
-    transform: translateX(-50%) translateY(10px);
-    margin-bottom: 10px;
-    padding: 8px 12px;
-    background-color: #18181b;
-    color: #e4e4e7;
+    transform: translateX(-50%);
+    background: #18181b;
     border: 1px solid #3f3f46;
-    border-radius: 6px;
-    font-size: 0.8rem;
-    white-space: normal;
-    max-width: 250px;
-    width: max-content;
+    padding: 4px 8px;
+    font-size: 10px;
+    white-space: nowrap;
     z-index: 100;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
-    pointer-events: none;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.2s ease;
-    text-shadow: none;
-    font-family: 'Inter', sans-serif;
 }
 
-.tool-link[data-tooltip]:hover::after {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #09090b;
+}
+::-webkit-scrollbar-thumb {
+    background: #27272a;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #3f3f46;
 }
