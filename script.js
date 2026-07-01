@@ -40,7 +40,6 @@ function sanitizeUrl(url) {
             return parsed.href;
         }
     } catch (error) {
-        // Invalid URL
     }
     return '#';
 }
@@ -151,7 +150,6 @@ function populateTable(toolsToDisplay = toolsData) {
         row.appendChild(priceCell);
         if (tableBody) tableBody.appendChild(row);
 
-        // Mobile cards
         const card = createElement('div', { className: 'p-4 border-b border-zinc-800' });
         card.appendChild(createElement('h3', { className: 'text-zinc-100 font-bold mb-1', text: tool.tool }));
         card.appendChild(createElement('p', { className: 'text-zinc-400 text-sm mb-2', text: tool.description }));
