@@ -26,12 +26,11 @@ function createElement(tag, options = {}) {
     return el;
 }
 
-/* function createIconElement(classes) {
+function createIconElement(classes) {
     const icon = document.createElement('i');
     icon.className = classes;
     return icon;
 }
-*/
 
 function sanitizeUrl(url) {
     try {
