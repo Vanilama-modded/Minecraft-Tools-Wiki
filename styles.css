@@ -29,7 +29,6 @@ th, td {
     color: #f4f4f5;
 }
 
-/* Tooltip */
 .tool-link[data-tooltip] {
     position: relative;
 }
