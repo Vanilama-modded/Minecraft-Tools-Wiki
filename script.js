@@ -202,9 +202,9 @@ function populateTable(toolsToDisplay = toolsData) {
 
         const nameCell = createElement('td', { className: 'px-6 py-4' });
         const nameInner = createElement('div', { className: 'flex items-center' });
-        const iconWrapper = createElement('div', { className: 'flex-shrink-0 w-10 h-10 bg-zinc-800 rounded-lg flex items-center justify-center mr-3' });
-        iconWrapper.appendChild(createIconElement('fas fa-tools text-zinc-400 text-sm'));
-        nameInner.appendChild(iconWrapper);
+        // const iconWrapper = createElement('div', { className: 'flex-shrink-0 w-10 h-10 bg-zinc-800 rounded-lg flex items-center justify-center mr-3' });
+        // iconWrapper.appendChild(createIconElement('fas fa-tools text-zinc-400 text-sm'));
+        // nameInner.appendChild(iconWrapper);
         nameInner.appendChild(createElement('span', { className: 'text-zinc-100 font-semibold text-lg', text: tool.tool }));
         nameCell.appendChild(nameInner);
 
