@@ -76,7 +76,7 @@ h1, h2, h3, h4, h5, h6, p, span, a, div, input, button {
     opacity: 1 !important;
 }
 
-.text-mc-lime {
+/*.text-mc-lime {
     color: #55FF55;
     text-shadow: 2px 2px 0px #002200;
 }
@@ -89,7 +89,7 @@ h1, h2, h3, h4, h5, h6, p, span, a, div, input, button {
 .text-mc-red {
     color: #FF5555;
     text-shadow: 2px 2px 0px #2A0000;
-}
+}*/
 
 .tool-link[data-tooltip]::after {
     content: attr(data-tooltip);
