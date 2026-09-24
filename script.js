@@ -80,7 +80,7 @@ async function loadFallbackData() {
 
     if (tableBody) {
         const tr = createElement('tr');
-        const td = createElement('td', { attrs: { colspan: '4' }, className: 'px-6 py-12 text-center text-gray-400' });
+        const td = createElement('td', { attrs: { colspan: '3' }, className: 'px-6 py-12 text-center text-gray-400' });
         td.appendChild(createIconElement('fas fa-exclamation-triangle text-4xl mb-4 opacity-50'));
         td.appendChild(createElement('p', { text: messageTitle, className: 'text-lg' }));
         td.appendChild(createElement('p', { text: messageDetail, className: 'text-sm mt-2' }));
@@ -142,7 +142,7 @@ function populateTable(toolsToDisplay = toolsData) {
 
         if (tableBody) {
             const tr = createElement('tr');
-            const td = createElement('td', { attrs: { colspan: '4' }, className: 'px-6 py-12 text-center text-gray-400' });
+            const td = createElement('td', { attrs: { colspan: '3' }, className: 'px-6 py-12 text-center text-gray-400' });
             td.appendChild(createIconElement(`fas ${iconName} text-4xl mb-4 opacity-50`));
             td.appendChild(createElement('p', { text: messageTitle, className: 'text-lg' }));
             if (messageSubtext) {
@@ -236,9 +236,9 @@ function populateTable(toolsToDisplay = toolsData) {
 
         const cardHeaderText = createElement('div');
         cardHeaderText.appendChild(createElement('h3', { className: 'text-zinc-100 font-bold text-xl', text: tool.tool }));
-        const cardPriceLabel = createElement('span', { className: `inline-flex items-center px-3 py-1 rounded-full text-xs font-bold ${getPriceColorClass(tool.price)}`, text: tool.price });
+        /* const cardPriceLabel = createElement('span', { className: `inline-flex items-center px-3 py-1 rounded-full text-xs font-bold ${getPriceColorClass(tool.price)}`, text: tool.price });
         cardPriceLabel.insertBefore(createIconElement('fas fa-tag mr-2'), cardPriceLabel.firstChild);
-        cardHeaderText.appendChild(cardPriceLabel);
+        cardHeaderText.appendChild(cardPriceLabel);*/
 
         cardHeaderInner.appendChild(cardHeaderText);
         card.appendChild(cardHeaderInner);
@@ -259,7 +259,7 @@ function populateTable(toolsToDisplay = toolsData) {
     });
 }
 
-
+/*
 function getPriceColorClass(price) {
     const priceLower = price.toLowerCase();
     const baseClasses = 'bg-zinc-800 border rounded-full shadow-sm';
@@ -273,7 +273,7 @@ function getPriceColorClass(price) {
     } else {
         return `${baseClasses} border-zinc-700 text-zinc-400`;
     }
-}
+}*/
 
 function copyLink(event, url, name) {
     event.preventDefault();
