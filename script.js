@@ -213,10 +213,11 @@ function populateTable(toolsToDisplay = toolsData) {
         tool.links.forEach(link => linksWrapper.appendChild(buildLink(link)));
         linksCell.appendChild(linksWrapper);
 
-        const priceCell = createElement('td', { className: 'px-6 py-4' });
+        /*const priceCell = createElement('td', { className: 'px-6 py-4' });
         const priceBadge = createElement('span', { className: `inline-flex items-center px-4 py-2 rounded-full text-sm font-bold ${getPriceColorClass(tool.price)}`, text: tool.price });
         priceBadge.insertBefore(createIconElement('fas fa-tag mr-2'), priceBadge.firstChild);
         priceCell.appendChild(priceBadge);
+        */
 
         row.appendChild(nameCell);
         row.appendChild(descCell);
