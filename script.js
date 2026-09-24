@@ -222,7 +222,7 @@ function populateTable(toolsToDisplay = toolsData) {
         row.appendChild(nameCell);
         row.appendChild(descCell);
         row.appendChild(linksCell);
-        row.appendChild(priceCell);
+        //row.appendChild(priceCell);
         if (tableBody) tableBody.appendChild(row);
 
         const card = createElement('div', { className: 'fade-in-row p-6 border-b border-zinc-800 last:border-b-0' });
