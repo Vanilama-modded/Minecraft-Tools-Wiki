@@ -10,38 +10,6 @@ body {
     font-weight: 400;
 }
 
-h1, h2, h3, h4, h5, h6, p, span, a, div, input, button {
-    font-style: normal !important;
-}
-
-@keyframes fade-in {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fade-in-row {
-    from { opacity: 0; transform: translateX(-20px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-
-.animate-fade-in {
-    animation: fade-in 0.8s ease-out;
-}
-
-.animate-fade-in-delayed {
-    animation: fade-in 0.8s ease-out 0.2s both;
-}
-
-.fade-in-row {
-    animation: fade-in-row 0.5s ease-out forwards;
-    opacity: 0;
-}
-
-.tools-table tr:hover {
-    background: rgba(255, 255, 255, 0.03);
-    transition: all 0.3s ease;
-}
-
 .tool-link {
     color: #e4e4e7;
     background: rgba(255, 255, 255, 0.05);
@@ -72,24 +40,6 @@ h1, h2, h3, h4, h5, h6, p, span, a, div, input, button {
 .overflow-x-auto::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 255, 255, 0.25);
 }
-.fa-magnifying-glass {
-    opacity: 1 !important;
-}
-
-/*.text-mc-lime {
-    color: #55FF55;
-    text-shadow: 2px 2px 0px #002200;
-}
-
-.text-mc-orange {
-    color: #FFAA00;
-    text-shadow: 2px 2px 0px #2A1C00;
-}
-
-.text-mc-red {
-    color: #FF5555;
-    text-shadow: 2px 2px 0px #2A0000;
-}*/
 
 .tool-link[data-tooltip]::after {
     content: attr(data-tooltip);

@@ -20,41 +20,34 @@
 </head>
 <body class="bg-zinc-950 text-zinc-300 min-h-screen">
     <div class="container mx-auto px-4 py-8 max-w-7xl">
-        <header class="text-center mb-12 animate-fade-in">
-            <div class="inline-flex items-center justify-center w-20 h-20 bg-zinc-900 rounded-2xl mb-4 shadow-lg border border-zinc-800">
-                <img src="favicon.svg" alt="Minecraft Tools Wiki" class="w-12 h-12">
-            </div>
+        <header class="text-center mb-12">
             <h1 class="text-5xl md:text-6xl font-bold text-zinc-100 mb-4 tracking-wide">
                  Minecraft Tools Wiki
             </h1>
-            <!--<p class="text-lg text-zinc-400 font-light max-w-2xl mx-auto">
-                Complete reference guide for Minecraft tools and resources
-            </p>-->
         </header>
         
-        <div class="mb-8 animate-fade-in-delayed">
+        <div class="mb-8">
             <div class="max-w-2xl mx-auto">
                 <div class="relative">
-                    <label for="aiSearchInput" class="sr-only">Search tools</label>
+                    <label for="SearchInput" class="sr-only">Search tools</label>
                     <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none" id="searchIconContainer">
-                        <i class="fas fa-magnifying-glass text-zinc-400 text-lg" id="searchIcon" aria-hidden="true"></i>
                     </div>
                     <input 
                         type="text" 
-                        id="aiSearchInput" 
+                        id="SearchInput" 
                         aria-label="Search tools"
                         aria-controls="searchSuggestions"
                         placeholder="Search for tools, generators, maps..."
                         class="w-full pl-12 pr-4 py-4 bg-zinc-900/70 backdrop-blur-sm border border-zinc-700 rounded-full text-zinc-100 placeholder-zinc-400 focus:outline-none focus:border-zinc-600 focus:ring-2 focus:ring-zinc-600/30 transition-all duration-300 text-base"
                     >
                 </div>
-                <div id="searchSuggestions" class="mt-2 bg-zinc-900 rounded-xl shadow-2xl z-[9999] hidden overflow-hidden border border-zinc-800" aria-label="Search suggestions" role="region">
+                <div id="searchSuggestions" class="mt-2 rounded-xl shadow-2xl z-[9999] hidden overflow-hidden border border-zinc-800" aria-label="Search suggestions" role="region">
                     <div id="suggestionsList" class="py-2"></div>
                 </div>
             </div>
         </div>
         
-        <main class="animate-fade-in-delayed" role="main" aria-label="Main content">
+        <main  role="main" aria-label="Main content">
             <div class="bg-zinc-900/30 backdrop-blur-md border border-zinc-800 shadow-2xl overflow-hidden">
                 <div class="hidden md:block overflow-x-auto">
                     <table class="w-full tools-table" id="toolsTable">
@@ -69,9 +62,6 @@
                                 <th class="px-6 py-4 text-center text-sm font-semibold text-zinc-300 uppercase tracking-wider">
                                     <i class="fas fa-link mr-2"></i>Links
                                 </th>
-                                <!-- <th class="px-6 py-4 text-left text-sm font-semibold text-zinc-300 uppercase tracking-wider">
-                                    <i class="fas fa-tag mr-2"></i>Price
-                                </th> -->
                             </tr>
                         </thead>
                         <tbody id="tableBody" class="divide-y divide-zinc-800">

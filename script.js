@@ -1,7 +1,7 @@
 let toolsData = [];
 let fuse;
 
-let aiSearchInput, searchSuggestions, suggestionsList, searchIcon;
+let SearchInput, searchSuggestions, suggestionsList, searchIcon;
 
 function createElement(tag, options = {}) {
     const el = document.createElement(tag);
@@ -132,7 +132,7 @@ function populateTable(toolsToDisplay = toolsData) {
         mobileCards.innerHTML = '';
     }
 
-    const query = aiSearchInput ? aiSearchInput.value.trim() : '';
+    const query = SearchInput ? SearchInput.value.trim() : '';
     const queryIsEmpty = query.length === 0;
 
     if (toolsToDisplay.length === 0) {
@@ -300,7 +300,7 @@ function copyLink(event, url, name) {
 
 
 function setupEventListeners() {
-    aiSearchInput.addEventListener('input', function() {
+    SearchInput.addEventListener('input', function() {
         const query = this.value;
         
         if (query.length > 0) {
@@ -358,14 +358,14 @@ function setupEventListeners() {
         }
     });
 
-    aiSearchInput.addEventListener('focus', function() {
+    SearchInput.addEventListener('focus', function() {
         if (this.value.length > 0 && toolsData.length > 0) {
             searchSuggestions.classList.remove('hidden');
         }
     });
 
     document.addEventListener('click', function(e) {
-        if (aiSearchInput && searchSuggestions && !aiSearchInput.contains(e.target) && !searchSuggestions.contains(e.target)) {
+        if (SearchInput && searchSuggestions && !SearchInput.contains(e.target) && !searchSuggestions.contains(e.target)) {
             searchSuggestions.classList.add('hidden');
         }
     });
@@ -373,7 +373,7 @@ function setupEventListeners() {
 
 
 function selectSuggestion(text) {
-    aiSearchInput.value = text;
+    SearchInput.value = text;
     searchSuggestions.classList.add('hidden');
     
     const isCategory = toolsData.some(tool => tool.tool === text);
@@ -388,7 +388,7 @@ function selectSuggestion(text) {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    aiSearchInput = document.getElementById('aiSearchInput');
+    SearchInput = document.getElementById('SearchInput');
     searchSuggestions = document.getElementById('searchSuggestions');
     suggestionsList = document.getElementById('suggestionsList');
     searchIcon = document.getElementById('searchIcon');
