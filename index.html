@@ -10,7 +10,6 @@
     <meta property="og:type" content="website">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minecraft Tools Wiki</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,58 +17,55 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-zinc-950 text-zinc-300 min-h-screen">
-    <div class="container mx-auto px-4 py-8 max-w-7xl">
-        <header class="text-center mb-12">
-            <h1 class="text-5xl md:text-6xl font-bold text-zinc-100 mb-4 tracking-wide">
-                 Minecraft Tools Wiki
+<body>
+    <div class="page-container">
+        <header class="page-header">
+            <img src="favicon.svg" alt="Minecraft Tools Wiki Logo" class="logo">
+            <h1 class="page-title">
+                 Minecraft </br>
+                 Tools Wiki
             </h1>
         </header>
         
-        <div class="mb-8">
-            <div class="max-w-2xl mx-auto">
-                <div class="relative">
-                    <label for="SearchInput" class="sr-only">Search tools</label>
-                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none" id="searchIconContainer">
-                    </div>
+        <div class="search-section">
+            <div class="search-container">
+                <div class="search-input-wrapper">
+                    <label for="SearchInput" class="screen-reader-only">Search tools</label>
                     <input 
                         type="text" 
                         id="SearchInput" 
                         aria-label="Search tools"
                         aria-controls="searchSuggestions"
                         placeholder="Search for tools, generators, maps..."
-                        class="w-full pl-12 pr-4 py-4 bg-zinc-900/70 backdrop-blur-sm border border-zinc-700 rounded-full text-zinc-100 placeholder-zinc-400 focus:outline-none focus:border-zinc-600 focus:ring-2 focus:ring-zinc-600/30 transition-all duration-300 text-base"
+                        class="search-input"
                     >
-                </div>
-                <div id="searchSuggestions" class="mt-2 rounded-xl shadow-2xl z-[9999] hidden overflow-hidden border border-zinc-800" aria-label="Search suggestions" role="region">
-                    <div id="suggestionsList" class="py-2"></div>
+                    <div id="searchSuggestions" class="search-suggestions is-hidden" aria-label="Search suggestions" role="region">
+                        <div id="suggestionsList" class="search-suggestions-list"></div>
+                    </div>
                 </div>
             </div>
         </div>
         
         <main  role="main" aria-label="Main content">
-            <div class="bg-zinc-900/30 backdrop-blur-md border border-zinc-800 shadow-2xl overflow-hidden">
-                <div class="hidden md:block overflow-x-auto">
-                    <table class="w-full tools-table" id="toolsTable">
-                        <thead class="border-b border-zinc-800">
+            <div class="tools-panel">
+                <div class="tools-table-scroll">
+                    <table class="tools-table" id="toolsTable">
+                        <thead class="tools-table-head">
                             <tr>
-                                <th class="px-6 py-4 text-center text-sm font-semibold text-zinc-300 uppercase tracking-wider">
-                                    <i class="fas fa-tools mr-2"></i>Tool
+                                <th class="tools-table-heading">
+                                    <i class="fas fa-tools heading-icon"></i>Tool
                                 </th>
-                                <th class="px-6 py-4 text-center text-sm font-semibold text-zinc-300 uppercase tracking-wider">
-                                    <i class="fas fa-info-circle mr-2"></i>Description
-                                </th>
-                                <th class="px-6 py-4 text-center text-sm font-semibold text-zinc-300 uppercase tracking-wider">
-                                    <i class="fas fa-link mr-2"></i>Links
+                                <th class="tools-table-heading">
+                                    <i class="fas fa-link heading-icon"></i>Links
                                 </th>
                             </tr>
                         </thead>
-                        <tbody id="tableBody" class="divide-y divide-zinc-800">
+                        <tbody id="tableBody" class="tools-table-body">
                         </tbody>
                     </table>
                 </div>
                 
-                <div class="md:hidden" id="mobileCards">
+                <div class="mobile-cards" id="mobileCards">
                 </div>
             </div>
         </main>

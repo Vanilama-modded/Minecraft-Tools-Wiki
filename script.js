@@ -1,28 +1,17 @@
 let toolsData = [];
 let fuse;
+const linkTooltipCache = new Map();
+let activeMobileTooltip = null;
+let mobileTooltipTimer = null;
 
-let SearchInput, searchSuggestions, suggestionsList, searchIcon;
+let SearchInput, searchSuggestions, suggestionsList;
 
 function createElement(tag, options = {}) {
     const el = document.createElement(tag);
     if (options.className) el.className = options.className;
     if (options.text) el.textContent = options.text;
-    if (options.html) el.innerHTML = options.html;
     if (options.href) el.href = options.href;
     if (options.target) el.target = options.target;
-    if (options.type) el.type = options.type;
-    if (options.placeholder) el.placeholder = options.placeholder;
-    if (options.id) el.id = options.id;
-    if (options.dataset) {
-        Object.entries(options.dataset).forEach(([key, value]) => {
-            el.dataset[key] = value;
-        });
-    }
-    if (options.attrs) {
-        Object.entries(options.attrs).forEach(([key, value]) => {
-            el.setAttribute(key, value);
-        });
-    }
     return el;
 }
 
@@ -30,6 +19,44 @@ function createIconElement(classes) {
     const icon = document.createElement('i');
     icon.className = classes;
     return icon;
+}
+
+function getLinkDescription(url) {
+    if (!linkTooltipCache.has(url)) {
+        const descriptionPromise = fetch(url)
+            .then(response => {
+                if (!response.ok) {
+                    return null;
+                }
+                return response.text();
+            })
+            .then(html => {
+                if (!html) {
+                    return null;
+                }
+
+                const page = new DOMParser().parseFromString(html, 'text/html');
+                return page.querySelector('meta[property="og:description"]')?.content.trim()
+                    || page.querySelector('meta[name="description"]')?.content.trim()
+                    || page.querySelector('meta[name="twitter:description"]')?.content.trim()
+                    || null;
+            })
+            .catch(() => null);
+
+        linkTooltipCache.set(url, descriptionPromise);
+    }
+
+    return linkTooltipCache.get(url);
+}
+
+function hideMobileTooltip() {
+    if (mobileTooltipTimer) {
+        clearTimeout(mobileTooltipTimer);
+        mobileTooltipTimer = null;
+    }
+
+    activeMobileTooltip?.classList.remove('tooltip-visible');
+    activeMobileTooltip = null;
 }
 
 function sanitizeUrl(url) {
@@ -40,7 +67,6 @@ function sanitizeUrl(url) {
             return parsed.href;
         }
     } catch (error) {
-        // Invalid URL
     }
     return '#';
 }
@@ -56,7 +82,6 @@ async function loadToolsData() {
         const options = {
             keys: [
                 { name: 'tool', weight: 0.7 },
-                { name: 'description', weight: 0.3 },
                 { name: 'keywords', weight: 0.5 }
             ],
             threshold: 0.4,
@@ -71,29 +96,45 @@ async function loadToolsData() {
     }
 }
 
+function appendEmptyState(container, { iconName, title, detail, isTableCell = false }) {
+    const state = createElement(isTableCell ? 'td' : 'div', {
+        className: isTableCell ? 'empty-state-cell' : 'empty-state'
+    });
+    if (isTableCell) {
+        state.setAttribute('colspan', '2');
+    }
+
+    state.appendChild(createIconElement(`fas ${iconName} empty-state-icon`));
+    state.appendChild(createElement('p', { text: title, className: 'empty-state-title' }));
+    if (detail) {
+        state.appendChild(createElement('p', { text: detail, className: 'empty-state-detail' }));
+    }
+
+    if (isTableCell) {
+        const row = createElement('tr');
+        row.appendChild(state);
+        container.appendChild(row);
+    } else {
+        container.appendChild(state);
+    }
+}
+
 async function loadFallbackData() {
     toolsData = [];
     const tableBody = document.getElementById('tableBody');
     const mobileCards = document.getElementById('mobileCards');
-    const messageTitle = 'Failed to load tools data';
-    const messageDetail = 'Please check if tools.json file exists and is properly formatted';
+    const emptyState = {
+        iconName: 'fa-exclamation-triangle',
+        title: 'Failed to load tools data',
+        detail: 'Please check if tools.json file exists and is properly formatted'
+    };
 
     if (tableBody) {
-        const tr = createElement('tr');
-        const td = createElement('td', { attrs: { colspan: '3' }, className: 'px-6 py-12 text-center text-gray-400' });
-        td.appendChild(createIconElement('fas fa-exclamation-triangle text-4xl mb-4 opacity-50'));
-        td.appendChild(createElement('p', { text: messageTitle, className: 'text-lg' }));
-        td.appendChild(createElement('p', { text: messageDetail, className: 'text-sm mt-2' }));
-        tr.appendChild(td);
-        tableBody.appendChild(tr);
+        appendEmptyState(tableBody, { ...emptyState, isTableCell: true });
     }
-    
+
     if (mobileCards) {
-        const wrapper = createElement('div', { className: 'p-8 text-center text-gray-400' });
-        wrapper.appendChild(createIconElement('fas fa-exclamation-triangle text-4xl mb-4 opacity-50'));
-        wrapper.appendChild(createElement('p', { text: messageTitle, className: 'text-lg' }));
-        wrapper.appendChild(createElement('p', { text: messageDetail, className: 'text-sm mt-2' }));
-        mobileCards.appendChild(wrapper);
+        appendEmptyState(mobileCards, emptyState);
     }
 }
 
@@ -113,7 +154,6 @@ function performSearch(query) {
         const lowerQuery = queryTrimmed.toLowerCase();
         const filtered = toolsData.filter(tool => 
             tool.tool.toLowerCase().includes(lowerQuery) || 
-            tool.description.toLowerCase().includes(lowerQuery) ||
             (tool.keywords && tool.keywords.some(k => k.toLowerCase().includes(lowerQuery)))
         );
         populateTable(filtered);
@@ -141,56 +181,72 @@ function populateTable(toolsToDisplay = toolsData) {
         const messageSubtext = queryIsEmpty ? '' : 'Try different keywords or check your spelling';
 
         if (tableBody) {
-            const tr = createElement('tr');
-            const td = createElement('td', { attrs: { colspan: '3' }, className: 'px-6 py-12 text-center text-gray-400' });
-            td.appendChild(createIconElement(`fas ${iconName} text-4xl mb-4 opacity-50`));
-            td.appendChild(createElement('p', { text: messageTitle, className: 'text-lg' }));
-            if (messageSubtext) {
-                td.appendChild(createElement('p', { text: messageSubtext, className: 'text-sm mt-2' }));
-            }
-            tr.appendChild(td);
-            tableBody.appendChild(tr);
+            appendEmptyState(tableBody, {
+                iconName,
+                title: messageTitle,
+                detail: messageSubtext,
+                isTableCell: true
+            });
         }
 
         if (mobileCards) {
-            const wrapper = createElement('div', { className: 'p-8 text-center text-gray-400' });
-            wrapper.appendChild(createIconElement(`fas ${iconName} text-4xl mb-4 opacity-50`));
-            wrapper.appendChild(createElement('p', { text: messageTitle, className: 'text-lg' }));
-            if (messageSubtext) {
-                wrapper.appendChild(createElement('p', { text: messageSubtext, className: 'text-sm mt-2' }));
-            }
-            mobileCards.appendChild(wrapper);
+            appendEmptyState(mobileCards, {
+                iconName,
+                title: messageTitle,
+                detail: messageSubtext
+            });
         }
 
         return;
     }
 
-    const buildLink = (link) => {
+    const buildLink = (link, variant) => {
+        const url = sanitizeUrl(link.url);
         const anchor = createElement('a', {
-            href: sanitizeUrl(link.url),
+            href: url,
             target: '_blank',
-            className: 'tool-link inline-block px-4 py-1 text-zinc-300 hover:text-zinc-100 text-sm font-medium'
+            className: `tool-link tool-link--${variant}`
         });
         if (link.tooltip) {
             anchor.setAttribute('data-tooltip', link.tooltip);
         }
-        anchor.addEventListener('contextmenu', (event) => copyLink(event, link.url, link.name));
-        anchor.appendChild(createIconElement('fas fa-external-link-alt mr-1 text-xs'));
-        anchor.appendChild(document.createTextNode(link.name));
-        return anchor;
-    };
+        const loadTooltip = () => {
+            if (url === '#') {
+                return Promise.resolve(null);
+            }
+            return getLinkDescription(url).then(description => {
+                if (description) {
+                    anchor.setAttribute('data-tooltip', description);
+                } else if (!anchor.hasAttribute('data-tooltip')) {
+                    anchor.setAttribute('data-tooltip', 'Description unavailable');
+                }
+            });
+        };
+        anchor.addEventListener('mouseenter', loadTooltip, { once: true });
+        anchor.addEventListener('focus', loadTooltip, { once: true });
+        anchor.addEventListener('click', event => {
+            const isTouchInput = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+            if (!isTouchInput) {
+                return;
+            }
 
-    const buildCardLink = (link) => {
-        const anchor = createElement('a', {
-            href: sanitizeUrl(link.url),
-            target: '_blank',
-            className: 'tool-link block px-4 py-3 text-zinc-300 hover:text-zinc-100 text-sm font-medium mb-2 text-center'
+            if (activeMobileTooltip === anchor) {
+                hideMobileTooltip();
+                return;
+            }
+
+            event.preventDefault();
+            hideMobileTooltip();
+            activeMobileTooltip = anchor;
+            anchor.classList.add('tooltip-visible');
+            if (!anchor.hasAttribute('data-tooltip')) {
+                anchor.setAttribute('data-tooltip', 'Loading description...');
+            }
+            loadTooltip();
+            mobileTooltipTimer = setTimeout(hideMobileTooltip, 15000);
         });
-        if (link.tooltip) {
-            anchor.setAttribute('data-tooltip', link.tooltip);
-        }
         anchor.addEventListener('contextmenu', (event) => copyLink(event, link.url, link.name));
-        anchor.appendChild(createIconElement('fas fa-external-link-alt mr-2'));
+        anchor.appendChild(createIconElement('fas fa-external-link-alt external-link-icon'));
         anchor.appendChild(document.createTextNode(link.name));
         return anchor;
     };
@@ -198,90 +254,50 @@ function populateTable(toolsToDisplay = toolsData) {
     toolsToDisplay.forEach((tool, index) => {
         const row = createElement('tr');
         row.style.animationDelay = `${index * 0.05}s`;
-        row.classList.add('fade-in-row', 'transition-all', 'duration-300', 'cursor-pointer');
+        row.classList.add('tool-row', 'fade-in-row');
 
-        const nameCell = createElement('td', { className: 'px-6 py-4' });
-        const nameInner = createElement('div', { className: 'flex items-center' });
-        nameInner.appendChild(createElement('span', { className: 'text-zinc-100 font-semibold text-lg', text: tool.tool }));
-        nameCell.appendChild(nameInner);
+        const nameCell = createElement('td', { className: 'table-cell' });
+        nameCell.appendChild(createElement('span', { className: 'tool-name-text', text: tool.tool }));
 
-        const descCell = createElement('td', { className: 'px-6 py-4 text-zinc-400 max-w-md' });
-        descCell.appendChild(createElement('p', { className: 'leading-relaxed', text: tool.description }));
-
-        const linksCell = createElement('td', { className: 'px-6 py-4' });
-        const linksWrapper = createElement('div', { className: 'flex flex-wrap gap-2' });
-        tool.links.forEach(link => linksWrapper.appendChild(buildLink(link)));
+        const linksCell = createElement('td', { className: 'table-cell' });
+        const linksWrapper = createElement('div', { className: 'tool-links' });
+        tool.links.forEach(link => linksWrapper.appendChild(buildLink(link, 'inline')));
         linksCell.appendChild(linksWrapper);
 
-        /*const priceCell = createElement('td', { className: 'px-6 py-4' });
-        const priceBadge = createElement('span', { className: `inline-flex items-center px-4 py-2 rounded-full text-sm font-bold ${getPriceColorClass(tool.price)}`, text: tool.price });
-        priceBadge.insertBefore(createIconElement('fas fa-tag mr-2'), priceBadge.firstChild);
-        priceCell.appendChild(priceBadge);
-        */
-
         row.appendChild(nameCell);
-        row.appendChild(descCell);
         row.appendChild(linksCell);
-        //row.appendChild(priceCell);
         if (tableBody) tableBody.appendChild(row);
 
-        const card = createElement('div', { className: 'fade-in-row p-6 border-b border-zinc-800 last:border-b-0' });
+        const card = createElement('div', { className: 'tool-card fade-in-row' });
         card.style.animationDelay = `${index * 0.05}s`;
 
-        const cardHeader = createElement('div', { className: 'flex justify-between items-start mb-4' });
-        const cardHeaderInner = createElement('div', { className: 'flex items-center' });
-        const cardIconWrapper = createElement('div', { className: 'flex-shrink-0 w-12 h-12 bg-zinc-800 rounded-lg flex items-center justify-center mr-4' });
-        cardIconWrapper.appendChild(createIconElement('fas fa-tools text-zinc-400'));
+        const cardHeaderInner = createElement('div', { className: 'tool-card-header' });
+        const cardIconWrapper = createElement('div', { className: 'tool-card-icon' });
+        cardIconWrapper.appendChild(createIconElement('fas fa-tools'));
         cardHeaderInner.appendChild(cardIconWrapper);
 
-        const cardHeaderText = createElement('div');
-        cardHeaderText.appendChild(createElement('h3', { className: 'text-zinc-100 font-bold text-xl', text: tool.tool }));
-        /* const cardPriceLabel = createElement('span', { className: `inline-flex items-center px-3 py-1 rounded-full text-xs font-bold ${getPriceColorClass(tool.price)}`, text: tool.price });
-        cardPriceLabel.insertBefore(createIconElement('fas fa-tag mr-2'), cardPriceLabel.firstChild);
-        cardHeaderText.appendChild(cardPriceLabel);*/
-
-        cardHeaderInner.appendChild(cardHeaderText);
+        cardHeaderInner.appendChild(createElement('h3', { className: 'tool-card-title', text: tool.tool }));
         card.appendChild(cardHeaderInner);
 
-        const descWrapper = createElement('div', { className: 'mb-4' });
-        descWrapper.appendChild(createElement('p', { className: 'text-zinc-400 leading-relaxed', text: tool.description }));
-        card.appendChild(descWrapper);
-
-        const cardLinksSection = createElement('div', { className: 'space-y-2' });
-        const linksSectionTitle = createElement('p', { className: 'text-zinc-500 text-sm font-semibold mb-2' });
-        linksSectionTitle.appendChild(createIconElement('fas fa-link mr-2'));
+        const cardLinksSection = createElement('div', { className: 'tool-card-links' });
+        const linksSectionTitle = createElement('p', { className: 'tool-card-links-title' });
+        linksSectionTitle.appendChild(createIconElement('fas fa-link heading-icon'));
         linksSectionTitle.appendChild(document.createTextNode('Links:'));
         cardLinksSection.appendChild(linksSectionTitle);
-        tool.links.forEach(link => cardLinksSection.appendChild(buildCardLink(link)));
+        tool.links.forEach(link => cardLinksSection.appendChild(buildLink(link, 'card')));
 
         card.appendChild(cardLinksSection);
         if (mobileCards) mobileCards.appendChild(card);
     });
 }
 
-/*
-function getPriceColorClass(price) {
-    const priceLower = price.toLowerCase();
-    const baseClasses = 'bg-zinc-800 border rounded-full shadow-sm';
-    
-    if (priceLower.includes('free') && !priceLower.includes('paid') && !priceLower.includes('freemium')) {
-        return `${baseClasses} border-green-900/50 text-mc-lime`;
-    } else if (priceLower.includes('freemium')) {
-        return `${baseClasses} border-orange-900/50 text-mc-orange`;
-    } else if (priceLower.includes('paid')) {
-        return `${baseClasses} border-red-900/50 text-mc-red`;
-    } else {
-        return `${baseClasses} border-zinc-700 text-zinc-400`;
-    }
-}*/
-
 function copyLink(event, url, name) {
     event.preventDefault();
     
     navigator.clipboard.writeText(url).then(() => {
         const notification = document.createElement('div');
-        notification.className = 'fixed top-4 right-4 bg-zinc-900 text-zinc-200 px-4 py-2 rounded-lg shadow-lg border border-zinc-700 z-50';
-        const icon = createIconElement('fas fa-check-circle mr-2');
+        notification.className = 'copy-notification';
+        const icon = createIconElement('fas fa-check-circle copy-notification-icon');
         notification.appendChild(icon);
         notification.appendChild(document.createTextNode(`Copied ${name} link!`));
         document.body.appendChild(notification);
@@ -300,6 +316,12 @@ function copyLink(event, url, name) {
 
 
 function setupEventListeners() {
+    document.addEventListener('click', event => {
+        if (activeMobileTooltip && !activeMobileTooltip.contains(event.target)) {
+            hideMobileTooltip();
+        }
+    });
+
     SearchInput.addEventListener('input', function() {
         const query = this.value;
         
@@ -311,24 +333,10 @@ function setupEventListeners() {
             categories.forEach(cat => {
                 if (cat.toLowerCase().includes(queryLower)) {
                     suggestions.push({
-                        type: 'category',
-                        text: cat,
-                        icon: 'fa-tools'
+                        text: cat
                     });
                 }
             });
-            
-            if (query.length < 20) {
-                toolsData.forEach(tool => {
-                    if (tool.description.toLowerCase().includes(queryLower)) {
-                        suggestions.push({
-                            type: 'description',
-                            text: tool.tool,
-                            icon: 'fa-tools'
-                        });
-                    }
-                });
-            }
             
             const uniqueSuggestions = Array.from(new Map(suggestions.map(item => [item.text, item])).values());
 
@@ -336,23 +344,22 @@ function setupEventListeners() {
                 suggestionsList.innerHTML = '';
                 uniqueSuggestions.slice(0, 5).forEach(s => {
                     const suggestionItem = createElement('div', {
-                        className: 'px-4 py-3 hover:bg-zinc-800 cursor-pointer flex items-center text-zinc-400 hover:text-zinc-100 transition-colors'
+                        className: 'search-suggestion'
                     });
                     suggestionItem.addEventListener('click', () => selectSuggestion(s.text));
-                    suggestionItem.appendChild(createIconElement(`fas ${s.icon} mr-3 text-zinc-600`));
                     suggestionItem.appendChild(createElement('span', { text: s.text }));
                     suggestionsList.appendChild(suggestionItem);
                 });
-                searchSuggestions.classList.remove('hidden');
+                searchSuggestions.classList.remove('is-hidden');
             } else {
-                searchSuggestions.classList.add('hidden');
+                searchSuggestions.classList.add('is-hidden');
             }
             
             clearTimeout(window.searchTimer);
             window.searchTimer = setTimeout(() => performSearch(query), 300);
             
         } else {
-            searchSuggestions.classList.add('hidden');
+            searchSuggestions.classList.add('is-hidden');
             clearTimeout(window.searchTimer);
             populateTable();
         }
@@ -360,13 +367,13 @@ function setupEventListeners() {
 
     SearchInput.addEventListener('focus', function() {
         if (this.value.length > 0 && toolsData.length > 0) {
-            searchSuggestions.classList.remove('hidden');
+            searchSuggestions.classList.remove('is-hidden');
         }
     });
 
     document.addEventListener('click', function(e) {
         if (SearchInput && searchSuggestions && !SearchInput.contains(e.target) && !searchSuggestions.contains(e.target)) {
-            searchSuggestions.classList.add('hidden');
+            searchSuggestions.classList.add('is-hidden');
         }
     });
 }
@@ -374,7 +381,7 @@ function setupEventListeners() {
 
 function selectSuggestion(text) {
     SearchInput.value = text;
-    searchSuggestions.classList.add('hidden');
+    searchSuggestions.classList.add('is-hidden');
     
     const isCategory = toolsData.some(tool => tool.tool === text);
     
@@ -391,8 +398,6 @@ document.addEventListener('DOMContentLoaded', function() {
     SearchInput = document.getElementById('SearchInput');
     searchSuggestions = document.getElementById('searchSuggestions');
     suggestionsList = document.getElementById('suggestionsList');
-    searchIcon = document.getElementById('searchIcon');
-    
     setupEventListeners();
     loadToolsData();
 });
