@@ -12,8 +12,7 @@
                 "name": "GamerGeeks",
                 "tooltip": "Collection of Minecraft command generation tools and guides."
             }
-        ],
-        "price": "Free"
+        ]
     },
     {
         "tool": "Block Display Engine",
@@ -33,8 +32,7 @@
                 "name": "Misode Transformation",
                 "tooltip": ""
             }
-        ],
-        "price": "Free"
+        ]
     },
     {
         "tool": "Server Stats",
@@ -44,8 +42,7 @@
                 "name": "Minecraft Server Status",
                 "tooltip": ""
             }
-        ],
-        "price": "Free"
+        ]
     },
     {
         "tool": "Mcfunction to Structure nbt",
@@ -55,8 +52,7 @@
                 "name": "Mcfunction2Nbt",
                 "tooltip": ""
             }
-        ],
-        "price": "Free"
+        ]
     },
     {
         "tool": "Content Creation",
@@ -65,8 +61,7 @@
                 "name": "Renderdragon",
                 "tooltip": "Find free resources for your next project, including music, sound effects, images, and more."
             }
-        ],
-        "price": "Free"
+        ]
     },
     {
         "tool": "Give To Summon",
@@ -76,8 +71,7 @@
                 "name": "Give To Summon 1.21.10",
                 "tooltip": ""
             }
-        ],
-        "price": "Free"
+        ]
     },
     {
         "tool": "Structure/biome finding",
@@ -87,8 +81,7 @@
                 "name": "Chunkbase Seed Map",
                 "tooltip": ""
             }
-        ],
-        "price": "Free"
+        ]
     },
     {
         "tool": "json text components Generator",
@@ -98,8 +91,7 @@
                 "name": "Datapack Hub",
                 "tooltip": ""
             }
-        ],
-        "price": "Free"
+        ]
     },
     {
         "tool": "Minecraft map gen.",
@@ -109,8 +101,7 @@
                 "name": "MC Map Generator",
                 "tooltip": ""
             }
-        ],
-        "price": "Free"
+        ]
     },
     {
         "tool": "Minecraft armor stand",
@@ -120,8 +111,7 @@
                 "name": "Armor Stand Generator",
                 "tooltip": ""
             }
-        ],
-        "price": "Free"
+        ]
     },
     {
         "tool": ".OBJ to Schematic",
@@ -131,8 +121,7 @@
                 "name": "OBJ to Schematic",
                 "tooltip": ""
             }
-        ],
-        "price": "Free"
+        ]
     },
     {
         "tool": "command updater",
@@ -142,8 +131,7 @@
                 "name": "PaperMC Command Converter",
                 "tooltip": ""
             }
-        ],
-        "price": "Free"
+        ]
     },
     {
         "tool": "blocky tools",
@@ -153,8 +141,7 @@
                 "name": "Blocky.Tools",
                 "tooltip": ""
             }
-        ],
-        "price": "Free"
+        ]
     },
     {
         "tool": "Wiki",
@@ -184,8 +171,7 @@
                 "name": "Minecraft Commands Wiki",
                 "tooltip": ""
             }
-        ],
-        "price": "Free"
+        ]
     },
     {
         "tool": "Kubejs Tools",
@@ -200,8 +186,7 @@
                 "name": "KubeJS Editor",
                 "tooltip": "An All in one web code Editor with templates for kubejs"
             }
-        ],
-        "price": "Free"
+        ]
     },
     {
         "tool": "Minecraft Tools",
@@ -291,8 +276,7 @@
                 "name": "Loot Table Generator",
                 "tooltip": ""
             }
-        ],
-        "price": "Free"
+        ]
     },
     {
         "tool": "MCWorkbench",
@@ -363,8 +347,7 @@
                 "name": "NBT Editor",
                 "tooltip": ""
             }
-        ],
-        "price": "Free"
+        ]
     },
     {
         "tool": "SkinMC",
@@ -394,8 +377,7 @@
                 "name": "Skin Editor",
                 "tooltip": ""
             }
-        ],
-        "price": "Free"
+        ]
     },
     {
         "tool": "Minecraft Tweaks",
@@ -410,8 +392,7 @@
                 "name": "Bedrock Tweaks",
                 "tooltip": ""
             }
-        ],
-        "price": "Free"
+        ]
     },
     {
         "tool": "Minecraft Heads",
@@ -426,8 +407,7 @@
                 "name": "SkinMC Heads",
                 "tooltip": ""
             }
-        ],
-        "price": "Free"
+        ]
     },
     {
         "tool": "Minecraft Bedrock Creator",
@@ -437,8 +417,7 @@
                 "name": "MC Tools Dev",
                 "tooltip": ""
             }
-        ],
-        "price": "Free"
+        ]
     },
     {
         "tool": "Map art Generator",
@@ -448,8 +427,7 @@
                 "name": "Map Art Craft",
                 "tooltip": ""
             }
-        ],
-        "price": "Free"
+        ]
     },
     {
     "tool": "shape generation tool",
@@ -459,8 +437,7 @@
             "name": "Ballonshaper",
             "tooltip": "(Aeronaut)"
         }
-    ],
-    "price": "Free"
+    ]
     },
     {
         "tool": "Enchanting",
@@ -470,8 +447,7 @@
                 "name": "Enchant Order Optimizer",
                 "tooltip": ""
             }
-        ],
-        "price": "Free"
+        ]
     },
     {
         "tool": "Browser Games",
@@ -496,8 +472,7 @@
                 "name": "Mcdle",
                 "tooltip": ""
             }
-        ],
-        "price": "Free"
+        ]
     },
     {
         "tool": "World tool",
@@ -507,8 +482,7 @@
                 "name": "Universal Minecraft Tool",
                 "tooltip": ""
             }
-        ],
-        "price": "Freemium"
+        ]
     },
     {
         "tool": "Minecraft Server Tools, tunneling and more",
@@ -523,8 +497,7 @@
                 "name": "Playit.gg (Tunneling)",
                 "tooltip": ""
             }
-        ],
-        "price": "Free"
+        ]
     },
     {
         "tool": "Minecraft Shape builder",
@@ -534,8 +507,7 @@
                 "name": "Plotz Ellipsoid Generator",
                 "tooltip": ""
             }
-        ],
-        "price": "Free"
+        ]
     },
     {
         "tool": "misode",
@@ -595,8 +567,7 @@
                 "name": "All Generators",
                 "tooltip": ""
             }
-        ],
-        "price": "Free"
+        ]
     },
     {
         "tool": "Minecraft science",
@@ -606,8 +577,7 @@
                 "name": "Minecraft Command Science",
                 "tooltip": ""
             }
-        ],
-        "price": "Free"
+        ]
     },
     {
         "tool": "Easy Map Updater",
@@ -617,8 +587,7 @@
                 "name": "Easy Map Updater",
                 "tooltip": ""
             }
-        ],
-        "price": "Free"
+        ]
     },
     {
         "tool": "Minecraft Assets",
@@ -633,8 +602,7 @@
                 "name": "McIcons By ccLeaf",
                 "tooltip": ""
             }
-        ],
-        "price": "Free"
+        ]
     },
     {
         "tool": "Weld",
@@ -644,8 +612,7 @@
                 "name": "Weld",
                 "tooltip": ""
             }
-        ],
-        "price": "Free"
+        ]
     },
     {
         "tool": "Mural Generator",
@@ -655,8 +622,7 @@
                 "name": "Mc stacker Mural",
                 "tooltip": ""
             }
-        ],
-        "price": "Free"
+        ]
     },
     {
         "tool": "npc generator",
@@ -666,8 +632,7 @@
                 "name": "Mc stacker Npc",
                 "tooltip": ""
             }
-        ],
-        "price": "Free"
+        ]
     },
     {
         "tool": "Resource packs, datapacks, mods, etc.",
@@ -687,8 +652,7 @@
                 "name": "CurseForge",
                 "tooltip": ""
             }
-        ],
-        "price": "Free"
+        ]
     },
     {
         "tool": "Creator Websites",
@@ -698,8 +662,7 @@
                 "name": "IJA Minecraft",
                 "tooltip": ""
             }
-        ],
-        "price": "Freemium"
+        ]
     },
     {
         "tool": "Server hosting",
@@ -834,8 +797,7 @@
                 "name": "Nodecraft",
                 "tooltip": ""
             }
-        ],
-        "price": "Free, paid & Freemium"
+        ]
     },
     {
         "tool": "Modded Tools",
@@ -850,8 +812,7 @@
                 "name": "Custom GUI Generator",
                 "tooltip": ""
             }
-        ],
-        "price": "free"
+        ]
     },
     {
         "tool": "Image to display",
@@ -876,8 +837,7 @@
                 "name": "Magic Circle Generator",
                 "tooltip": ""
             }
-        ],
-        "price": "free"
+        ]
     },
     {
         "tool": "mcmeta",
@@ -887,8 +847,7 @@
                 "name": "MCMeta GitHub",
                 "tooltip": ""
             }
-        ],
-        "price": "free"
+        ]
     },
     {
         "tool": "TagLib",
@@ -898,8 +857,7 @@
                 "name": "TagLib",
                 "tooltip": ""
             }
-        ],
-        "price": "free"
+        ]
     },
     {
         "tool": "Standard Galactic Alphabet De/Encoder",
@@ -914,8 +872,7 @@
                 "name": "lingojam",
                 "tooltip": ""
             }
-        ],
-        "price": "free"
+        ]
     },
     {
         "tool": "Minecraft Emojis",
@@ -925,8 +882,7 @@
                 "name": "Minecraft Emojis List",
                 "tooltip": ""
             }
-        ],
-        "price": "free"
+        ]
     },
     {
         "tool": "GalSergey's Minecraft Tools",
@@ -946,8 +902,7 @@
                 "name": "Command Block Assembler",
                 "tooltip": ""
             }
-        ],
-        "price": "free"
+        ]
     },
     {
         "tool": "Create Mod Schematics",
@@ -962,8 +917,7 @@
                 "name": "Create Mod",
                 "tooltip": ""
             }
-        ],
-        "price": "Free"
+        ]
     },
     {
         "tool": "Mod Generator",
@@ -978,8 +932,7 @@
                 "name": "Kodari Ai",
                 "tooltip": "AI-powered Minecraft plugin development. Create, customize, and deploy plugins with ease."
             }
-        ],
-        "price": "Freemium"
+        ]
     },
     {
         "tool": "Block Color Palette",
@@ -994,8 +947,7 @@
                 "name": "Block Palettes",
                 "tooltip": ""
             }
-        ],
-        "price": "Free"
+        ]
     },
     {
         "tool": "Mr Garretto's Tools",
@@ -1005,8 +957,7 @@
                 "name": "Mr Garretto's Tools",
                 "tooltip": ""
             }
-        ],
-        "price": "free"
+        ]
     },
     {
         "tool": "Project Reverse Search",
@@ -1016,8 +967,7 @@
                 "name": "Find all Modpacks which include a Project",
                 "tooltip": "(only projects uploaded to modrinth are supported)"
             }
-            ],
-        "price": "Free"
+            ]
     },
     {
         "tool": "View/Convert 3D Models/Schematics",
@@ -1027,8 +977,7 @@
                 "name": "Bloxelizer",
                 "tooltip": ""
             }
-        ],
-        "price": "Freemium"
+        ]
     },
     {
     "tool": "minecraft update history",
@@ -1037,8 +986,7 @@
             "url": "https://minecraft-timeline.github.io/",
             "name": "minecraft timeline"
         }
-    ],
-    "price": "Free"
+    ]
     },
     {
         "tool": "Card/Badge Generator",
@@ -1048,7 +996,6 @@
                 "name": "Modfolio",
                 "tooltip": "Generate fast, beautiful and consistent embeddable cards and badges for Modrinth, CurseForge, Hangar and Spigot content."
             }
-        ],
-        "price": "Free"
+        ]
     }
 ]
