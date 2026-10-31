@@ -35,7 +35,7 @@ h3 {
     padding: 0 1rem 2rem;
 }
 
-.page-header {
+.page-header-layout {
     position: sticky;
     top: 0;
     z-index: 3;
@@ -52,11 +52,11 @@ h3 {
     box-shadow: 0px 60px 30px rgba(22, 22, 22, 0.7) inset;
 }
 
-.page-header > .brand-lockup {
+.page-header-layout > .brand-lockup {
     grid-area: brand;
 }
 
-.page-header > .search-section {
+.page-header-layout > .search-section {
     grid-area: search;
 }
 
@@ -469,17 +469,24 @@ h3 {
 }
 
 @media (max-width: 767px) {
-    .page-header {
-        grid-template-areas:
-            "brand"
-            "search";
-        grid-template-columns: minmax(0, 1fr);
-        gap: 1rem;
-        margin-bottom: 2rem;
+    .page-header-layout {
+        display: contents;
     }
 
-    .page-header > .search-section {
-        width: 100%;
+    .page-header {
+        margin-bottom: 1rem;
+    }
+
+    .page-header-layout > .search-section {
+        position: sticky;
+        top: 0;
+        z-index: 3;
+        width: 100vw;
+        margin-left: calc(50% - 50vw);
+        margin-bottom: 2rem;
+        padding: 1rem;
+        background: rgba(24, 24, 27, 0.75);
+        box-shadow: 0px 60px 30px rgba(22, 22, 22, 0.7) inset;
     }
 
     .page-title {
