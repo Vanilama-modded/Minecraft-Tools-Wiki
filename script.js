@@ -183,38 +183,36 @@ function populateTable(toolsToDisplay = toolsData) {
         });
         if (link.tooltip) {
             anchor.setAttribute('data-tooltip', link.tooltip);
+            anchor.setAttribute('aria-expanded', 'false');
         } else {
             anchor.removeAttribute('data-tooltip');
         }
-        anchor.addEventListener('contextmenu', (event) => copyLink(event, link.url, link.name));
-        anchor.appendChild(createIconElement('fas fa-external-link-alt external-link-icon'));
-        anchor.appendChild(document.createTextNode(link.name));
+        const isTouchDevice = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+        if (isTouchDevice) {
+            anchor.addEventListener('click', event => {
+                if (!link.tooltip) {
+                    return;
+                }
 
-        if (link.tooltip) {
-            const tooltipButton = createElement('button', {
-                className: 'tooltip-toggle',
-                text: 'i'
-            });
-            tooltipButton.type = 'button';
-            tooltipButton.setAttribute('aria-label', `${link.name} description: ${link.tooltip}`);
-            tooltipButton.setAttribute('aria-expanded', 'false');
-            tooltipButton.setAttribute('data-tooltip', link.tooltip);
-            tooltipButton.addEventListener('click', () => {
-                if (activeMobileTooltip === tooltipButton) {
+                if (activeMobileTooltip === anchor) {
                     hideTooltip();
                     return;
                 }
 
+                event.preventDefault();
                 hideTooltip();
-                activeMobileTooltip = tooltipButton;
-                tooltipButton.classList.add('tooltip-visible');
-                tooltipButton.setAttribute('aria-expanded', 'true');
+                activeMobileTooltip = anchor;
+                anchor.classList.add('tooltip-visible');
+                anchor.setAttribute('aria-expanded', 'true');
                 mobileTooltipTimer = setTimeout(hideTooltip, 15000);
             });
-            wrapper.append(anchor, tooltipButton);
         } else {
-            wrapper.appendChild(anchor);
+            anchor.addEventListener('contextmenu', event => copyLink(event, link.url, link.name));
         }
+        anchor.appendChild(createIconElement('fas fa-external-link-alt external-link-icon'));
+        anchor.appendChild(document.createTextNode(link.name));
+
+        wrapper.appendChild(anchor);
 
         return wrapper;
     };

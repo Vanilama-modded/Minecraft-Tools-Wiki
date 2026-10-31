@@ -50,7 +50,6 @@ h3 {
     padding: 1rem;
     background: rgba(24, 24, 27, 0.75);
     box-shadow: 0px 60px 30px rgba(22, 22, 22, 0.7) inset;
-    backdrop-filter: blur(12px);
 }
 
 .page-header > .brand-lockup {
@@ -89,6 +88,8 @@ h3 {
 }
 
 .search-section {
+    position: relative;
+    z-index: 4;
     min-width: 0;
 }
 
@@ -150,9 +151,9 @@ h3 {
     overflow: hidden;
     border: 1px solid #27272a;
     border-radius: 4px;
-    background: rgba(24, 24, 27, 0.5);
+    background-color: rgba(24, 24, 27, 0.5);
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(12px);
 }
 
 .search-suggestions.is-hidden {
@@ -284,33 +285,6 @@ h3 {
     flex: 1;
 }
 
-.tooltip-toggle {
-    display: none;
-    align-items: center;
-    justify-content: center;
-    width: 1.5rem;
-    height: 1.5rem;
-    margin-left: 0.25rem;
-    padding: 0;
-    border: 1px solid #52525b;
-    border-radius: 50%;
-    background: #18181b;
-    color: #e4e4e7;
-    font: inherit;
-    font-size: 0.75rem;
-    cursor: pointer;
-}
-
-.tooltip-toggle:hover,
-.tooltip-toggle:focus-visible {
-    background: #3f3f46;
-    outline: none;
-}
-
-.tool-link-wrapper:focus-within .tooltip-toggle {
-    display: inline-flex;
-}
-
 .external-link-icon {
     margin-right: 0.25rem;
     font-size: 0.75rem;
@@ -382,42 +356,23 @@ h3 {
     transform: translateX(-50%) translateY(0);
 }
 
-.tooltip-toggle[data-tooltip]::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    right: 0;
-    bottom: 100%;
-    width: max-content;
-    max-width: 250px;
-    margin-bottom: 0.5rem;
-    padding: 8px 12px;
-    border: 1px solid #3f3f46;
-    border-radius: 6px;
-    background: #18181b;
-    color: #e4e4e7;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.8rem;
-    text-align: left;
-    white-space: normal;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
-    pointer-events: none;
-    opacity: 0;
-    visibility: hidden;
-    z-index: 100;
-}
-
-.tooltip-toggle.tooltip-visible::after {
-    opacity: 1;
-    visibility: visible;
-}
-
 @media (hover: none), (pointer: coarse) {
-    .tooltip-toggle {
-        display: inline-flex;
-    }
-
     .tool-link[data-tooltip]::after {
         display: none;
+    }
+
+    .tool-link[data-tooltip]:not(.tooltip-visible):hover::after,
+    .tool-link[data-tooltip]:not(.tooltip-visible):focus-visible::after {
+        display: block;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .tool-link[data-tooltip].tooltip-visible::after {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
     }
 }
 
@@ -538,5 +493,13 @@ h3 {
     text-align: center;
     color: #9ca3af;
     font-size: 0.875rem;
+}
+
+.footer-link {
+    color: #929fb6;
     text-decoration: none;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
 }
