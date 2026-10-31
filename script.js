@@ -56,94 +56,101 @@ async function loadToolsData() {
         const options = {
             keys: [
                 { name: 'tool', weight: 0.7 },
-                { name: 'keywords', weight: 0.5 }
+                { name: 'keywords', weight: 0.5 },
+                { name: 'links.name', weight: 0.6 },
+                { name: 'links.url', weight: 0.4 },
+                { name: 'links.tooltip', weight: 0.3 }
             ],
             threshold: 0.4,
             includeScore: true
         };
         fuse = new Fuse(toolsData, options);
         
-        populateTable();
+        renderCards();
     } catch (error) {
         console.error('Error loading tools data:', error);
         await loadFallbackData();
     }
 }
 
-function appendEmptyState(container, { iconName, title, detail, isTableCell = false }) {
-    const state = createElement(isTableCell ? 'td' : 'div', {
-        className: isTableCell ? 'empty-state-cell' : 'empty-state'
-    });
-    if (isTableCell) {
-        state.setAttribute('colspan', '2');
-    }
-
+function appendEmptyState(container, { iconName, title, detail }) {
+    const state = createElement('div', { className: 'empty-state' });
     state.appendChild(createIconElement(`fas ${iconName} empty-state-icon`));
     state.appendChild(createElement('p', { text: title, className: 'empty-state-title' }));
     if (detail) {
         state.appendChild(createElement('p', { text: detail, className: 'empty-state-detail' }));
     }
 
-    if (isTableCell) {
-        const row = createElement('tr');
-        row.appendChild(state);
-        container.appendChild(row);
-    } else {
-        container.appendChild(state);
-    }
+    container.appendChild(state);
 }
 
 async function loadFallbackData() {
     toolsData = [];
-    const tableBody = document.getElementById('tableBody');
-    const mobileCards = document.getElementById('mobileCards');
-    const emptyState = {
+    const toolCards = document.getElementById('toolCards');
+
+    if (!toolCards) {
+        console.error('Tool rendering failed: tool cards container is missing.');
+        return;
+    }
+
+    appendEmptyState(toolCards, {
         iconName: 'fa-exclamation-triangle',
         title: 'Failed to load tools data',
         detail: 'Please check if tools.json file exists and is properly formatted'
-    };
-
-    if (tableBody) {
-        appendEmptyState(tableBody, { ...emptyState, isTableCell: true });
-    }
-
-    if (mobileCards) {
-        appendEmptyState(mobileCards, emptyState);
-    }
+    });
 }
 
 function performSearch(query) {
     const queryTrimmed = query.trim();
     
     if (!queryTrimmed) {
-        populateTable();
+        renderCards();
         return;
     }
     
     if (fuse) {
         const results = fuse.search(queryTrimmed);
-        const toolsToDisplay = results.map(result => result.item);
-        populateTable(toolsToDisplay);
+        const matchingLinks = new Map();
+        const toolsToDisplay = results.map(result => {
+            const links = result.item.links.filter(link =>
+                [link.name, link.url, link.tooltip].some(value =>
+                    value?.toLowerCase().includes(queryTrimmed.toLowerCase())
+                )
+            );
+            if (links.length > 0 &&
+                !result.item.tool.toLowerCase().includes(queryTrimmed.toLowerCase()) &&
+                !result.item.keywords?.some(keyword => keyword.toLowerCase().includes(queryTrimmed.toLowerCase()))) {
+                matchingLinks.set(result.item, links);
+            }
+            return result.item;
+        });
+        renderCards(toolsToDisplay, { matchingLinks });
     } else {
         const lowerQuery = queryTrimmed.toLowerCase();
-        const filtered = toolsData.filter(tool => 
-            tool.tool.toLowerCase().includes(lowerQuery) || 
-            (tool.keywords && tool.keywords.some(k => k.toLowerCase().includes(lowerQuery)))
-        );
-        populateTable(filtered);
+        const matchingLinks = new Map();
+        const filtered = toolsData.filter(tool => {
+            const links = tool.links.filter(link =>
+                [link.name, link.url, link.tooltip].some(value =>
+                    value?.toLowerCase().includes(lowerQuery)
+                )
+            );
+            const matchesTool = tool.tool.toLowerCase().includes(lowerQuery) ||
+                (tool.keywords && tool.keywords.some(k => k.toLowerCase().includes(lowerQuery)));
+            if (!matchesTool && links.length > 0) {
+                matchingLinks.set(tool, links);
+            }
+            return matchesTool || links.length > 0;
+        });
+        renderCards(filtered, { matchingLinks });
     }
 }
 
 
-function populateTable(toolsToDisplay = toolsData) {
-    const tableBody = document.getElementById('tableBody');
-    const mobileCards = document.getElementById('mobileCards');
+function renderCards(toolsToDisplay = toolsData, { expandedTools = new Set(), matchingLinks = null } = {}) {
+    const toolCards = document.getElementById('toolCards');
 
-    if (tableBody) {
-        tableBody.innerHTML = '';
-    }
-    if (mobileCards) {
-        mobileCards.innerHTML = '';
+    if (toolCards) {
+        toolCards.innerHTML = '';
     }
 
     const query = SearchInput ? SearchInput.value.trim() : '';
@@ -154,17 +161,8 @@ function populateTable(toolsToDisplay = toolsData) {
         const messageTitle = queryIsEmpty ? 'No tools loaded or available.' : `No tools found matching "${query}"`;
         const messageSubtext = queryIsEmpty ? '' : 'Try different keywords or check your spelling';
 
-        if (tableBody) {
-            appendEmptyState(tableBody, {
-                iconName,
-                title: messageTitle,
-                detail: messageSubtext,
-                isTableCell: true
-            });
-        }
-
-        if (mobileCards) {
-            appendEmptyState(mobileCards, {
+        if (toolCards) {
+            appendEmptyState(toolCards, {
                 iconName,
                 title: messageTitle,
                 detail: messageSubtext
@@ -174,12 +172,12 @@ function populateTable(toolsToDisplay = toolsData) {
         return;
     }
 
-    const buildLink = (link, variant) => {
-        const wrapper = createElement('span', { className: `tool-link-wrapper tool-link-wrapper--${variant}` });
+    const buildLink = link => {
+        const wrapper = createElement('span', { className: 'tool-link-wrapper tool-link-wrapper--card' });
         const anchor = createElement('a', {
             href: sanitizeUrl(link.url),
             target: '_blank',
-            className: `tool-link tool-link--${variant}`
+            className: 'tool-link tool-link--card'
         });
         if (link.tooltip) {
             anchor.setAttribute('data-tooltip', link.tooltip);
@@ -206,8 +204,6 @@ function populateTable(toolsToDisplay = toolsData) {
                 anchor.setAttribute('aria-expanded', 'true');
                 mobileTooltipTimer = setTimeout(hideTooltip, 15000);
             });
-        } else {
-            anchor.addEventListener('contextmenu', event => copyLink(event, link.url, link.name));
         }
         anchor.appendChild(createIconElement('fas fa-external-link-alt external-link-icon'));
         anchor.appendChild(document.createTextNode(link.name));
@@ -218,64 +214,65 @@ function populateTable(toolsToDisplay = toolsData) {
     };
 
     toolsToDisplay.forEach((tool, index) => {
-        const row = createElement('tr');
-        row.style.animationDelay = `${index * 0.05}s`;
-        row.classList.add('tool-row', 'fade-in-row');
-
-        const nameCell = createElement('td', { className: 'table-cell' });
-        nameCell.appendChild(createElement('span', { className: 'tool-name-text', text: tool.tool }));
-
-        const linksCell = createElement('td', { className: 'table-cell' });
-        const linksWrapper = createElement('div', { className: 'tool-links' });
-        tool.links.forEach(link => linksWrapper.appendChild(buildLink(link, 'inline')));
-        linksCell.appendChild(linksWrapper);
-
-        row.appendChild(nameCell);
-        row.appendChild(linksCell);
-        if (tableBody) tableBody.appendChild(row);
-
-        const card = createElement('div', { className: 'tool-card fade-in-row' });
-        card.style.animationDelay = `${index * 0.05}s`;
+        const card = createElement('div', { className: 'tool-card' });
 
         const cardHeaderInner = createElement('div', { className: 'tool-card-header' });
-        cardHeaderInner.appendChild(createElement('h3', { className: 'tool-card-title', text: tool.tool }));
+        const title = createElement('h3', { className: 'tool-card-title' });
+        const toggle = createElement('button', { className: 'tool-card-toggle' });
+        const linksId = `tool-links-${index}`;
+        toggle.type = 'button';
+        const isExpanded = expandedTools.has(tool);
+        toggle.setAttribute('aria-expanded', String(isExpanded));
+        toggle.setAttribute('aria-controls', linksId);
+        toggle.appendChild(document.createTextNode(tool.tool));
+        toggle.appendChild(createIconElement('fas fa-chevron-down tool-card-toggle-icon'));
+        title.appendChild(toggle);
+        cardHeaderInner.appendChild(title);
         card.appendChild(cardHeaderInner);
 
         const cardLinksSection = createElement('div', { className: 'tool-card-links' });
+        cardLinksSection.id = linksId;
+        cardLinksSection.setAttribute('aria-hidden', String(!isExpanded));
+        cardLinksSection.inert = !isExpanded;
+        const cardLinksContent = createElement('div', { className: 'tool-card-links-inner' });
+        cardLinksContent.style.overflow = isExpanded ? 'visible' : 'hidden';
         const linksSectionTitle = createElement('p', { className: 'tool-card-links-title' });
         linksSectionTitle.appendChild(createIconElement('fas fa-link heading-icon'));
         linksSectionTitle.appendChild(document.createTextNode('Links:'));
-        cardLinksSection.appendChild(linksSectionTitle);
-        tool.links.forEach(link => cardLinksSection.appendChild(buildLink(link, 'card')));
+        cardLinksContent.appendChild(linksSectionTitle);
+        const linksToRender = matchingLinks?.get(tool) ?? tool.links;
+        linksToRender.forEach(link => cardLinksContent.appendChild(buildLink(link)));
+        cardLinksSection.appendChild(cardLinksContent);
+
+        toggle.addEventListener('click', () => {
+            const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+            const linksInner = cardLinksSection.firstElementChild;
+            if (isExpanded) {
+                linksInner.style.overflow = 'hidden';
+            }
+            toggle.setAttribute('aria-expanded', String(!isExpanded));
+            cardLinksSection.setAttribute('aria-hidden', String(isExpanded));
+            cardLinksSection.inert = isExpanded;
+            cardLinksSection.style.zIndex = isExpanded ? '' : '1';
+            if (!isExpanded) {
+                const revealTooltips = event => {
+                    if (event.target !== cardLinksSection || event.propertyName !== 'grid-template-rows') {
+                        return;
+                    }
+
+                    cardLinksSection.removeEventListener('transitionend', revealTooltips);
+                    if (toggle.getAttribute('aria-expanded') === 'true') {
+                        linksInner.style.overflow = 'visible';
+                    }
+                };
+                cardLinksSection.addEventListener('transitionend', revealTooltips);
+            }
+        });
 
         card.appendChild(cardLinksSection);
-        if (mobileCards) mobileCards.appendChild(card);
+        if (toolCards) toolCards.appendChild(card);
     });
 }
-
-function copyLink(event, url, name) {
-    event.preventDefault();
-    
-    navigator.clipboard.writeText(url).then(() => {
-        const notification = document.createElement('div');
-        notification.className = 'copy-notification';
-        const icon = createIconElement('fas fa-check-circle copy-notification-icon');
-        notification.appendChild(icon);
-        notification.appendChild(document.createTextNode(`Copied ${name} link!`));
-        document.body.appendChild(notification);
-        
-        setTimeout(() => {
-            notification.style.opacity = '0';
-            notification.style.transition = 'opacity 0.3s ease';
-            setTimeout(() => {
-                document.body.removeChild(notification);
-            }, 300);
-        }, 2000);
-    }).catch(err => {
-        console.error('Failed to copy link:', err);
-    });
-}
-
 
 function setupEventListeners() {
     document.addEventListener('click', event => {
@@ -291,20 +288,22 @@ function setupEventListeners() {
             const suggestions = [];
             const queryLower = query.toLowerCase();
             
-            const categories = [...new Set(toolsData.map(tool => tool.tool))];
-            categories.forEach(cat => {
-                if (cat.toLowerCase().includes(queryLower)) {
-                    suggestions.push({
-                        text: cat
-                    });
+            toolsData.forEach(tool => {
+                if (tool.tool.toLowerCase().includes(queryLower)) {
+                    suggestions.push({ text: tool.tool });
                 }
+                tool.links.forEach(link => {
+                    if (link.name.toLowerCase().includes(queryLower)) {
+                        suggestions.push({ text: link.name });
+                    }
+                });
             });
             
             const uniqueSuggestions = Array.from(new Map(suggestions.map(item => [item.text, item])).values());
 
             if (uniqueSuggestions.length > 0) {
                 suggestionsList.innerHTML = '';
-                uniqueSuggestions.slice(0, 5).forEach(s => {
+                uniqueSuggestions.slice(0, 8).forEach(s => {
                     const suggestionItem = createElement('div', {
                         className: 'search-suggestion'
                     });
@@ -323,7 +322,7 @@ function setupEventListeners() {
         } else {
             searchSuggestions.classList.add('is-hidden');
             clearTimeout(searchTimer);
-            populateTable();
+            renderCards();
         }
     });
 
@@ -340,18 +339,54 @@ function setupEventListeners() {
     });
 }
 
+function setupDesktopHeader() {
+    const header = document.querySelector('.page-header-layout');
+    if (!header) {
+        return;
+    }
+
+    const desktopQuery = window.matchMedia('(min-width: 768px)');
+    const updateHeader = () => {
+        const isCompact = header.classList.contains('is-compact');
+        if (!desktopQuery.matches) {
+            header.classList.remove('is-compact');
+        } else if (!isCompact && window.scrollY > 140) {
+            header.classList.add('is-compact');
+        } else if (isCompact && window.scrollY < 60) {
+            header.classList.remove('is-compact');
+        }
+    };
+
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    window.addEventListener('resize', updateHeader);
+    updateHeader();
+}
 
 function selectSuggestion(text) {
     SearchInput.value = text;
     searchSuggestions.classList.add('is-hidden');
     
-    const isCategory = toolsData.some(tool => tool.tool === text);
-    
-    if (isCategory) {
-        const filtered = toolsData.filter(tool => tool.tool === text);
-        populateTable(filtered);
+    clearTimeout(searchTimer);
+
+    const categoryMatches = toolsData.filter(tool => tool.tool === text);
+    if (categoryMatches.length > 0) {
+        renderCards(categoryMatches, { expandedTools: new Set(categoryMatches) });
     } else {
-        performSearch(text);
+        const matchingLinks = new Map();
+        const matchingTools = toolsData.filter(tool => {
+            const links = tool.links.filter(link =>
+                link.name === text || link.url === text || link.tooltip === text
+            );
+            if (links.length > 0) {
+                matchingLinks.set(tool, links);
+                return true;
+            }
+            return false;
+        });
+        renderCards(matchingTools, {
+            expandedTools: new Set(matchingTools),
+            matchingLinks
+        });
     }
 }
 
@@ -368,6 +403,7 @@ function init() {
     SearchInput = searchInput;
     searchSuggestions = suggestionsContainer;
     suggestionsList = suggestionList;
+    setupDesktopHeader();
     setupEventListeners();
     loadToolsData();
 }
