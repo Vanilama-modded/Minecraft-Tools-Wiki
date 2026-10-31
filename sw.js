@@ -1,4 +1,4 @@
-const CACHE_NAME = 'mc-tools-wiki-v2';
+const CACHE_NAME = 'mc-tools-wiki-v3';
 const STATIC_ASSETS = [
   '/',
   '/manifest.webmanifest',
