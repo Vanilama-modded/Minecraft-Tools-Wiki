@@ -1,10 +1,11 @@
 let toolsData = [];
 let fuse;
-const linkTooltipCache = new Map();
+let searchTimer = null;
 let activeMobileTooltip = null;
 let mobileTooltipTimer = null;
-
-let SearchInput, searchSuggestions, suggestionsList;
+let SearchInput;
+let searchSuggestions;
+let suggestionsList;
 
 function createElement(tag, options = {}) {
     const el = document.createElement(tag);
@@ -21,41 +22,14 @@ function createIconElement(classes) {
     return icon;
 }
 
-function getLinkDescription(url) {
-    if (!linkTooltipCache.has(url)) {
-        const descriptionPromise = fetch(url)
-            .then(response => {
-                if (!response.ok) {
-                    return null;
-                }
-                return response.text();
-            })
-            .then(html => {
-                if (!html) {
-                    return null;
-                }
-
-                const page = new DOMParser().parseFromString(html, 'text/html');
-                return page.querySelector('meta[property="og:description"]')?.content.trim()
-                    || page.querySelector('meta[name="description"]')?.content.trim()
-                    || page.querySelector('meta[name="twitter:description"]')?.content.trim()
-                    || null;
-            })
-            .catch(() => null);
-
-        linkTooltipCache.set(url, descriptionPromise);
-    }
-
-    return linkTooltipCache.get(url);
-}
-
-function hideMobileTooltip() {
+function hideTooltip() {
     if (mobileTooltipTimer) {
         clearTimeout(mobileTooltipTimer);
         mobileTooltipTimer = null;
     }
 
     activeMobileTooltip?.classList.remove('tooltip-visible');
+    activeMobileTooltip?.setAttribute('aria-expanded', 'false');
     activeMobileTooltip = null;
 }
 
@@ -201,54 +175,48 @@ function populateTable(toolsToDisplay = toolsData) {
     }
 
     const buildLink = (link, variant) => {
-        const url = sanitizeUrl(link.url);
+        const wrapper = createElement('span', { className: `tool-link-wrapper tool-link-wrapper--${variant}` });
         const anchor = createElement('a', {
-            href: url,
+            href: sanitizeUrl(link.url),
             target: '_blank',
             className: `tool-link tool-link--${variant}`
         });
         if (link.tooltip) {
             anchor.setAttribute('data-tooltip', link.tooltip);
+        } else {
+            anchor.removeAttribute('data-tooltip');
         }
-        const loadTooltip = () => {
-            if (url === '#') {
-                return Promise.resolve(null);
-            }
-            return getLinkDescription(url).then(description => {
-                if (description) {
-                    anchor.setAttribute('data-tooltip', description);
-                } else if (!anchor.hasAttribute('data-tooltip')) {
-                    anchor.setAttribute('data-tooltip', 'Description unavailable');
-                }
-            });
-        };
-        anchor.addEventListener('mouseenter', loadTooltip, { once: true });
-        anchor.addEventListener('focus', loadTooltip, { once: true });
-        anchor.addEventListener('click', event => {
-            const isTouchInput = window.matchMedia('(hover: none), (pointer: coarse)').matches;
-            if (!isTouchInput) {
-                return;
-            }
-
-            if (activeMobileTooltip === anchor) {
-                hideMobileTooltip();
-                return;
-            }
-
-            event.preventDefault();
-            hideMobileTooltip();
-            activeMobileTooltip = anchor;
-            anchor.classList.add('tooltip-visible');
-            if (!anchor.hasAttribute('data-tooltip')) {
-                anchor.setAttribute('data-tooltip', 'Loading description...');
-            }
-            loadTooltip();
-            mobileTooltipTimer = setTimeout(hideMobileTooltip, 15000);
-        });
         anchor.addEventListener('contextmenu', (event) => copyLink(event, link.url, link.name));
         anchor.appendChild(createIconElement('fas fa-external-link-alt external-link-icon'));
         anchor.appendChild(document.createTextNode(link.name));
-        return anchor;
+
+        if (link.tooltip) {
+            const tooltipButton = createElement('button', {
+                className: 'tooltip-toggle',
+                text: 'i'
+            });
+            tooltipButton.type = 'button';
+            tooltipButton.setAttribute('aria-label', `${link.name} description: ${link.tooltip}`);
+            tooltipButton.setAttribute('aria-expanded', 'false');
+            tooltipButton.setAttribute('data-tooltip', link.tooltip);
+            tooltipButton.addEventListener('click', () => {
+                if (activeMobileTooltip === tooltipButton) {
+                    hideTooltip();
+                    return;
+                }
+
+                hideTooltip();
+                activeMobileTooltip = tooltipButton;
+                tooltipButton.classList.add('tooltip-visible');
+                tooltipButton.setAttribute('aria-expanded', 'true');
+                mobileTooltipTimer = setTimeout(hideTooltip, 15000);
+            });
+            wrapper.append(anchor, tooltipButton);
+        } else {
+            wrapper.appendChild(anchor);
+        }
+
+        return wrapper;
     };
 
     toolsToDisplay.forEach((tool, index) => {
@@ -272,10 +240,6 @@ function populateTable(toolsToDisplay = toolsData) {
         card.style.animationDelay = `${index * 0.05}s`;
 
         const cardHeaderInner = createElement('div', { className: 'tool-card-header' });
-        const cardIconWrapper = createElement('div', { className: 'tool-card-icon' });
-        cardIconWrapper.appendChild(createIconElement('fas fa-tools'));
-        cardHeaderInner.appendChild(cardIconWrapper);
-
         cardHeaderInner.appendChild(createElement('h3', { className: 'tool-card-title', text: tool.tool }));
         card.appendChild(cardHeaderInner);
 
@@ -318,7 +282,7 @@ function copyLink(event, url, name) {
 function setupEventListeners() {
     document.addEventListener('click', event => {
         if (activeMobileTooltip && !activeMobileTooltip.contains(event.target)) {
-            hideMobileTooltip();
+            hideTooltip();
         }
     });
 
@@ -355,12 +319,12 @@ function setupEventListeners() {
                 searchSuggestions.classList.add('is-hidden');
             }
             
-            clearTimeout(window.searchTimer);
-            window.searchTimer = setTimeout(() => performSearch(query), 300);
+            clearTimeout(searchTimer);
+            searchTimer = setTimeout(() => performSearch(query), 300);
             
         } else {
             searchSuggestions.classList.add('is-hidden');
-            clearTimeout(window.searchTimer);
+            clearTimeout(searchTimer);
             populateTable();
         }
     });
@@ -394,10 +358,24 @@ function selectSuggestion(text) {
 }
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    SearchInput = document.getElementById('SearchInput');
-    searchSuggestions = document.getElementById('searchSuggestions');
-    suggestionsList = document.getElementById('suggestionsList');
+function init() {
+    const searchInput = document.getElementById('SearchInput');
+    const suggestionsContainer = document.getElementById('searchSuggestions');
+    const suggestionList = document.getElementById('suggestionsList');
+    if (!searchInput || !suggestionsContainer || !suggestionList) {
+        console.error('Search initialization failed: required search elements are missing.');
+        return;
+    }
+
+    SearchInput = searchInput;
+    searchSuggestions = suggestionsContainer;
+    suggestionsList = suggestionList;
     setupEventListeners();
     loadToolsData();
-});
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init, { once: true });
+} else {
+    init();
+}

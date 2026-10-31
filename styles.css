@@ -32,50 +32,68 @@ h3 {
     width: 100%;
     max-width: 80rem;
     margin: 0 auto;
-    padding: 2rem 1rem;
-    z-index: 2;
-    position: sticky;
+    padding: 0 1rem 2rem;
 }
 
 .page-header {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    display: grid;
+    grid-template-areas: "brand search";
+    grid-template-columns: minmax(0, 1fr) minmax(0, min(40vw, 42rem));
+    align-items: center;
+    gap: 1.5rem;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
     margin-bottom: 3rem;
-    text-align: center;
+    padding: 1rem;
+    background: rgba(24, 24, 27, 0.75);
+    box-shadow: 0px 60px 30px rgba(22, 22, 22, 0.7) inset;
+    backdrop-filter: blur(12px);
+}
+
+.page-header > .brand-lockup {
+    grid-area: brand;
+}
+
+.page-header > .search-section {
+    grid-area: search;
+}
+
+.brand-lockup {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
 }
 
 .page-title {
-    margin-bottom: 1rem;
     color: #f4f4f5;
     font-size: 28px !important;
     font-weight: 900 !important;
-    line-height: 1;
-    letter-spacing: 0.25px;
-    position: fixed;
-    top: 1rem;
-    left: 5rem;
+    line-height: 1.1;
+    letter-spacing: 0.5px;
+    position: relative;
+    left: -15px;
+    top: -4px;
+    z-index: 4;
 }
 
 .logo {
-    display: inline-block;
-    width: 64px;
-    height: 64px;
-    vertical-align: middle;
-    position: fixed;
-    top: 1rem;
-    left: 1rem;
+    display: block;
+    flex: 0 0 64px;
+    width: 70px;
+    height: 70px;
+    z-index: 4;
 }
 
 .search-section {
-    position: fixed;
-    top: 1rem;
-    right: 1rem;
-    z-index: 2;
-    width: 40vw;
-    max-width: 42rem;
+    min-width: 0;
 }
 
 .search-container {
-    max-width: 42rem;
-    margin: 0;
+    width: 100%;
 }
 
 .screen-reader-only {
@@ -168,7 +186,7 @@ h3 {
     background: rgba(24, 24, 27, 0.3);
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(12px);
-    top: 40px;
+    top: 0px;
 }
 
 .tools-table-scroll {
@@ -220,14 +238,14 @@ h3 {
 .tool-name-text {
     color: #f4f4f5;
     font-size: 1.125rem;
-    font-weight: 10;
+    font-weight: 100;
     line-height: 1.75rem;
 }
 
 .tool-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 0.75rem;
 }
 
 .tool-link {
@@ -245,11 +263,52 @@ h3 {
     box-shadow: 2px 2px #333333 inset;
 }
 
+.tool-link-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.tool-link-wrapper--card {
+    display: flex;
+    margin-bottom: 0.5rem;
+}
+
 .tool-link--card {
     display: block;
-    margin-bottom: 0.5rem;
     padding: 0.75rem 1rem;
     text-align: center;
+}
+
+.tool-link-wrapper--card .tool-link {
+    flex: 1;
+}
+
+.tooltip-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-left: 0.25rem;
+    padding: 0;
+    border: 1px solid #52525b;
+    border-radius: 50%;
+    background: #18181b;
+    color: #e4e4e7;
+    font: inherit;
+    font-size: 0.75rem;
+    cursor: pointer;
+}
+
+.tooltip-toggle:hover,
+.tooltip-toggle:focus-visible {
+    background: #3f3f46;
+    outline: none;
+}
+
+.tool-link-wrapper:focus-within .tooltip-toggle {
+    display: inline-flex;
 }
 
 .external-link-icon {
@@ -310,7 +369,8 @@ h3 {
     font-family: 'Inter', sans-serif;
 }
 
-.tool-link[data-tooltip]:hover::after {
+.tool-link[data-tooltip]:hover::after,
+.tool-link[data-tooltip]:focus-visible::after {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(0);
@@ -320,6 +380,45 @@ h3 {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(0);
+}
+
+.tooltip-toggle[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    right: 0;
+    bottom: 100%;
+    width: max-content;
+    max-width: 250px;
+    margin-bottom: 0.5rem;
+    padding: 8px 12px;
+    border: 1px solid #3f3f46;
+    border-radius: 6px;
+    background: #18181b;
+    color: #e4e4e7;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    text-align: left;
+    white-space: normal;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 100;
+}
+
+.tooltip-toggle.tooltip-visible::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+@media (hover: none), (pointer: coarse) {
+    .tooltip-toggle {
+        display: inline-flex;
+    }
+
+    .tool-link[data-tooltip]::after {
+        display: none;
+    }
 }
 
 .mobile-cards {
@@ -339,19 +438,6 @@ h3 {
     display: flex;
     align-items: center;
     margin-bottom: 1rem;
-}
-
-.tool-card-icon {
-    display: flex;
-    flex: 0 0 3rem;
-    align-items: center;
-    justify-content: center;
-    width: 3rem;
-    height: 3rem;
-    margin-right: 1rem;
-    border-radius: 0.5rem;
-    background: #27272a;
-    color: #a1a1aa;
 }
 
 .tool-card-title {
@@ -428,11 +514,29 @@ h3 {
 }
 
 @media (max-width: 767px) {
-    .search-section {
-        width: calc(100vw - 2rem);
+    .page-header {
+        grid-template-areas:
+            "brand"
+            "search";
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .page-header > .search-section {
+        width: 100%;
     }
 
     .page-title {
-        left: 4.5rem;
+        font-size: 1.75rem !important;
     }
+}
+
+.page-footer {
+    margin-top: 3rem;
+    padding: 1rem;
+    text-align: center;
+    color: #9ca3af;
+    font-size: 0.875rem;
+    text-decoration: none;
 }
