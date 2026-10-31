@@ -84,5 +84,11 @@
     </div>
     
     <script src="script.js"></script>
+    <link rel="manifest" href="/manifest.webmanifest">
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js');
+        }
+    </script>   
 </body>
 </html>
