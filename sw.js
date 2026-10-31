@@ -2,7 +2,6 @@ const CACHE_NAME = 'mc-tools-wiki-v1';
 const STATIC_ASSETS = [
   '/',
   '/manifest.webmanifest',
-  '/icons/icon-192.png',
   '/favicon.svg'
 ];
 
