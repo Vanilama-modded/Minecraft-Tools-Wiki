@@ -495,11 +495,39 @@ h3 {
     font-size: 0.875rem;
 }
 
+.footer-separator {
+    height: 20px;
+    border-bottom: 2px solid #9ca3af;
+    margin-bottom: 1rem;
+    width: 50%;
+    position: relative;
+    left: 25%;
+}
+
 .footer-link {
     color: #929fb6;
     text-decoration: none;
+    letter-spacing: 0.5px;
 }
 
 .footer-link:hover {
     text-decoration: underline;
+}
+
+.footer-avatar {
+    display: block;
+    margin: 0.5rem auto 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 5%;
+}
+
+.footer-avatar:hover {
+    animation: moving-shadow 1s infinite;
+}
+
+@keyframes moving-shadow {
+    0% {box-shadow: 0px 0px 3px #000000;}
+    50% {box-shadow: 0px 0px 7px #000000;}
+    100% {box-shadow: 0px 0px 3px #000000;}
 }
